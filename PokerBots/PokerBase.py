@@ -233,5 +233,5 @@ class PokerGame:
 
 
 # Start the game
-game = PokerGame(["Alice", "Bob"])
+game = PokerGame(["AI-1", "AI-2","AI-3"])
 game.start()
