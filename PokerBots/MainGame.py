@@ -26,15 +26,28 @@ for suit in suits:
         card_images[card_name] = pg.transform.scale(pg.image.load(file_path), (64,128))
 
 #CHIPS
+chip_values = [5, 10, 25, 50, 100, 500]
 
+chip_images = {}
+
+for value in chip_values:
+    chip_name = f"{value} Chip"
+    file_path = f"PokerBots/Assets/{value}Chip_TopDown.png"
+    chip_images[chip_name] = card_images[card_name] = pg.transform.scale(pg.image.load(file_path), (64,64))
 
 
 #GAME LOOP
-
+#RANDOMISER JUST TO TEST THE IMAGE LOADING 
+#NEEDS CHANGING
 random_suit = random.choice(suits)
 random_rank = random.choice(ranks)
 random_card_name = f"{random_rank}_of_{random_suit}"
 random_card_image = card_images[random_card_name]
+
+random_chip_value = random.choice(chip_values)
+random_chip_name = f"{random_chip_value} Chip"
+random_chip_image = chip_images[random_chip_name]
+
 
 
 running = True
@@ -44,6 +57,7 @@ while running:
             running = False
     screen.blit(poker_table, poker_table_rect)
     screen.blit(random_card_image, (500, 125))
+    screen.blit(random_chip_image, (500, 425))
 
     pg.display.flip()        
             
