@@ -79,12 +79,20 @@ class GameLoop:
         self.deck = Deck()
         self.players = [Player(name, starting_chips) for name in player_names]
         self.pot = 0
+        self.state = "hole_cards"
+
+        self.flop = None
+        self.turn = None
+        self.river = None
     
     def deal_hole_cards(self):
         for player in self.players:
             player.hand = []
             for _ in range(2):
                 player.receive_card(self.deck.draw_card())
+
+    def deal_community_cards(self, num):
+        return [self.deck.draw_card() for _ in range(num)]
 
     def play_round(self):
         self.deck = Deck()
@@ -108,32 +116,48 @@ game = GameLoop(["Player 1", "Player 2", "Player 3", "Player 4"])
 game.play_round()
 
 hole_card_images = {i: [card_images[f"{card.rank}_of_{card.suit}"] for card in player.hand] for i, player in enumerate(game.players)}
+
+
 running = True
 while running:
     for event in pg.event.get():
         if event.type == pg.QUIT:
             running = False
+        elif event.type == pg.KEYDOWN:
+            if event.key == pg.K_SPACE:
+                if game.state == "hole_cards":
+                    game.flop = game.deal_community_cards(3)
+                    game.state = "flop"
+                elif game.state == "flop":
+                    game.turn = game.deal_community_cards(1)
+                    game.state = "turn"
+                elif game.state == "turn":
+                    game.river = game.deal_community_cards(1)
+                    game.state = "river"
+                elif game.state == "river":
+                    game.state = "end"
 
     screen.blit(poker_table, poker_table_rect)
-    # Display Player 1's hole cards
-    if len(hole_card_images[0]) == 2:
-        screen.blit(hole_card_images[0][0], (128, 128))  # First card
-        screen.blit(hole_card_images[0][1], (256, 128))  # Second card
     
-    # Display Player 2's hole cards
-    if len(hole_card_images[1]) == 2:
-        screen.blit(hole_card_images[1][0], (1152, 128))  # First card
-        screen.blit(hole_card_images[1][1], (1280, 128))  # Second card
-
-    if len(hole_card_images[2]) == 2:
-        screen.blit(hole_card_images[2][0], (128, 640))  # First card
-        screen.blit(hole_card_images[2][1], (256, 640))  # Second card
-
-    if len(hole_card_images[3]) == 2:
-        screen.blit(hole_card_images[3][0], (1152, 640))  # First card
-        screen.blit(hole_card_images[3][1], (1280, 640))  # Second card
+    
+        # Display hole cards for each player
+    positions = [(128, 128), (1152, 128), (128, 640), (1152, 640)]
+    for i, pos in enumerate(positions):
+        if len(hole_card_images[i]) == 2:
+            screen.blit(hole_card_images[i][0], pos)  # First card
+            screen.blit(hole_card_images[i][1], (pos[0] + 128, pos[1]))  # Second card
+    
 
     #COMMUNITY CARDS COORDINATES (SPOT 1- 448,384)(SPOT 2- 576,384)(SPOT 3- 704,384)(SPOT 4- 832,384)(SPOT 5- 960,384)
+    if game.state in ["flop", "turn", "river"]:
+        for i, img in enumerate([card_images[f"{card.rank}_of_{card.suit}"] for card in game.flop]):
+            screen.blit(img, (448 + i * 125, 384))
+    if game.state in ["turn", "river"]:
+        screen.blit(card_images[f"{game.turn[0].rank}_of_{game.turn[0].suit}"], (832, 384))
+    if game.state == "river":
+        screen.blit(card_images[f"{game.river[0].rank}_of_{game.river[0].suit}"], (960, 384))
+
+
     screen.blit(call_button, (448, 704))
     screen.blit(bet_button, (704, 704))
     screen.blit(fold_button, (960, 704))
