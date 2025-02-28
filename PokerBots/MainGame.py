@@ -98,11 +98,10 @@ random_chip_name = f"{random_chip_value} Chip"
 random_chip_image = chip_images[random_chip_name]
 
 
-game = GameLoop(["player 1", "player 2"])
+game = GameLoop(["Player 1", "Player 2"])
 game.play_round()
 
-hole_card_images = [card_images[f"{card.rank}_of_{card.suit}"] for card in game.players[0].hand]
-
+hole_card_images = {i: [card_images[f"{card.rank}_of_{card.suit}"] for card in player.hand] for i, player in enumerate(game.players)}
 running = True
 while running:
     for event in pg.event.get():
@@ -110,10 +109,17 @@ while running:
             running = False
 
     screen.blit(poker_table, poker_table_rect)
-    if len(hole_card_images) == 2:
-        screen.blit(hole_card_images[0], (500, 125))
-        screen.blit(hole_card_images[1], (200, 125))
-    screen.blit(random_chip_image, (500, 425))
+    # Display Player 1's hole cards
+    if len(hole_card_images[0]) == 2:
+        screen.blit(hole_card_images[0][0], (100, 125))  # First card
+        screen.blit(hole_card_images[0][1], (160, 125))  # Second card
+    
+    # Display Player 2's hole cards
+    if len(hole_card_images[1]) == 2:
+        screen.blit(hole_card_images[1][0], (300, 125))  # First card
+        screen.blit(hole_card_images[1][1], (360, 125))  # Second card
+
+        screen.blit(random_chip_image, (500, 425))
 
     pg.display.flip()        
             
