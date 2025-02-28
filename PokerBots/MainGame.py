@@ -81,9 +81,9 @@ class GameLoop:
         self.pot = 0
         self.state = "hole_cards"
 
-        self.flop = None
-        self.turn = None
-        self.river = None
+        self.flop = []
+        self.turn = []
+        self.river = []
     
     def deal_hole_cards(self):
         for player in self.players:
@@ -91,12 +91,26 @@ class GameLoop:
             for _ in range(2):
                 player.receive_card(self.deck.draw_card())
 
-    def deal_community_cards(self, num):
-        return [self.deck.draw_card() for _ in range(num)]
+    def reveal_community_cards(self, num, community_cards):
+        community_cards.extend([self.deck.draw_card() for _ in range(num)])
+        return community_cards
+    
+    def betting_round(self, round_name):
+        print(f"Betting round: {round_name}")
+        
 
     def play_round(self):
         self.deck = Deck()
         self.deal_hole_cards()
+
+        self.betting_round("Pre-Flop")
+        self.flop = self.reveal_community_cards(3, [])
+        self.betting_round("Post-Flop")
+        self.turn = self.reveal_community_cards(1, self.flop)
+        self.betting_round("Post-Turn")
+        self.river = self.reveal_community_cards(1, self.turn)
+        self.betting_round("Post-River")
+
 
 #GAME LOOP
 #RANDOMISER JUST TO TEST THE IMAGE LOADING 
@@ -126,13 +140,13 @@ while running:
         elif event.type == pg.KEYDOWN:
             if event.key == pg.K_SPACE:
                 if game.state == "hole_cards":
-                    game.flop = game.deal_community_cards(3)
+                    game.flop = game.reveal_community_cards(3)
                     game.state = "flop"
                 elif game.state == "flop":
-                    game.turn = game.deal_community_cards(1)
+                    game.turn = game.reveal_community_cards(1)
                     game.state = "turn"
                 elif game.state == "turn":
-                    game.river = game.deal_community_cards(1)
+                    game.river = game.reveal_community_cards(1)
                     game.state = "river"
                 elif game.state == "river":
                     game.state = "end"
@@ -144,11 +158,11 @@ while running:
     positions = [(128, 128), (1152, 128), (128, 640), (1152, 640)]
     for i, pos in enumerate(positions):
         if len(hole_card_images[i]) == 2:
-            screen.blit(hole_card_images[i][0], pos)  # First card
-            screen.blit(hole_card_images[i][1], (pos[0] + 128, pos[1]))  # Second card
+            screen.blit(hole_card_images[i][0], pos)                        # First card
+            screen.blit(hole_card_images[i][1], (pos[0] + 128, pos[1]))     # Second card
     
 
-    #COMMUNITY CARDS COORDINATES (SPOT 1- 448,384)(SPOT 2- 576,384)(SPOT 3- 704,384)(SPOT 4- 832,384)(SPOT 5- 960,384)
+
     if game.state in ["flop", "turn", "river"]:
         for i, img in enumerate([card_images[f"{card.rank}_of_{card.suit}"] for card in game.flop]):
             screen.blit(img, (448 + i * 125, 384))
