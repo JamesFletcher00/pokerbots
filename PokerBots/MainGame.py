@@ -91,25 +91,10 @@ class GameLoop:
             for _ in range(2):
                 player.receive_card(self.deck.draw_card())
 
-    def reveal_community_cards(self, num, community_cards):
-        community_cards.extend([self.deck.draw_card() for _ in range(num)])
-        return community_cards
+    def reveal_community_cards(self, num):
+        return [self.deck.draw_card() for _ in range(num)]
+
     
-    def betting_round(self, round_name):
-        print(f"Betting round: {round_name}")
-        
-
-    def play_round(self):
-        self.deck = Deck()
-        self.deal_hole_cards()
-
-        self.betting_round("Pre-Flop")
-        self.flop = self.reveal_community_cards(3, [])
-        self.betting_round("Post-Flop")
-        self.turn = self.reveal_community_cards(1, self.flop)
-        self.betting_round("Post-Turn")
-        self.river = self.reveal_community_cards(1, self.turn)
-        self.betting_round("Post-River")
 
 
 #GAME LOOP
@@ -120,25 +105,41 @@ random_chip_name = f"{random_chip_value} Chip"
 random_chip_image = chip_images[random_chip_name]
 
 call_button = pg.transform.scale(pg.image.load('PokerBots/Assets/Call Button.png'),(128,128))
+call_button_rect = call_button.get_rect(topleft=(448, 704))
 bet_button = pg.transform.scale(pg.image.load('PokerBots/Assets/Bet Button.png'),(128,128))
+bet_button_rect = bet_button.get_rect(topleft=(704, 704))
 fold_button = pg.transform.scale(pg.image.load('PokerBots/Assets/Fold Button.png'),(128,128))
+fold_button_rect = fold_button.get_rect(topleft=(960, 704))
+
 
 big_blind = pg.transform.scale(pg.image.load('PokerBots/Assets/Big Blind.png'),(64,64))
 small_blind = pg.transform.scale(pg.image.load('PokerBots/Assets/Small Blind.png'),(64,64))
 
 game = GameLoop(["Player 1", "Player 2", "Player 3", "Player 4"])
-game.play_round()
+game.deal_hole_cards()
 
 hole_card_images = {i: [card_images[f"{card.rank}_of_{card.suit}"] for card in player.hand] for i, player in enumerate(game.players)}
 
+def draw_cards():
+    positions = [(128, 128), (1152, 128), (128, 640), (1152, 640)]    
+    for i, pos in enumerate(positions):
+        if len(hole_card_images[i]) == 2:
+            screen.blit(hole_card_images[i][0], pos)                        # First card
+            screen.blit(hole_card_images[i][1], (pos[0] + 128, pos[1]))     # Second card
+    
+    # Draw community cards
+    for i, card in enumerate(game.flop + game.turn + game.river):
+        card_name = f"{card.rank}_of_{card.suit}"
+        screen.blit(card_images[card_name], (448 + i * 128, 384))
+    
 
 running = True
 while running:
     for event in pg.event.get():
         if event.type == pg.QUIT:
             running = False
-        elif event.type == pg.KEYDOWN:
-            if event.key == pg.K_SPACE:
+        elif event.type == pg.MOUSEBUTTONDOWN:
+            if bet_button_rect.collidepoint(event.pos):
                 if game.state == "hole_cards":
                     game.flop = game.reveal_community_cards(3)
                     game.state = "flop"
@@ -148,41 +149,20 @@ while running:
                 elif game.state == "turn":
                     game.river = game.reveal_community_cards(1)
                     game.state = "river"
-                elif game.state == "river":
-                    game.state = "end"
+                draw_cards()
+       
 
     screen.blit(poker_table, poker_table_rect)
-    
-    
-        # Display hole cards for each player
-    positions = [(128, 128), (1152, 128), (128, 640), (1152, 640)]
-    for i, pos in enumerate(positions):
-        if len(hole_card_images[i]) == 2:
-            screen.blit(hole_card_images[i][0], pos)                        # First card
-            screen.blit(hole_card_images[i][1], (pos[0] + 128, pos[1]))     # Second card
-    
+    screen.blit(call_button,call_button_rect.topleft)
+    screen.blit(bet_button,bet_button_rect.topleft)
+    screen.blit(fold_button, fold_button_rect.topleft)
+    draw_cards()
+    pg.display.flip()       
 
 
-    if game.state in ["flop", "turn", "river"]:
-        for i, img in enumerate([card_images[f"{card.rank}_of_{card.suit}"] for card in game.flop]):
-            screen.blit(img, (448 + i * 125, 384))
-    if game.state in ["turn", "river"]:
-        screen.blit(card_images[f"{game.turn[0].rank}_of_{game.turn[0].suit}"], (832, 384))
-    if game.state == "river":
-        screen.blit(card_images[f"{game.river[0].rank}_of_{game.river[0].suit}"], (960, 384))
-
-
-    screen.blit(call_button, (448, 704))
-    screen.blit(bet_button, (704, 704))
-    screen.blit(fold_button, (960, 704))
-
+            
+pg.quit()
 #    screen.blit(big_blind, (64, 64))
 #    screen.blit(small_blind, (64, 576))
 #    screen.blit(big_blind, (1408, 64))
 #    screen.blit(small_blind, (1408, 576))
-
-    #screen.blit(random_chip_image, (500, 425))
-
-    pg.display.flip()        
-            
-pg.quit()
