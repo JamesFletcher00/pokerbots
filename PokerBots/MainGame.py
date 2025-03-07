@@ -67,12 +67,20 @@ class Player:
         self.chips = chips
         self.hand = []
         self.folded = False
+        self.bet = 0
 
     def receive_card(self, card):
         self.hand.append(card)
 
     def show_hand(self):
         return [str(card) for card in self.hand]
+    
+    def collect_bets(self):
+        for player in self.players:
+            if not player.folded:
+                self.pot += player.bet
+                player.chips -= player.bet
+            player.bet = 0
     
 
 class GameLoop:
@@ -86,6 +94,7 @@ class GameLoop:
         self.flop = []
         self.turn = []
         self.river = []
+        self.current_bet = 0
     
     def deal_hole_cards(self):
         for player in self.players:
@@ -136,6 +145,15 @@ def draw_cards():
     for i, card in enumerate(game.flop + game.turn + game.river):
         card_name = f"{card.rank}_of_{card.suit}"
         screen.blit(card_images[card_name], (448 + i * 128, 384))
+
+def display_bet_ui():
+    """Display the current player's bet and the pot."""
+    font = pg.font.Font(None, 36)
+    current_player = game.players[game.current_turn]
+    bet_text = font.render(f"{current_player.name}'s Bet: {current_player.bet}", True, (255, 255, 255))
+    pot_text = font.render(f"Pot: {game.pot}", True, (255, 255, 255))
+    screen.blit(bet_text, (screen_width // 2 - 150, screen_height - 100))
+    screen.blit(pot_text, (screen_width // 2 - 100, screen_height - 150))
     
 
 running = True
@@ -145,26 +163,33 @@ while running:
             running = False
         elif event.type == pg.MOUSEBUTTONDOWN:
             if bet_button_rect.collidepoint(event.pos):
-                if game.state == "hole_cards":
-                    game.flop = game.reveal_community_cards(3)
-                    game.state = "flop"
-                elif game.state == "flop":
-                    game.turn = game.reveal_community_cards(1)
-                    game.state = "turn"
-                elif game.state == "turn":
-                    game.river = game.reveal_community_cards(1)
-                    game.state = "river"
-                draw_cards()
+                current_player = game.players[game.current_turn]
+                # For simplicity, assume a fixed bet (you can later implement dynamic betting)
+                bet_amount = 50
+                if current_player.chips >= bet_amount:
+                    current_player.bet = bet_amount
+                    game.pot += bet_amount
+                    current_player.chips -= bet_amount
+                    game.next_turn()  # Move to next player
+            elif call_button_rect.collidepoint(event.pos):
+                current_player = game.players[game.current_turn]
+                # Call logic: Match the current bet
+                if current_player.chips >= game.current_bet:
+                    current_player.bet = game.current_bet
+                    game.pot += game.current_bet
+                    current_player.chips -= game.current_bet
+                    game.next_turn()
             elif fold_button_rect.collidepoint(event.pos):
                 current_player = game.players[game.current_turn]
-                current_player.folded = True  # Mark player as folded
-                game.next_turn()  # Move to the next player
+                current_player.folded = True
+                game.next_turn()
 
     screen.blit(poker_table, poker_table_rect)
     screen.blit(call_button,call_button_rect.topleft)
     screen.blit(bet_button,bet_button_rect.topleft)
     screen.blit(fold_button, fold_button_rect.topleft)
     draw_cards()
+    display_bet_ui()
     pg.display.flip()       
 
 
