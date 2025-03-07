@@ -66,6 +66,7 @@ class Player:
         self.name = name
         self.chips = chips
         self.hand = []
+        self.folded = False
 
     def receive_card(self, card):
         self.hand.append(card)
@@ -80,6 +81,7 @@ class GameLoop:
         self.players = [Player(name, starting_chips) for name in player_names]
         self.pot = 0
         self.state = "hole_cards"
+        self.current_turn = 0
 
         self.flop = []
         self.turn = []
@@ -94,7 +96,10 @@ class GameLoop:
     def reveal_community_cards(self, num):
         return [self.deck.draw_card() for _ in range(num)]
 
-    
+    def next_turn(self):
+        self.current_turn = (self.current_turn + 1) % len(self.players)
+        if all (player.folded for player in self.players):
+            self.state = "end_game"
 
 
 #GAME LOOP
@@ -150,7 +155,10 @@ while running:
                     game.river = game.reveal_community_cards(1)
                     game.state = "river"
                 draw_cards()
-       
+            elif fold_button_rect.collidepoint(event.pos):
+                current_player = game.players[game.current_turn]
+                current_player.folded = True  # Mark player as folded
+                game.next_turn()  # Move to the next player
 
     screen.blit(poker_table, poker_table_rect)
     screen.blit(call_button,call_button_rect.topleft)
