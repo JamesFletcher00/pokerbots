@@ -75,12 +75,7 @@ class Player:
     def show_hand(self):
         return [str(card) for card in self.hand]
     
-    def collect_bets(self):
-        for player in self.players:
-            if not player.folded:
-                self.pot += player.bet
-                player.chips -= player.bet
-            player.bet = 0
+
     
 
 class GameLoop:
@@ -95,6 +90,7 @@ class GameLoop:
         self.turn = []
         self.river = []
         self.current_bet = 0
+        self.round_active = True
     
     def deal_hole_cards(self):
         for player in self.players:
@@ -107,8 +103,22 @@ class GameLoop:
 
     def next_turn(self):
         self.current_turn = (self.current_turn + 1) % len(self.players)
-        if all (player.folded for player in self.players):
-            self.state = "end_game"
+        if all (player.folded or player.bet > 0 for player in self.players):
+            self.round_active = False
+            
+    def reset_player_actions(self):
+        """Reset player's bet and folded state after each round."""
+        for player in self.players:
+            player.bet = 0
+            player.folded = False
+
+    def collect_bets(self):
+        for player in self.players:
+            if not player.folded:
+                self.pot += player.bet
+                player.chips -= player.bet
+            player.bet = 0           
+
 
 
 #GAME LOOP
@@ -183,6 +193,22 @@ while running:
                 current_player = game.players[game.current_turn]
                 current_player.folded = True
                 game.next_turn()
+
+    # Check if the round is over (all players have acted)
+    if not game.round_active:
+        # Move to the next game phase
+        if game.state == "hole_cards":
+            game.flop = game.reveal_community_cards(3)
+            game.state = "flop"
+        elif game.state == "flop":
+            game.turn = game.reveal_community_cards(1)
+            game.state = "turn"
+        elif game.state == "turn":
+            game.river = game.reveal_community_cards(1)
+            game.state = "river"
+        # After finishing the river, you might want to calculate the winner and reset the game for the next round
+        game.reset_player_actions()
+        game.round_active = True  # Restart the round for the next phase
 
     screen.blit(poker_table, poker_table_rect)
     screen.blit(call_button,call_button_rect.topleft)
