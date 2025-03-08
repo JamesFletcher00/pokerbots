@@ -119,7 +119,33 @@ class GameLoop:
                 player.chips -= player.bet
             player.bet = 0           
 
+class TextInput:
+    def __init__(self, x, y, width, height):
+        self.rect = pg.Rect(x, y, width, height)
+        self.color = (255, 255, 255)
+        self.text = ""
+        self.font = pg.font.Font(None, 36)
+        self.active = False
+    
+    def handle_event(self, event):
+        if event.type == pg.MOUSEBUTTONDOWN:
+            self.active = self.rect.collidepoint(event.pos)
+        elif event.type == pg.KEYDOWN and self.active:
+            if event.key == pg.K_RETURN:
+                return self.text
+            elif event.key == pg.K_BACKSPACE:
+                self.text = self.text[:-1]
+            else:
+                self.text += event.unicode
+        return None
+    
+    def draw(self, screen):
+        pg.draw.rect(screen, self.color, self.rect, 2)
+        text_surface = self.font.render(self.text, True, self.color)
+        screen.blit(text_surface, (self.rect.x + 5, self.rect.y + 5))
 
+bet_input = TextInput(600, 850, 200, 50)
+waiting_for_bet = False    
 
 #GAME LOOP
 #RANDOMISER JUST TO TEST THE IMAGE LOADING 
@@ -166,24 +192,18 @@ def display_bet_ui():
     screen.blit(pot_text, (screen_width // 2 - 100, screen_height - 150))
     
 
+# GAME LOOP
 running = True
 while running:
+    screen.blit(poker_table, poker_table_rect)
     for event in pg.event.get():
         if event.type == pg.QUIT:
             running = False
         elif event.type == pg.MOUSEBUTTONDOWN:
             if bet_button_rect.collidepoint(event.pos):
-                current_player = game.players[game.current_turn]
-                # For simplicity, assume a fixed bet (you can later implement dynamic betting)
-                bet_amount = 50
-                if current_player.chips >= bet_amount:
-                    current_player.bet = bet_amount
-                    game.pot += bet_amount
-                    current_player.chips -= bet_amount
-                    game.next_turn()  # Move to next player
+                waiting_for_bet = True
             elif call_button_rect.collidepoint(event.pos):
                 current_player = game.players[game.current_turn]
-                # Call logic: Match the current bet
                 if current_player.chips >= game.current_bet:
                     current_player.bet = game.current_bet
                     game.pot += game.current_bet
@@ -193,6 +213,20 @@ while running:
                 current_player = game.players[game.current_turn]
                 current_player.folded = True
                 game.next_turn()
+        if waiting_for_bet:
+            bet_amount = bet_input.handle_event(event)
+            if bet_amount:
+                try:
+                    bet_amount = int(bet_amount)
+                    current_player = game.players[game.current_turn]
+                    if bet_amount > 0 and bet_amount <= current_player.chips:
+                        current_player.bet = bet_amount
+                        game.pot += bet_amount
+                        current_player.chips -= bet_amount
+                        game.next_turn()
+                except ValueError:
+                    pass
+                waiting_for_bet = False
 
     # Check if the round is over (all players have acted)
     if not game.round_active:
@@ -215,6 +249,7 @@ while running:
     screen.blit(bet_button,bet_button_rect.topleft)
     screen.blit(fold_button, fold_button_rect.topleft)
     draw_cards()
+    bet_input.draw(screen)
     display_bet_ui()
     pg.display.flip()       
 
