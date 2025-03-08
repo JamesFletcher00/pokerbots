@@ -146,6 +146,7 @@ class TextInput:
 
 bet_input = TextInput(600, 850, 200, 50)
 waiting_for_bet = False    
+ok_button = pg.Rect(820, 850, 100, 50)
 
 #GAME LOOP
 #RANDOMISER JUST TO TEST THE IMAGE LOADING 
@@ -202,6 +203,19 @@ while running:
         elif event.type == pg.MOUSEBUTTONDOWN:
             if bet_button_rect.collidepoint(event.pos):
                 waiting_for_bet = True
+            elif ok_button.collidepoint(event.pos) and waiting_for_bet:
+                try:
+                    bet_amount = int(bet_input.text)
+                    current_player = game.players[game.current_turn]
+                    if bet_amount > 0 and bet_amount <= current_player.chips:
+                        current_player.bet = bet_amount
+                        game.pot += bet_amount
+                        current_player.chips -= bet_amount
+                        game.next_turn()
+                except ValueError:
+                    pass
+                waiting_for_bet = False
+                bet_input.text = ""
             elif call_button_rect.collidepoint(event.pos):
                 current_player = game.players[game.current_turn]
                 if current_player.chips >= game.current_bet:
@@ -214,19 +228,7 @@ while running:
                 current_player.folded = True
                 game.next_turn()
         if waiting_for_bet:
-            bet_amount = bet_input.handle_event(event)
-            if bet_amount:
-                try:
-                    bet_amount = int(bet_amount)
-                    current_player = game.players[game.current_turn]
-                    if bet_amount > 0 and bet_amount <= current_player.chips:
-                        current_player.bet = bet_amount
-                        game.pot += bet_amount
-                        current_player.chips -= bet_amount
-                        game.next_turn()
-                except ValueError:
-                    pass
-                waiting_for_bet = False
+            bet_input.handle_event(event)
 
     # Check if the round is over (all players have acted)
     if not game.round_active:
@@ -249,7 +251,12 @@ while running:
     screen.blit(bet_button,bet_button_rect.topleft)
     screen.blit(fold_button, fold_button_rect.topleft)
     draw_cards()
-    bet_input.draw(screen)
+    if waiting_for_bet:
+        bet_input.draw(screen)
+        pg.draw.rect(screen, (0, 255, 0), ok_button)
+        font = pg.font.Font(None, 36)
+        ok_text = font.render("OK", True, (0, 0, 0))
+        screen.blit(ok_text, (ok_button.x + 30, ok_button.y + 10))
     display_bet_ui()
     pg.display.flip()       
 
