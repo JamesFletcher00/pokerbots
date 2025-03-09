@@ -102,9 +102,15 @@ class GameLoop:
         return [self.deck.draw_card() for _ in range(num)]
 
     def next_turn(self):
-        self.current_turn = (self.current_turn + 1) % len(self.players)
-        if all (player.folded or player.bet > 0 for player in self.players):
+        while True:
+            self.current_turn = (self.current_turn + 1) % len(self.players)
+            if not self.players[self.current_turn].folded:
+                break
+        active_players = [player for player in self.players if not player.folded]
+        if len(active_players) == 1:
             self.round_active = False
+            self.pot = 0  # Reset pot for next round
+    
             
     def reset_player_actions(self):
         """Reset player's bet and folded state after each round."""
@@ -203,19 +209,6 @@ while running:
         elif event.type == pg.MOUSEBUTTONDOWN:
             if bet_button_rect.collidepoint(event.pos):
                 waiting_for_bet = True
-            elif ok_button.collidepoint(event.pos) and waiting_for_bet:
-                try:
-                    bet_amount = int(bet_input.text)
-                    current_player = game.players[game.current_turn]
-                    if bet_amount > 0 and bet_amount <= current_player.chips:
-                        current_player.bet = bet_amount
-                        game.pot += bet_amount
-                        current_player.chips -= bet_amount
-                        game.next_turn()
-                except ValueError:
-                    pass
-                waiting_for_bet = False
-                bet_input.text = ""
             elif call_button_rect.collidepoint(event.pos):
                 current_player = game.players[game.current_turn]
                 if current_player.chips >= game.current_bet:
@@ -227,6 +220,19 @@ while running:
                 current_player = game.players[game.current_turn]
                 current_player.folded = True
                 game.next_turn()
+            elif waiting_for_bet and ok_button.collidepoint(event.pos):
+                try:
+                    bet_amount = int(bet_input.text)
+                    current_player = game.players[game.current_turn]
+                    if bet_amount > 0 and bet_amount <= current_player.chips:
+                        current_player.bet = bet_amount
+                        game.pot += bet_amount
+                        current_player.chips -= bet_amount
+                        game.next_turn()
+                        waiting_for_bet = False
+                        bet_input.text = ""
+                except ValueError:
+                    pass
         if waiting_for_bet:
             bet_input.handle_event(event)
 
@@ -251,12 +257,11 @@ while running:
     screen.blit(bet_button,bet_button_rect.topleft)
     screen.blit(fold_button, fold_button_rect.topleft)
     draw_cards()
+
     if waiting_for_bet:
         bet_input.draw(screen)
         pg.draw.rect(screen, (0, 255, 0), ok_button)
-        font = pg.font.Font(None, 36)
-        ok_text = font.render("OK", True, (0, 0, 0))
-        screen.blit(ok_text, (ok_button.x + 30, ok_button.y + 10))
+        screen.blit(pg.font.Font(None, 36).render("OK", True, (0, 0, 0)), (ok_button.x + 30, ok_button.y + 10))
     display_bet_ui()
     pg.display.flip()       
 
