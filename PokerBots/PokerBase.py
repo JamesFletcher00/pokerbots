@@ -35,15 +35,12 @@ class Player:
         self.hand = []
         
     def receive_card(self, card):
-        """Add a card to the player's hand."""
         self.hand.append(card)
 
     def show_hand(self):
-        """Return the player's hand as a list of strings."""
         return [str(card) for card in self.hand]
     
     def bet(self, amount):
-        """Place a bet by deducting chips."""
         if amount > self.chips:
             raise ValueError(f"{self.name} does not have enough chips to bet {amount}.")
         self.chips -= amount

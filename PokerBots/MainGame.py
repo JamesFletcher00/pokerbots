@@ -233,8 +233,15 @@ while running:
                         bet_input.text = ""
                 except ValueError:
                     pass
+        elif event.type == pg.QUIT:
+            running = False
+        elif event.type == pg.KEYDOWN:
+            if event.key == pg.K_ESCAPE:
+                running == False
+            pg.quit()
         if waiting_for_bet:
             bet_input.handle_event(event)
+
 
     # Check if the round is over (all players have acted)
     if not game.round_active:
