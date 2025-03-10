@@ -206,6 +206,10 @@ while running:
     for event in pg.event.get():
         if event.type == pg.QUIT:
             running = False
+        elif event.type == pg.KEYDOWN:
+            if event.key == pg.K_ESCAPE:
+                running == False
+                pg.quit()
         elif event.type == pg.MOUSEBUTTONDOWN:
             if bet_button_rect.collidepoint(event.pos):
                 waiting_for_bet = True
@@ -233,12 +237,8 @@ while running:
                         bet_input.text = ""
                 except ValueError:
                     pass
-        elif event.type == pg.QUIT:
-            running = False
-        elif event.type == pg.KEYDOWN:
-            if event.key == pg.K_ESCAPE:
-                running == False
-            pg.quit()
+
+
         if waiting_for_bet:
             bet_input.handle_event(event)
 
