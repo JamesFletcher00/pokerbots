@@ -102,14 +102,12 @@ class GameLoop:
         return [self.deck.draw_card() for _ in range(num)]
 
     def next_turn(self):
-        while True:
-            self.current_turn = (self.current_turn + 1) % len(self.players)
-            if not self.players[self.current_turn].folded:
-                break
-        active_players = [player for player in self.players if not player.folded]
-        if len(active_players) == 1:
+        if len(self.players) == 1:
             self.round_active = False
-            self.pot = 0  # Reset pot for next round
+            return
+        self.current_turn = (self.current_turn + 1) % len(self.players)
+        while self.players[self.current_turn].folded:
+            self.current_turn = (self.current_turn + 1) % len(self.players)
     
             
     def reset_player_actions(self):
@@ -123,7 +121,22 @@ class GameLoop:
             if not player.folded:
                 self.pot += player.bet
                 player.chips -= player.bet
-            player.bet = 0           
+            player.bet = 0       
+
+    def remove_folded_player(self, player_index):
+        """Remove a player from the game when they fold and adjust turn order."""
+        if len(self.players) > 1:
+            del self.players[player_index]  # Remove the player from the list
+            self.current_turn = player_index % len(self.players)  # Adjust turn index
+            self.round_winner()
+        else:
+            self.state = "end_round"  # If only one player remains, end the round
+        
+    def round_winner(self):
+        if len(self.players) == 1:
+            self.state = "end_round"
+            print(f"{self.players[0].name} wins the round")
+
 
 class TextInput:
     def __init__(self, x, y, width, height):
@@ -213,6 +226,7 @@ while running:
         elif event.type == pg.MOUSEBUTTONDOWN:
             if bet_button_rect.collidepoint(event.pos):
                 waiting_for_bet = True
+
             elif call_button_rect.collidepoint(event.pos):
                 current_player = game.players[game.current_turn]
                 if current_player.chips >= game.current_bet:
@@ -220,10 +234,10 @@ while running:
                     game.pot += game.current_bet
                     current_player.chips -= game.current_bet
                     game.next_turn()
+
             elif fold_button_rect.collidepoint(event.pos):
-                current_player = game.players[game.current_turn]
-                current_player.folded = True
-                game.next_turn()
+                game.remove_folded_player(game.current_turn)
+
             elif waiting_for_bet and ok_button.collidepoint(event.pos):
                 try:
                     bet_amount = int(bet_input.text)
@@ -237,6 +251,8 @@ while running:
                         bet_input.text = ""
                 except ValueError:
                     pass
+        if game.state == "end_round":
+            running = False
 
 
         if waiting_for_bet:
