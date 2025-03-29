@@ -1,6 +1,7 @@
 import pygame as pg
 import random
 from collections import Counter
+from itertools import combinations
 
 pg.init()
 
@@ -20,6 +21,16 @@ card_images = {}
 
 suits = ["Spades", "Hearts", "Clubs", "Diamonds"]
 ranks = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"]
+
+rank_values = {
+    "Two": 2, "Three": 3, "Four": 4, "Five": 5, "Six": 6, "Seven": 7,
+    "Eight": 8, "Nine": 9, "Ten": 10, "Jack": 11, "Queen": 12, "King": 13, "Ace": 14
+}
+
+hand_ranks = [
+    "High Card", "One Pair", "Two Pair", "Three of a Kind", "Straight",
+    "Flush", "Full House", "Four of a Kind", "Straight Flush", "Royal Flush"
+]
 
 for suit in suits:
     for rank in ranks:
@@ -76,6 +87,62 @@ class Player:
         return [str(card) for card in self.hand]
     
 
+class PokerHandEvaluator:
+    @staticmethod
+    def evaluate_hand(cards):
+        values = sorted([rank_values[card.rank] for card in cards], reverse=True)
+        suits = [card.suit for card in cards]
+        value_count = Counter(values)
+        suit_count = Counter(suits)
+
+        def is_straight(vals):
+            vals = sorted(set(vals), reverse=True)
+            for i in range(len(vals) - 4):
+                if vals[i] - vals[i + 4] == 4:
+                    return vals[i:i + 5]
+            return [14, 5, 4, 3, 2] if set([14, 5, 4, 3, 2]).issubset(vals) else None
+
+        flush_suit = next((s for s, count in suit_count.items() if count >= 5), None)
+        if flush_suit:
+            flush_cards = [rank_values[card.rank] for card in cards if card.suit == flush_suit]
+            straight_flush = is_straight(flush_cards)
+            if straight_flush:
+                return ("Royal Flush",) if straight_flush == [14, 13, 12, 11, 10] else ("Straight Flush", straight_flush)
+
+        if 4 in value_count.values():
+            quads = [k for k, v in value_count.items() if v == 4]
+            kicker = max([k for k in value_count if k != quads[0]])
+            return ("Four of a Kind", quads[0], kicker)
+
+        if 3 in value_count.values() and 2 in value_count.values():
+            trips = [k for k, v in value_count.items() if v == 3]
+            pair = [k for k, v in value_count.items() if v == 2]
+            return ("Full House", trips[0], pair[0])
+
+        if flush_suit:
+            flush_cards = sorted([rank_values[card.rank] for card in cards if card.suit == flush_suit], reverse=True)[:5]
+            return ("Flush", flush_cards)
+
+        straight = is_straight(values)
+        if straight:
+            return ("Straight", straight)
+
+        if 3 in value_count.values():
+            trips = [k for k, v in value_count.items() if v == 3]
+            kickers = sorted([k for k in value_count if k != trips[0]], reverse=True)[:2]
+            return ("Three of a Kind", trips[0], kickers)
+
+        pairs = [k for k, v in value_count.items() if v == 2]
+        if len(pairs) >= 2:
+            pairs.sort(reverse=True)
+            kicker = max([k for k in value_count if k not in pairs])
+            return ("Two Pair", pairs[0], pairs[1], kicker)
+
+        if len(pairs) == 1:
+            kicker = sorted([k for k in value_count if k != pairs[0]], reverse=True)[:3]
+            return ("One Pair", pairs[0], kicker)
+
+        return ("High Card", sorted(values, reverse=True)[:5])
     
 
 class GameLoop:
@@ -134,8 +201,17 @@ class GameLoop:
         
     def round_winner(self):
         if len(self.players) == 1:
-            self.state = "end_round"
-            print(f"{self.players[0].name} wins the round")
+            self.determine_winner()
+
+
+    def determine_winner(self):
+        player_hands = {}
+        for player in self.players:
+            hand = PokerHandEvaluator.evaluate_hand(player.hand)
+            player_hands[player.name] = hand
+
+        winner = max(player_hands.items(), key=lambda x: hand_ranks.index(x[1][0]))
+        print(f"Winner: {winner[0]} with {winner[1][0]}")
 
 
 class TextInput:
@@ -233,7 +309,8 @@ while running:
                     current_player.bet = game.current_bet
                     game.pot += game.current_bet
                     current_player.chips -= game.current_bet
-                    game.next_turn()
+                    game.determine_winner()
+                    #game.next_turn()
 
             elif fold_button_rect.collidepoint(event.pos):
                 game.remove_folded_player(game.current_turn)
