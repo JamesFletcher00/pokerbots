@@ -210,7 +210,7 @@ class GameLoop:
             hand = PokerHandEvaluator.evaluate_hand(player.hand)
             player_hands[player.name] = hand
 
-        winner = max(player_hands.items(), key=lambda x: hand_ranks.index(x[1][0]))
+        winner = max(player_hands.items(), key=lambda x: x[1])
         print(f"Winner: {winner[0]} with {winner[1][0]}")
 
 
