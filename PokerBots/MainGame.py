@@ -152,6 +152,7 @@ class GameLoop:
         self.pot = 0
         self.state = "hole_cards"
         self.current_turn = 0
+        self.max_bet_this_round = 0
 
         self.flop = []
         self.turn = []
@@ -183,12 +184,26 @@ class GameLoop:
             player.bet = 0
             player.folded = False
 
-    def collect_bets(self):
-        for player in self.players:
-            if not player.folded:
-                self.pot += player.bet
-                player.chips -= player.bet
-            player.bet = 0       
+    def handle_bet(self, player, bet_amount):
+        if bet_amount < self.max_bet_this_round:
+            print(f"Bet must be {self.max_bet_this_round}. Choose another action.")
+            return False
+        else:
+            player.chips -= bet_amount
+            self.pot += bet_amount
+            player.bet = bet_amount
+            self.max_bet_this_round = max(self.max_bet_this_round, bet_amount)
+            game.next_turn()
+            return True
+
+    def handle_call(self, player):
+        if player.bet >= self.max_bet_this_round:
+            return False
+        call_amount = min(self.max_bet_this_round, player.chips)
+        player.chips -= call_amount
+        self.pot += call_amount
+        player.bet = self.max_bet_this_round
+        game.next_turn()
 
     def remove_folded_player(self, player_index):
         """Remove a player from the game when they fold and adjust turn order."""
@@ -292,44 +307,68 @@ def display_bet_ui():
 
 # GAME LOOP
 running = True
+waiting_for_bet = False  # Initialize state
 while running:
     screen.blit(poker_table, poker_table_rect)
     for event in pg.event.get():
         if event.type == pg.QUIT:
             running = False
+
         elif event.type == pg.KEYDOWN:
             if event.key == pg.K_ESCAPE:
-                running == False
+                running = False  # Use assignment, not comparison
                 pg.quit()
+
         elif event.type == pg.MOUSEBUTTONDOWN:
+            current_player = game.players[game.current_turn]
+
+            # Clicked Bet Button
             if bet_button_rect.collidepoint(event.pos):
                 waiting_for_bet = True
 
+            # Clicked Call Button
             elif call_button_rect.collidepoint(event.pos):
-                current_player = game.players[game.current_turn]
-                if current_player.chips >= game.current_bet:
-                    current_player.bet = game.current_bet
-                    game.pot += game.current_bet
-                    current_player.chips -= game.current_bet
-                    game.determine_winner()
-                    #game.next_turn()
+                call_amount = min(game.current_bet - current_player.bet, current_player.chips)
+                if call_amount > 0:
+                    current_player.bet += call_amount
+                    current_player.chips -= call_amount
+                    game.pot += call_amount
+                game.next_turn()
 
+            # Clicked Fold Button
             elif fold_button_rect.collidepoint(event.pos):
                 game.remove_folded_player(game.current_turn)
 
+            # Confirm Bet Input
             elif waiting_for_bet and ok_button.collidepoint(event.pos):
                 try:
                     bet_amount = int(bet_input.text)
-                    current_player = game.players[game.current_turn]
                     if bet_amount > 0 and bet_amount <= current_player.chips:
-                        current_player.bet = bet_amount
-                        game.pot += bet_amount
-                        current_player.chips -= bet_amount
-                        game.next_turn()
-                        waiting_for_bet = False
-                        bet_input.text = ""
+                        # Enforce minimum bet rules
+                        if bet_amount >= game.current_bet:
+                            # Handle raise
+                            current_player.bet = bet_amount
+                            current_player.chips -= bet_amount
+                            game.pot += bet_amount
+                            game.current_bet = bet_amount  # Update max bet this round
+                            game.next_turn()
+                            waiting_for_bet = False  # Reset waiting state
+                            bet_input.text = ""
+                        else:
+                            print("Bet must match or exceed the current bet.")
                 except ValueError:
                     pass
+
+
+
+            # CHECK IF BETTING ROUND SHOULD END
+
+            #THIS DOES NOT WORK AND NEEDS A DIFFERENT CHECKER
+            if game.current_turn == 0 and all(player.bet >= game.current_bet or player.chips == 0 for player in game.players):
+                game.round_active = True 
+              
+
+        # Round End Condition
         if game.state == "end_round":
             running = False
 
@@ -355,8 +394,8 @@ while running:
         game.round_active = True  # Restart the round for the next phase
 
     screen.blit(poker_table, poker_table_rect)
-    screen.blit(check_button, check_button_rect.topleft)
-    #screen.blit(call_button,call_button_rect.topleft)
+    #screen.blit(check_button, check_button_rect.topleft)
+    screen.blit(call_button,call_button_rect.topleft)
     screen.blit(bet_button,bet_button_rect.topleft)
     screen.blit(fold_button, fold_button_rect.topleft)
     draw_cards()
