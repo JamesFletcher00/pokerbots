@@ -250,6 +250,8 @@ random_chip_value = random.choice(chip_values)
 random_chip_name = f"{random_chip_value} Chip"
 random_chip_image = chip_images[random_chip_name]
 
+check_button = pg.transform.scale(pg.image.load('PokerBots/Assets/Check Button.png'),(128,128))
+check_button_rect = check_button.get_rect(topleft=(448, 704))
 call_button = pg.transform.scale(pg.image.load('PokerBots/Assets/Call Button.png'),(128,128))
 call_button_rect = call_button.get_rect(topleft=(448, 704))
 bet_button = pg.transform.scale(pg.image.load('PokerBots/Assets/Bet Button.png'),(128,128))
@@ -353,7 +355,8 @@ while running:
         game.round_active = True  # Restart the round for the next phase
 
     screen.blit(poker_table, poker_table_rect)
-    screen.blit(call_button,call_button_rect.topleft)
+    screen.blit(check_button, check_button_rect.topleft)
+    #screen.blit(call_button,call_button_rect.topleft)
     screen.blit(bet_button,bet_button_rect.topleft)
     screen.blit(fold_button, fold_button_rect.topleft)
     draw_cards()
