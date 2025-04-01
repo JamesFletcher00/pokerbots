@@ -79,6 +79,7 @@ class Player:
         self.hand = []
         self.folded = False
         self.bet = 0
+        self.total_bet = 0
 
     def receive_card(self, card):
         self.hand.append(card)
@@ -150,9 +151,9 @@ class GameLoop:
         self.deck = Deck()
         self.players = [Player(name, starting_chips) for name in player_names]
         self.pot = 0
-        self.state = "hole_cards"
+        self.state = "pre-flop"
         self.current_turn = 0
-        self.max_bet_this_round = 0
+        self.highest_bet_this_round = 0
 
         self.flop = []
         self.turn = []
@@ -177,32 +178,68 @@ class GameLoop:
         while self.players[self.current_turn].folded:
             self.current_turn = (self.current_turn + 1) % len(self.players)
     
+    def handle_betting_round(self):
+        all_bets_equal = all(player.total_bet == self.current_bet for player in self.players if not player.folded)
+
+        print(f"Current State: {self.state}")
+        print(f"All Bets Equal: {all_bets_equal}")
+        print(f"Current Bet: {self.current_bet}")
+        print("Player Bets:", [(player.name, player.total_bet) for player in self.players])
+
+        if all_bets_equal:
+            if self.state == "pre-flop":
+                self.flop.extend(self.reveal_community_cards(3))  # Flop
+                self.state = "flop"
+                print(f"{self.state}")
             
+            elif self.state == "flop":
+                self.turn.extend(self.reveal_community_cards(1))  # Turn
+                self.state = "turn"
+            
+            elif self.state == "turn":
+                self.river.extend(self.reveal_community_cards(1))  # River
+                self.state = "river"
+            
+            elif self.state == "river":
+                self.state = "showdown"
+                self.determine_winner()
+            
+        else:
+            self.next_turn()
+
+
+    def reset_bets(self):
+        for player in self.players:
+            player.bet = 0
+            self.current_bet = 0
+            self.current_turn = 0      
+
+          
     def reset_player_actions(self):
-        """Reset player's bet and folded state after each round."""
+        """Reset player's bet and folded state after each hand."""
         for player in self.players:
             player.bet = 0
             player.folded = False
 
     def handle_bet(self, player, bet_amount):
-        if bet_amount < self.max_bet_this_round:
-            print(f"Bet must be {self.max_bet_this_round}. Choose another action.")
+        if bet_amount < self.highest_bet_this_round:
+            print(f"Bet must be {self.highest_bet_this_round}. Choose another action.")
             return False
         else:
             player.chips -= bet_amount
             self.pot += bet_amount
             player.bet = bet_amount
-            self.max_bet_this_round = max(self.max_bet_this_round, bet_amount)
+            self.highest_bet_this_round = max(self.highest_bet_this_round, bet_amount)
             game.next_turn()
             return True
 
     def handle_call(self, player):
-        if player.bet >= self.max_bet_this_round:
+        if player.bet >= self.highest_bet_this_round:
             return False
-        call_amount = min(self.max_bet_this_round, player.chips)
+        call_amount = min(self.highest_bet_this_round, player.chips)
         player.chips -= call_amount
         self.pot += call_amount
-        player.bet = self.max_bet_this_round
+        player.bet = self.highest_bet_this_round
         game.next_turn()
 
     def remove_folded_player(self, player_index):
@@ -278,7 +315,7 @@ fold_button_rect = fold_button.get_rect(topleft=(960, 704))
 big_blind = pg.transform.scale(pg.image.load('PokerBots/Assets/Big Blind.png'),(64,64))
 small_blind = pg.transform.scale(pg.image.load('PokerBots/Assets/Small Blind.png'),(64,64))
 
-game = GameLoop(["Player 1", "Player 2", "Player 3", "Player 4"])
+game = GameLoop(["AIan", "AIleen", "AInsley", "AbigAIl"])
 game.deal_hole_cards()
 
 hole_card_images = {i: [card_images[f"{card.rank}_of_{card.suit}"] for card in player.hand] for i, player in enumerate(game.players)}
@@ -328,12 +365,12 @@ while running:
 
             # Clicked Call Button
             elif call_button_rect.collidepoint(event.pos):
-                call_amount = min(game.current_bet - current_player.bet, current_player.chips)
+                call_amount = game.current_bet - current_player.total_bet
                 if call_amount > 0:
-                    current_player.bet += call_amount
+                    current_player.total_bet += call_amount
                     current_player.chips -= call_amount
                     game.pot += call_amount
-                game.next_turn()
+                    game.handle_betting_round()
 
             # Clicked Fold Button
             elif fold_button_rect.collidepoint(event.pos):
@@ -345,13 +382,13 @@ while running:
                     bet_amount = int(bet_input.text)
                     if bet_amount > 0 and bet_amount <= current_player.chips:
                         # Enforce minimum bet rules
-                        if bet_amount >= game.current_bet:
+                        if bet_amount >= game.current_bet - current_player.total_bet:
                             # Handle raise
-                            current_player.bet = bet_amount
+                            current_player.total_bet += bet_amount
                             current_player.chips -= bet_amount
                             game.pot += bet_amount
-                            game.current_bet = bet_amount  # Update max bet this round
-                            game.next_turn()
+                            game.current_bet = max(game.current_bet, current_player.total_bet)  # Update max bet this round
+                            game.handle_betting_round()
                             waiting_for_bet = False  # Reset waiting state
                             bet_input.text = ""
                         else:
@@ -359,14 +396,7 @@ while running:
                 except ValueError:
                     pass
 
-
-
-            # CHECK IF BETTING ROUND SHOULD END
-
-            #THIS DOES NOT WORK AND NEEDS A DIFFERENT CHECKER
-            if game.current_turn == 0 and all(player.bet >= game.current_bet or player.chips == 0 for player in game.players):
-                game.round_active = True 
-              
+             
 
         # Round End Condition
         if game.state == "end_round":
@@ -377,21 +407,10 @@ while running:
             bet_input.handle_event(event)
 
 
-    # Check if the round is over (all players have acted)
-    if not game.round_active:
-        # Move to the next game phase
-        if game.state == "hole_cards":
-            game.flop = game.reveal_community_cards(3)
-            game.state = "flop"
-        elif game.state == "flop":
-            game.turn = game.reveal_community_cards(1)
-            game.state = "turn"
-        elif game.state == "turn":
-            game.river = game.reveal_community_cards(1)
-            game.state = "river"
+
         # After finishing the river, you might want to calculate the winner and reset the game for the next round
-        game.reset_player_actions()
-        game.round_active = True  # Restart the round for the next phase
+        #game.reset_player_actions()
+        #game.round_active = True  # Restart the round for the next phase
 
     screen.blit(poker_table, poker_table_rect)
     #screen.blit(check_button, check_button_rect.topleft)
