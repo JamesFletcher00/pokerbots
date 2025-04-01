@@ -78,6 +78,7 @@ class Player:
         self.chips = chips
         self.hand = []
         self.folded = False
+        self.checked = False
         self.bet = 0
         self.total_bet = 0
 
@@ -179,26 +180,29 @@ class GameLoop:
             self.current_turn = (self.current_turn + 1) % len(self.players)
     
     def handle_betting_round(self):
-        all_bets_equal = all(player.total_bet == self.current_bet for player in self.players if not player.folded)
+        all_bets_equal = all(player.total_bet == self.current_bet and self.current_bet > 0 for player in self.players if not player.folded)
+        all_checked = all(player.checked for player in self.players if not player.folded)
 
         print(f"Current State: {self.state}")
         print(f"All Bets Equal: {all_bets_equal}")
         print(f"Current Bet: {self.current_bet}")
         print("Player Bets:", [(player.name, player.total_bet) for player in self.players])
 
-        if all_bets_equal:
+        if all_bets_equal or all_checked:
             if self.state == "pre-flop":
                 self.flop.extend(self.reveal_community_cards(3))  # Flop
                 self.state = "flop"
-                print(f"{self.state}")
+                self.reset_bets()
             
             elif self.state == "flop":
                 self.turn.extend(self.reveal_community_cards(1))  # Turn
                 self.state = "turn"
-            
+                self.reset_bets()
+
             elif self.state == "turn":
                 self.river.extend(self.reveal_community_cards(1))  # River
                 self.state = "river"
+                self.reset_bets()
             
             elif self.state == "river":
                 self.state = "showdown"
@@ -212,7 +216,8 @@ class GameLoop:
         for player in self.players:
             player.bet = 0
             self.current_bet = 0
-            self.current_turn = 0      
+            self.current_turn = 0
+            player.checked = False      
 
           
     def reset_player_actions(self):
@@ -371,6 +376,10 @@ while running:
                     current_player.chips -= call_amount
                     game.pot += call_amount
                     game.handle_betting_round()
+                else:
+                    current_player.checked = True
+                    game.handle_betting_round()
+
 
             # Clicked Fold Button
             elif fold_button_rect.collidepoint(event.pos):
