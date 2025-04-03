@@ -11,7 +11,10 @@ screen_height = 1024
 screen =  pg.display.set_mode((screen_width, screen_height))
 pg.display.set_caption("Poker")
 
+FONT = pg.font.SysFont("bodoniblack", 24)
 
+available_fonts = pg.font.get_fonts()
+print(available_fonts)
 #POKER TABLE
 poker_table = pg.transform.scale(pg.image.load('PokerBots/Assets/Poker Table.png'),(screen_width, screen_height))
 poker_table_rect = poker_table.get_rect()
@@ -71,6 +74,29 @@ for value in chip_values:
     chip_name = f"{value} Chip"
     file_path = f"PokerBots/Assets/{value}Chip_TopDown.png"
     chip_images[chip_name] = pg.transform.scale(pg.image.load(file_path), (64,64))
+
+def draw_player_chips(screen, players):
+    chip_positions = [
+        (204, 76),
+        (1228, 76),
+        (204, 588),
+        (1228, 588)
+    ]
+
+    box_width = 105
+    box_height = 40
+
+    for i, player in enumerate(players):
+        chip_text = f"{player.chips}"
+        text_surface = FONT.render(chip_text, True, (0, 0, 0))
+        text_rect = text_surface.get_rect()
+        box_x, box_y = chip_positions[i]
+        
+        # Center the text within the box
+        text_rect.center = (box_x + box_width // 2, box_y + box_height // 2)
+
+        pg.draw.rect(screen, (255, 255, 255), (box_x, box_y, box_width, box_height))  # Box
+        screen.blit(text_surface, text_rect)
 
 class Player:
     def __init__(self, name, chips=1000):
@@ -427,6 +453,7 @@ while running:
     screen.blit(bet_button,bet_button_rect.topleft)
     screen.blit(fold_button, fold_button_rect.topleft)
     draw_cards()
+    draw_player_chips(screen,game.players)
 
     if waiting_for_bet:
         bet_input.draw(screen)
