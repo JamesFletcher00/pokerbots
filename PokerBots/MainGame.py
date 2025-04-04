@@ -11,10 +11,8 @@ screen_height = 1024
 screen =  pg.display.set_mode((screen_width, screen_height))
 pg.display.set_caption("Poker")
 
-FONT = pg.font.SysFont("bodoniblack", 24)
+FONT = pg.font.SysFont("bodoniblack", 36)
 
-available_fonts = pg.font.get_fonts()
-print(available_fonts)
 #POKER TABLE
 poker_table = pg.transform.scale(pg.image.load('PokerBots/Assets/Poker Table.png'),(screen_width, screen_height))
 poker_table_rect = poker_table.get_rect()
@@ -117,7 +115,21 @@ class Player:
 
 class PokerHandEvaluator:
     @staticmethod
-    def evaluate_hand(cards):
+    def evaluate_hand(player_hand, community_cards):
+        all_cards = player_hand + community_cards
+        best_hand = (0, [0])
+
+        for five_card_hand in combinations(all_cards, 5):
+            hand_result = PokerHandEvaluator.evaluate_five_card_hand(five_card_hand)
+            hand_rank = hand_ranks.index(hand_result[0])  # Convert hand name to rank index
+            
+            if best_hand is None or hand_rank > best_hand[0] or (hand_rank == best_hand[0] and hand_result[1:] > best_hand[1:]):
+                best_hand = (hand_rank,) + hand_result[1:]  # Ensure tuple format for comparison
+
+        return best_hand
+
+    @staticmethod
+    def evaluate_five_card_hand(cards):
         values = sorted([rank_values[card.rank] for card in cards], reverse=True)
         suits = [card.suit for card in cards]
         value_count = Counter(values)
@@ -170,7 +182,8 @@ class PokerHandEvaluator:
             kicker = sorted([k for k in value_count if k != pairs[0]], reverse=True)[:3]
             return ("One Pair", pairs[0], kicker)
 
-        return ("High Card", sorted(values, reverse=True)[:5])
+        else:
+            return ("High Card", sorted(values, reverse=True)[:5])
     
 
 class GameLoop:
@@ -185,6 +198,7 @@ class GameLoop:
         self.flop = []
         self.turn = []
         self.river = []
+        self.community_cards = []
         self.current_bet = 0
         self.round_active = True
     
@@ -208,11 +222,6 @@ class GameLoop:
     def handle_betting_round(self):
         all_bets_equal = all(player.total_bet == self.current_bet and self.current_bet > 0 for player in self.players if not player.folded)
         all_checked = all(player.checked for player in self.players if not player.folded)
-
-        print(f"Current State: {self.state}")
-        print(f"All Bets Equal: {all_bets_equal}")
-        print(f"Current Bet: {self.current_bet}")
-        print("Player Bets:", [(player.name, player.total_bet) for player in self.players])
 
         if all_bets_equal or all_checked:
             if self.state == "pre-flop":
@@ -286,15 +295,24 @@ class GameLoop:
         if len(self.players) == 1:
             self.determine_winner()
 
-
     def determine_winner(self):
         player_hands = {}
-        for player in self.players:
-            hand = PokerHandEvaluator.evaluate_hand(player.hand)
-            player_hands[player.name] = hand
 
-        winner = max(player_hands.items(), key=lambda x: x[1])
-        print(f"Winner: {winner[0]} with {winner[1][0]}")
+        for player in self.players:
+            if not player.folded:
+                best_hand = PokerHandEvaluator.evaluate_hand(player.hand, self.community_cards)
+                if best_hand:  # Ensure we only add valid hands
+                    player_hands[player.name] = best_hand
+
+        if not player_hands:  # If no valid hands, return early
+            print("No valid hands available. No winner.")
+            return None
+
+        winner = max(player_hands.items(), key=lambda x: x[1])  # Compare hand rankings correctly
+        winner_name, winner_hand = winner
+
+        print(f"Winner: {winner_name} with {hand_ranks[winner_hand[0]]}")
+
 
 
 class TextInput:
@@ -365,10 +383,9 @@ def draw_cards():
 
 def display_bet_ui():
     """Display the current player's bet and the pot."""
-    font = pg.font.Font(None, 36)
     current_player = game.players[game.current_turn]
-    bet_text = font.render(f"{current_player.name}'s Bet: {current_player.bet}", True, (255, 255, 255))
-    pot_text = font.render(f"Pot: {game.pot}", True, (255, 255, 255))
+    bet_text = FONT.render(f"{current_player.name}'s Bet: {current_player.bet}", True, (255, 255, 255))
+    pot_text = FONT.render(f"Pot: {game.pot}", True, (255, 255, 255))
     screen.blit(bet_text, (screen_width // 2 - 150, screen_height - 100))
     screen.blit(pot_text, (screen_width // 2 - 100, screen_height - 150))
     
