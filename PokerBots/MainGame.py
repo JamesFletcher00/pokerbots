@@ -224,7 +224,11 @@ class GameLoop:
                 player.receive_card(self.deck.draw_card())
 
     def reveal_community_cards(self, num):
-        return [self.deck.draw_card() for _ in range(num)]
+        drawn_cards = [self.deck.draw_card() for _ in range(num)]
+        self.community_cards.extend(drawn_cards)  # Add the drawn cards to the community_cards list
+        print(f"{drawn_cards}")
+        return drawn_cards
+
 
     def next_turn(self):
         if len(self.players) == 1:
@@ -326,7 +330,7 @@ class GameLoop:
         print("Community cards:", self.community_cards)
         for name, hand_result in player_hands.items():
             print(f"{name}: {hand_result}")
-            
+
         winner = max(player_hands.items(), key=lambda x: x[1])  # Sort by hand ranking and tiebreaker
         winner_name, winner_hand = winner
 
