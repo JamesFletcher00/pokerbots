@@ -40,6 +40,14 @@ card_values = {
     'Two': 2, 'Three': 3, 'Four': 4, 'Five': 5, 'Six': 6, 'Seven': 7,
     'Eight': 8, 'Nine': 9, 'Ten': 10, 'Jack': 11, 'Queen': 12, 'King': 13, 'Ace': 14
 }
+blind_locations = {
+    (64,64),
+    (1408, 64),
+    (64, 576),
+    (1408, 576)
+}
+#    screen.blit(small_blind, (self.players[0]), blind_locations(?))
+#    screen.blit(big_blind, (self.players[1]), blind_locations(?))
 
 for suit in suits:
     for rank in ranks:
@@ -216,6 +224,8 @@ class GameLoop:
         self.community_cards = []
         self.current_bet = 0
         self.round_active = True
+        self.small_blind_player = self.players[0]
+        self.big_blind_player = self.players[1]
     
     def deal_hole_cards(self):
         for player in self.players:
@@ -506,7 +516,4 @@ while running:
 
             
 pg.quit()
-#    screen.blit(big_blind, (64, 64))
-#    screen.blit(small_blind, (64, 576))
-#    screen.blit(big_blind, (1408, 64))
-#    screen.blit(small_blind, (1408, 576))
+
