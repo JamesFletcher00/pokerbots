@@ -40,14 +40,6 @@ card_values = {
     'Two': 2, 'Three': 3, 'Four': 4, 'Five': 5, 'Six': 6, 'Seven': 7,
     'Eight': 8, 'Nine': 9, 'Ten': 10, 'Jack': 11, 'Queen': 12, 'King': 13, 'Ace': 14
 }
-blind_locations = {
-    (64,64),
-    (1408, 64),
-    (64, 576),
-    (1408, 576)
-}
-#    screen.blit(small_blind, (self.players[0]), blind_locations(?))
-#    screen.blit(big_blind, (self.players[1]), blind_locations(?))
 
 for suit in suits:
     for rank in ranks:
@@ -217,15 +209,16 @@ class GameLoop:
         self.state = "pre-flop"
         self.current_turn = 0
         self.highest_bet_this_round = 0
-
         self.flop = []
         self.turn = []
         self.river = []
         self.community_cards = []
         self.current_bet = 0
         self.round_active = True
+        self.dealer_index = -1
         self.small_blind_player = self.players[0]
         self.big_blind_player = self.players[1]
+        
     
     def deal_hole_cards(self):
         for player in self.players:
@@ -239,6 +232,20 @@ class GameLoop:
         print(f"{drawn_cards}")
         return drawn_cards
 
+    def draw_blinds(self, screen):
+        blind_locations = [
+        (64, 64),
+        (1408, 64),
+        (64, 576),
+        (1408, 576)
+        ]
+
+        dealer_index = self.dealer_index
+        sb_index = (dealer_index + 1) % len(self.players)
+        bb_index = (dealer_index + 2) % len(self.players)
+
+        screen.blit(small_blind, blind_locations[sb_index])
+        screen.blit(big_blind, blind_locations[bb_index])
 
     def next_turn(self):
         if len(self.players) == 1:
@@ -498,11 +505,13 @@ while running:
         #game.reset_player_actions()
         #game.round_active = True  # Restart the round for the next phase
 
+
     screen.blit(poker_table, poker_table_rect)
     #screen.blit(check_button, check_button_rect.topleft)
     screen.blit(call_button,call_button_rect.topleft)
     screen.blit(bet_button,bet_button_rect.topleft)
     screen.blit(fold_button, fold_button_rect.topleft)
+    game.draw_blinds(screen)
     draw_cards()
     draw_player_chips(screen,game.players)
 
