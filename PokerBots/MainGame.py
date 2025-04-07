@@ -36,19 +36,9 @@ hand_ranks = {
     "Royal Flush": 9
 }
 
-card_values = {'2': 2,
-               '3': 3,
-                '4': 4,
-                '5': 5,
-                '6': 6,
-                '7': 7,
-                '8': 8,
-                '9': 9,
-                '10': 10,
-                'J': 11,
-                'Q': 12,
-                'K': 13,
-                'A': 14
+card_values = {
+    'Two': 2, 'Three': 3, 'Four': 4, 'Five': 5, 'Six': 6, 'Seven': 7,
+    'Eight': 8, 'Nine': 9, 'Ten': 10, 'Jack': 11, 'Queen': 12, 'King': 13, 'Ace': 14
 }
 
 for suit in suits:
@@ -70,12 +60,12 @@ class Card:
         return f"Card('{self.rank}', '{self.suit}')"
     
     def get_card_ranks(hand):
-        return sorted ([card_values[card[0]] for card in hand], reverse=True)
+        return sorted ([card_values[card.rank] for card in hand], reverse=True)
         
     def count_ranks(hand):
-        values = [card[0] for card in hand]
-        counts = Counter(values)
-        return counts
+        values = [card.rank for card in hand]
+        return Counter(values)
+    
     
 class Deck:
     def __init__(self):
@@ -139,21 +129,50 @@ class Player:
         return [str(card) for card in self.hand]
 
 class PokerHandEvaluator:
+
+    @staticmethod
     def is_straight(ranks):
-        return ranks == list(range(ranks[0], ranks[0] - 5, -1)) or ranks == [14,5,4,3,2]
-    
+        return ranks == list(range(ranks[0], ranks[0] - 5, -1)) or ranks == [14, 5, 4, 3, 2]
+
+    @staticmethod
     def is_flush(hand):
-        suits = [card[1] for card in hand]
+        suits = [card.suit for card in hand]
         return len(set(suits)) == 1
 
     @staticmethod
-    def evaluate_five_card_hand(hand):
-        """Evaluates a five-card poker hand and returns (rank, tiebreaker)."""
+    def evaluate_five_card_hand(hand, community_cards=None):
+        """Evaluates the best possible five-card poker hand from the player's hand and community cards."""
+        if community_cards:
+            all_cards = hand + community_cards
+
+            print("\n--- Evaluating player ---")
+            print("Player hand:", hand)
+            print("Community cards:", community_cards)
+            print("All cards:", all_cards)
+
+            if len(all_cards) < 5:
+                return (0, [])  # Not enough cards to evaluate
+
+            possible_hands = [
+                PokerHandEvaluator.evaluate_five_card_hand(list(combo))
+                for combo in combinations(all_cards, 5)
+            ]
+
+            if not possible_hands:
+                return (0, [])  # No valid hands found
+
+            return max(possible_hands, key=lambda x: x[0])
+
         if not hand or len(hand) != 5:
             return (0, [])  # Invalid hand case
-        
-        ranks = Card.get_card_ranks(hand)  # Get numeric values of cards
-        counts = Card.count_ranks(hand)  # Count occurrences of each rank
+
+        # Logging ranks and counts for visibility
+        ranks = Card.get_card_ranks(hand)
+        print("Evaluating 5-card hand ranks:", ranks)
+
+        counts = Card.count_ranks(hand)
+        print("Rank counts:", counts)
+
         flush = PokerHandEvaluator.is_flush(hand)
         straight = PokerHandEvaluator.is_straight(ranks)
 
@@ -163,13 +182,13 @@ class PokerHandEvaluator:
         if straight and flush:
             return (9, ranks)  # Royal Flush or Straight Flush
         if sorted_counts[0][0] == 4:
-            return (7, [sorted_counts[0][1], sorted_counts[1][1]])  # Four of a Kind (rank, kicker)
+            return (7, [sorted_counts[0][1], sorted_counts[1][1]])  # Four of a Kind
         if sorted_counts[0][0] == 3 and sorted_counts[1][0] == 2:
-            return (6, [sorted_counts[0][1], sorted_counts[1][1]])  # Full House (trips, pair)
+            return (6, [sorted_counts[0][1], sorted_counts[1][1]])  # Full House
         if flush:
-            return (5, ranks)  # Flush (sorted cards)
+            return (5, ranks)  # Flush
         if straight:
-            return (4, ranks)  # Straight (highest card in straight)
+            return (4, ranks)  # Straight
         if sorted_counts[0][0] == 3:
             return (3, [sorted_counts[0][1]] + ranks)  # Three of a Kind
         if sorted_counts[0][0] == 2 and sorted_counts[1][0] == 2:
@@ -177,21 +196,8 @@ class PokerHandEvaluator:
         if sorted_counts[0][0] == 2:
             return (1, [sorted_counts[0][1]] + ranks)  # One Pair
         return (0, ranks)  # High Card
-    
-    @staticmethod
-    def evaluate_best_hand(hand, community_cards):
-        """Evaluates the best possible five-card poker hand from seven cards."""
-        all_cards = hand + community_cards
-        if len(all_cards) < 5:
-            return (0, [])  # Not enough cards to evaluate
-        
-        possible_hands = [PokerHandEvaluator.evaluate_five_card_hand(list(combo)) for combo in combinations(all_cards, 5)]
-        
-        if not possible_hands:
-            return (0, [])  # No valid hands found
-        
-        best_hand = max(possible_hands, key=lambda x: (x[0], x[1]))  # Consider hand rank and tiebreakers
-        return best_hand
+
+
 
 
 
@@ -309,13 +315,18 @@ class GameLoop:
 
         for player in self.players:
             if not player.folded:
-                best_hand = PokerHandEvaluator.evaluate_best_hand(player.hand, self.community_cards)
+                best_hand = PokerHandEvaluator.evaluate_five_card_hand(player.hand, self.community_cards)
                 player_hands[player.name] = best_hand
 
         if not player_hands:
             print("No valid hands available. No winner.")
             return None
 
+        print("Evaluating hand:", player.hand)
+        print("Community cards:", self.community_cards)
+        for name, hand_result in player_hands.items():
+            print(f"{name}: {hand_result}")
+            
         winner = max(player_hands.items(), key=lambda x: x[1])  # Sort by hand ranking and tiebreaker
         winner_name, winner_hand = winner
 
