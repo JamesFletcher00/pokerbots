@@ -216,8 +216,12 @@ class GameLoop:
         self.current_bet = 0
         self.round_active = True
         self.dealer_index = -1
+        self.sb_index = 0
+        self.bb_index = 1
+        self.betting_order = []
         self.small_blind_player = self.players[0]
         self.big_blind_player = self.players[1]
+        self.first_betting_round = True
         
     
     def deal_hole_cards(self):
@@ -225,6 +229,9 @@ class GameLoop:
             player.hand = []
             for _ in range(2):
                 player.receive_card(self.deck.draw_card())
+        
+        self.post_blinds()
+        self.turn_index = (self.bb_index + 1) % len(self.players)  # Next player acts first
 
     def reveal_community_cards(self, num):
         drawn_cards = [self.deck.draw_card() for _ in range(num)]
@@ -240,12 +247,27 @@ class GameLoop:
         (1408, 576)
         ]
 
-        dealer_index = self.dealer_index
-        sb_index = (dealer_index + 1) % len(self.players)
-        bb_index = (dealer_index + 2) % len(self.players)
+        self.dealer_index = self.dealer_index
+        self.sb_index = (self.dealer_index + 1) % len(self.players)
+        self.bb_index = (self.dealer_index + 2) % len(self.players)
 
-        screen.blit(small_blind, blind_locations[sb_index])
-        screen.blit(big_blind, blind_locations[bb_index])
+        screen.blit(small_blind, blind_locations[self.sb_index])
+        screen.blit(big_blind, blind_locations[self.bb_index])
+    
+    def post_blinds(self):
+
+        small_blind_player = self.players[self.sb_index]
+        big_blind_player = self.players[self.bb_index]
+
+        small_blind_player.current_bet = 25
+        small_blind_player.total_bet = 25
+        small_blind_player.chips -= 25
+
+        big_blind_player.current_bet = 50
+        big_blind_player.total_bet = 50
+        big_blind_player.chips -= 50
+
+        self.current_bet = 50
 
     def next_turn(self):
         if len(self.players) == 1:
@@ -254,6 +276,26 @@ class GameLoop:
         self.current_turn = (self.current_turn + 1) % len(self.players)
         while self.players[self.current_turn].folded:
             self.current_turn = (self.current_turn + 1) % len(self.players)
+
+    def start_betting_round(self):
+        self.betting_order = []
+
+        if self.state == "pre-flop":
+            # First to act is the player after the big blind
+            start_index = (self.bb_index + 1) % len(self.players)
+        else:
+            # After the flop, first to act is the player after the dealer
+            start_index = (self.dealer_index + 1) % len(self.players)
+
+        # Add players to betting order starting from the correct index
+        for i in range(len(self.players)):
+            index = (start_index + i) % len(self.players)
+            player = self.players[index]
+            if not player.folded:
+                self.betting_order.append(player)
+
+        self.current_betting_index = 0
+        self.turn_player = self.betting_order[0]
     
     def handle_betting_round(self):
         all_bets_equal = all(player.total_bet == self.current_bet and self.current_bet > 0 for player in self.players if not player.folded)
@@ -261,6 +303,7 @@ class GameLoop:
 
         if all_bets_equal or all_checked:
             if self.state == "pre-flop":
+                self.start_betting_round()
                 self.flop.extend(self.reveal_community_cards(3))  # Flop
                 self.state = "flop"
                 self.reset_bets()
@@ -290,6 +333,12 @@ class GameLoop:
             self.current_turn = 0
             player.checked = False      
 
+    def next_hand(self):
+        while True:
+            self.turn_index = (self.turn_index + 1) % len(self.players)
+            current_player = self.players[self.turn_index]
+            if not current_player.folded and current_player.chips > 0:
+                break
           
     def reset_player_actions(self):
         """Reset player's bet and folded state after each hand."""
