@@ -13,7 +13,6 @@ class PokerGameUI:
         self.FONT = pg.font.SysFont("bodoniblack", 36)
 
         self.load_assets()
-
         self.game = GameLoop(["AIan", "AIleen", "AInsley", "AbigAIl"])
         self.game.deal_hole_cards()
 
@@ -101,18 +100,17 @@ class PokerGameUI:
             self.screen.blit(self.card_images[name], (448 + i * 128, 384))
 
     def display_bet_ui(self):
-        current_player = self.game.players[self.game.current_turn]
-        bet_text = self.FONT.render(f"{current_player.name}'s Bet: {current_player.bet}", True, (255, 255, 255))
-        pot_text = self.FONT.render(f"Pot: {self.game.pot}", True, (255, 255, 255))
-        self.screen.blit(bet_text, (self.screen_width // 2 - 150, self.screen_height - 100))
-        self.screen.blit(pot_text, (self.screen_width // 2 - 100, self.screen_height - 150))
+        current_player = self.game.betting_manager.current_player()
+        if current_player:
+            bet_text = self.FONT.render(f"{current_player.name}'s Bet: {current_player.bet}", True, (255, 255, 255))
+            pot_text = self.FONT.render(f"Pot: {self.game.pot}", True, (255, 255, 255))
+            self.screen.blit(bet_text, (self.screen_width // 2 - 150, self.screen_height - 100))
+            self.screen.blit(pot_text, (self.screen_width // 2 - 100, self.screen_height - 150))
 
     def draw_blinds(self):
         sb_index = self.game.betting_manager.sb_index
         bb_index = self.game.betting_manager.bb_index
-
         locations = [(64, 64), (1408, 64), (64, 576), (1408, 576)]
-
         self.screen.blit(self.small_blind, locations[sb_index])
         self.screen.blit(self.big_blind, locations[bb_index])
 
@@ -121,44 +119,42 @@ class PokerGameUI:
         while running:
             self.screen.blit(self.poker_table, self.poker_table_rect)
             for event in pg.event.get():
-                if event.type == pg.QUIT:
-                    running = False
-                elif event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE:
+                if event.type == pg.QUIT or (event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE):
                     running = False
                     pg.quit()
                 elif event.type == pg.MOUSEBUTTONDOWN:
-                    current_player = self.game.players[self.game.current_turn]
+                    current_player = self.game.betting_manager.current_player()
+                    if not current_player:
+                        continue
                     if self.bet_button_rect.collidepoint(event.pos):
                         self.waiting_for_bet = True
                     elif self.call_button_rect.collidepoint(event.pos):
-                        call_amount = self.game.current_bet - current_player.total_bet
+                        call_amount = self.game.betting_manager.current_bet - current_player.total_bet
                         if call_amount > 0:
                             current_player.total_bet += call_amount
                             current_player.chips -= call_amount
                             self.game.pot += call_amount
-                            self.game.handle_betting_round()
                         else:
                             current_player.checked = True
-                            self.game.handle_betting_round()
+                        self.game.betting_manager.next_turn()
                     elif self.fold_button_rect.collidepoint(event.pos):
-                        self.game.remove_folded_player(self.game.current_turn)
+                        current_player.folded = True
+                        self.game.betting_manager.next_turn()
                     elif self.waiting_for_bet and self.ok_button.collidepoint(event.pos):
                         try:
                             amount = int(self.bet_input.text)
-                            if 0 < amount <= current_player.chips and amount >= self.game.current_bet - current_player.total_bet:
+                            if 0 < amount <= current_player.chips and amount >= self.game.betting_manager.current_bet - current_player.total_bet:
                                 current_player.total_bet += amount
                                 current_player.chips -= amount
                                 self.game.pot += amount
-                                self.game.current_bet = max(self.game.current_bet, current_player.total_bet)
-                                self.game.handle_betting_round()
+                                self.game.betting_manager.current_bet = max(self.game.betting_manager.current_bet, current_player.total_bet)
                                 self.waiting_for_bet = False
                                 self.bet_input.text = ""
+                                self.game.betting_manager.next_turn()
                         except ValueError:
                             pass
                 if self.waiting_for_bet:
                     self.bet_input.handle_event(event)
-                if self.game.state == "end_round":
-                    running = False
 
             self.screen.blit(self.poker_table, self.poker_table_rect)
             self.screen.blit(self.call_button, self.call_button_rect.topleft)
@@ -181,3 +177,4 @@ class PokerGameUI:
 if __name__ == "__main__":
     ui = PokerGameUI()
     ui.run()
+
