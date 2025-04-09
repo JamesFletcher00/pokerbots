@@ -1,6 +1,6 @@
 import pygame as pg
 import random
-from GameLogic import GameLoop, hand_ranks, suits, ranks, card_values
+from GameLogic import GameLoop, BettingManager, hand_ranks, suits, ranks, card_values
 
 pg.init()
 
@@ -108,9 +108,13 @@ class PokerGameUI:
         self.screen.blit(pot_text, (self.screen_width // 2 - 100, self.screen_height - 150))
 
     def draw_blinds(self):
+        sb_index = self.game.betting_manager.sb_index
+        bb_index = self.game.betting_manager.bb_index
+
         locations = [(64, 64), (1408, 64), (64, 576), (1408, 576)]
-        self.screen.blit(self.small_blind, locations[self.game.sb_index])
-        self.screen.blit(self.big_blind, locations[self.game.bb_index])
+
+        self.screen.blit(self.small_blind, locations[sb_index])
+        self.screen.blit(self.big_blind, locations[bb_index])
 
     def run(self):
         running = True

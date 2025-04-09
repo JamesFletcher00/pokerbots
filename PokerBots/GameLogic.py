@@ -1,3 +1,5 @@
+# Full updated script using BettingManager and cleaned GameLoop
+
 import random
 from collections import Counter
 from itertools import combinations
@@ -6,16 +8,9 @@ suits = ["Spades", "Hearts", "Clubs", "Diamonds"]
 ranks = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"]
 
 hand_ranks = {
-    "High Card": 0,
-    "One Pair": 1,
-    "Two Pair": 2,
-    "Three of a Kind": 3,
-    "Straight": 4,
-    "Flush": 5,
-    "Full House": 6,
-    "Four of a Kind": 7,
-    "Straight Flush": 8,
-    "Royal Flush": 9
+    "High Card": 0, "One Pair": 1, "Two Pair": 2, "Three of a Kind": 3,
+    "Straight": 4, "Flush": 5, "Full House": 6, "Four of a Kind": 7,
+    "Straight Flush": 8, "Royal Flush": 9
 }
 
 card_values = {
@@ -69,7 +64,6 @@ class Player:
         return [str(card) for card in self.hand]
 
 class PokerHandEvaluator:
-
     @staticmethod
     def is_straight(ranks):
         return ranks == list(range(ranks[0], ranks[0] - 5, -1)) or ranks == [14, 5, 4, 3, 2]
@@ -96,10 +90,8 @@ class PokerHandEvaluator:
 
         ranks = Card.get_card_ranks(hand)
         counts = Card.count_ranks(hand)
-
         flush = PokerHandEvaluator.is_flush(hand)
         straight = PokerHandEvaluator.is_straight(ranks)
-
         sorted_counts = sorted(((cnt, rank) for rank, cnt in counts.items()), reverse=True)
 
         if straight and flush:
@@ -120,151 +112,107 @@ class PokerHandEvaluator:
             return (1, [sorted_counts[0][1]] + ranks)
         return (0, ranks)
 
+class BettingManager:
+    def __init__(self, players, dealer_index):
+        self.players = players
+        self.dealer_index = dealer_index
+        self.sb_index = (dealer_index + 1) % len(players)
+        self.bb_index = (dealer_index + 2) % len(players)
+        self.current_bet = 0
+        self.betting_order = []
+        self.turn_index = 0
+
+    def post_blinds(self):
+        sb = self.players[self.sb_index]
+        bb = self.players[self.bb_index]
+        sb.current_bet = 25
+        sb.total_bet = 25
+        sb.chips -= 25
+        bb.current_bet = 50
+        bb.total_bet = 50
+        bb.chips -= 50
+        self.current_bet = 50
+        print(f"{sb.name} posts small blind (25)")
+        print(f"{bb.name} posts big blind (50)")
+
+    def build_betting_order(self, phase):
+        self.betting_order = []
+        start_index = (self.bb_index + 1) % len(self.players) if phase == "pre-flop" else (self.dealer_index + 1) % len(self.players)
+        for i in range(len(self.players)):
+            index = (start_index + i) % len(self.players)
+            player = self.players[index]
+            if not player.folded:
+                self.betting_order.append(player)
+        self.turn_index = 0
+        print("Betting order:", [p.name for p in self.betting_order])
+
+    def current_player(self):
+        return self.betting_order[self.turn_index] if self.turn_index < len(self.betting_order) else None
+
+    def next_turn(self):
+        self.turn_index += 1
+        return self.current_player() if self.turn_index < len(self.betting_order) else None
+
 class GameLoop:
     def __init__(self, player_names, starting_chips=1000):
         self.deck = Deck()
         self.players = [Player(name, starting_chips) for name in player_names]
         self.pot = 0
         self.state = "pre-flop"
-        self.current_turn = 0
-        self.highest_bet_this_round = 0
         self.flop = []
         self.turn = []
         self.river = []
         self.community_cards = []
-        self.current_bet = 0
-        self.round_active = True
-        self.dealer_index = -1
-        self.sb_index = 0
-        self.bb_index = 1
-        self.betting_order = []
-        self.first_betting_round = True
+        self.dealer_index = 0
+        self.betting_manager = BettingManager(self.players, self.dealer_index)
 
     def deal_hole_cards(self):
         for player in self.players:
-            player.hand = []
-            for _ in range(2):
-                player.receive_card(self.deck.draw_card())
-        self.post_blinds()
-        self.turn_index = (self.bb_index + 1) % len(self.players)
+            player.hand = [self.deck.draw_card(), self.deck.draw_card()]
+        self.betting_manager.post_blinds()
+        self.betting_manager.build_betting_order(self.state)
 
     def reveal_community_cards(self, num):
-        drawn_cards = [self.deck.draw_card() for _ in range(num)]
-        self.community_cards.extend(drawn_cards)
-        return drawn_cards
-
-    def post_blinds(self):
-        small_blind_player = self.players[self.sb_index]
-        big_blind_player = self.players[self.bb_index]
-
-        small_blind_player.current_bet = 25
-        small_blind_player.total_bet = 25
-        small_blind_player.chips -= 25
-
-        big_blind_player.current_bet = 50
-        big_blind_player.total_bet = 50
-        big_blind_player.chips -= 50
-
-        self.current_bet = 50
-
-    def next_turn(self):
-        if len(self.players) == 1:
-            self.round_active = False
-            return
-        self.current_turn = (self.current_turn + 1) % len(self.players)
-        while self.players[self.current_turn].folded:
-            self.current_turn = (self.current_turn + 1) % len(self.players)
-
-    def start_betting_round(self):
-        self.betting_order = []
-        start_index = (self.bb_index + 1) % len(self.players) if self.state == "pre-flop" else (self.dealer_index + 1) % len(self.players)
-        for i in range(len(self.players)):
-            index = (start_index + i) % len(self.players)
-            player = self.players[index]
-            if not player.folded:
-                self.betting_order.append(player)
-        self.current_betting_index = 0
-        self.turn_player = self.betting_order[0]
+        drawn = [self.deck.draw_card() for _ in range(num)]
+        self.community_cards.extend(drawn)
+        return drawn
 
     def handle_betting_round(self):
-        all_bets_equal = all(player.total_bet == self.current_bet and self.current_bet > 0 for player in self.players if not player.folded)
-        all_checked = all(player.checked for player in self.players if not player.folded)
-
-        if all_bets_equal or all_checked:
-            if self.state == "pre-flop":
-                self.start_betting_round()
-                self.flop.extend(self.reveal_community_cards(3))
-                self.state = "flop"
-                self.reset_bets()
-            elif self.state == "flop":
-                self.turn.extend(self.reveal_community_cards(1))
-                self.state = "turn"
-                self.reset_bets()
-            elif self.state == "turn":
-                self.river.extend(self.reveal_community_cards(1))
-                self.state = "river"
-                self.reset_bets()
-            elif self.state == "river":
-                self.state = "showdown"
-                self.determine_winner()
+        current_player = self.betting_manager.current_player()
+        if current_player:
+            print(f"{current_player.name}'s turn to act.")
+            # Here you'd hook into UI or AI logic to handle action
+            self.betting_manager.next_turn()
         else:
-            self.next_turn()
+            print("Betting round complete. Moving to next phase.")
+            self.advance_game_phase()
 
-    def reset_bets(self):
-        for player in self.players:
-            player.bet = 0
-            player.checked = False
-        self.current_bet = 0
-        self.current_turn = 0
-
-    def reset_player_actions(self):
-        for player in self.players:
-            player.bet = 0
-            player.folded = False
-
-    def handle_bet(self, player, bet_amount):
-        if bet_amount < self.highest_bet_this_round:
-            print(f"Bet must be {self.highest_bet_this_round}. Choose another action.")
-            return False
-        else:
-            player.chips -= bet_amount
-            self.pot += bet_amount
-            player.bet = bet_amount
-            self.highest_bet_this_round = max(self.highest_bet_this_round, bet_amount)
-            self.next_turn()
-            return True
-
-    def handle_call(self, player):
-        if player.bet >= self.highest_bet_this_round:
-            return False
-        call_amount = min(self.highest_bet_this_round, player.chips)
-        player.chips -= call_amount
-        self.pot += call_amount
-        player.bet = self.highest_bet_this_round
-        self.next_turn()
-
-    def remove_folded_player(self, player_index):
-        if len(self.players) > 1:
-            del self.players[player_index]
-            self.current_turn = player_index % len(self.players)
-            self.round_winner()
-        else:
-            self.state = "end_round"
-
-    def round_winner(self):
-        if len(self.players) == 1:
+    def advance_game_phase(self):
+        if self.state == "pre-flop":
+            self.flop = self.reveal_community_cards(3)
+            self.state = "flop"
+        elif self.state == "flop":
+            self.turn = self.reveal_community_cards(1)
+            self.state = "turn"
+        elif self.state == "turn":
+            self.river = self.reveal_community_cards(1)
+            self.state = "river"
+        elif self.state == "river":
+            self.state = "showdown"
             self.determine_winner()
 
+        self.betting_manager.build_betting_order(self.state)
+
     def determine_winner(self):
-        player_hands = {}
-        for player in self.players:
-            if not player.folded:
-                best_hand = PokerHandEvaluator.evaluate_five_card_hand(player.hand, self.community_cards)
-                player_hands[player.name] = best_hand
+        print("Showdown! Determining winner...")
+        player_hands = {
+            player.name: PokerHandEvaluator.evaluate_five_card_hand(player.hand, self.community_cards)
+            for player in self.players if not player.folded
+        }
         if not player_hands:
-            print("No valid hands available. No winner.")
+            print("No valid hands. No winner.")
             return None
         winner = max(player_hands.items(), key=lambda x: x[1])
-        winner_name, winner_hand = winner
-        print(f"Winner: {winner_name} with {list(hand_ranks.keys())[winner_hand[0]]}")
-        return winner_name
+        print(f"Winner: {winner[0]} with {list(hand_ranks.keys())[winner[1][0]]}")
+        return winner[0]
+
