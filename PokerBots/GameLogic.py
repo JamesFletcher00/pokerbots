@@ -151,7 +151,11 @@ class BettingManager:
 
     def next_turn(self):
         self.turn_index += 1
-        return self.turn_index < len(self.betting_order)
+        while self.turn_index < len(self.betting_order):
+            if not self.betting_order[self.turn_index].folded:
+                return True
+            self.turn_index += 1
+        return False
 
 class GameLoop:
     def __init__(self, player_names, starting_chips=1000):
@@ -171,6 +175,8 @@ class GameLoop:
             player.hand = [self.deck.draw_card(), self.deck.draw_card()]
         self.betting_manager.post_blinds()
         self.betting_manager.build_betting_order(self.state)
+        self.pot += 25 + 50
+
 
     def reveal_community_cards(self, num):
         drawn = [self.deck.draw_card() for _ in range(num)]

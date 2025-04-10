@@ -11,6 +11,7 @@ class PokerGameUI:
         self.screen = pg.display.set_mode((self.screen_width, self.screen_height))
         pg.display.set_caption("Poker")
         self.FONT = pg.font.SysFont("bodoniblack", 36)
+        self.POT_FONT = pg.font.SysFont("bodoniblack", 72)
 
         self.load_assets()
         self.game = GameLoop(["AIan", "AIleen", "AInsley", "AbigAIl"])
@@ -103,9 +104,12 @@ class PokerGameUI:
         current_player = self.game.betting_manager.current_player()
         if current_player:
             bet_text = self.FONT.render(f"{current_player.name}'s Bet: {current_player.bet}", True, (255, 255, 255))
-            pot_text = self.FONT.render(f"Pot: {self.game.pot}", True, (255, 255, 255))
+            pot_text = self.POT_FONT.render(f"Pot: {self.game.pot}", True, (0, 0, 0))
             self.screen.blit(bet_text, (self.screen_width // 2 - 150, self.screen_height - 100))
-            self.screen.blit(pot_text, (self.screen_width // 2 - 100, self.screen_height - 150))
+            box_rect = pg.Rect(524, 268, 1011 - 524, 371 - 268)
+            text_rect = pot_text.get_rect(center=box_rect.center)
+            self.screen.blit(pot_text, text_rect)
+
 
     def draw_blinds(self):
         sb_index = self.game.betting_manager.sb_index
