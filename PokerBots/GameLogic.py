@@ -116,8 +116,8 @@ class BettingManager:
     def __init__(self, players, dealer_index):
         self.players = players
         self.dealer_index = dealer_index
-        self.sb_index = (dealer_index + 1) % len(players)
-        self.bb_index = (dealer_index + 2) % len(players)
+        self.sb_index = (dealer_index) % len(players)
+        self.bb_index = (dealer_index + 1) % len(players)
         self.current_bet = 0
         self.betting_order = []
         self.turn_index = 0
