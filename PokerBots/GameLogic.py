@@ -151,7 +151,7 @@ class BettingManager:
 
     def next_turn(self):
         self.turn_index += 1
-        return self.current_player() if self.turn_index < len(self.betting_order) else None
+        return self.turn_index < len(self.betting_order)
 
 class GameLoop:
     def __init__(self, player_names, starting_chips=1000):

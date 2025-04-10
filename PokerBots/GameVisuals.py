@@ -117,17 +117,21 @@ class PokerGameUI:
     def run(self):
         running = True
         while running:
+            current_player = self.game.betting_manager.current_player()
             self.screen.blit(self.poker_table, self.poker_table_rect)
+
             for event in pg.event.get():
                 if event.type == pg.QUIT or (event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE):
                     running = False
                     pg.quit()
+
                 elif event.type == pg.MOUSEBUTTONDOWN:
-                    current_player = self.game.betting_manager.current_player()
                     if not current_player:
                         continue
+
                     if self.bet_button_rect.collidepoint(event.pos):
                         self.waiting_for_bet = True
+
                     elif self.call_button_rect.collidepoint(event.pos):
                         call_amount = self.game.betting_manager.current_bet - current_player.total_bet
                         if call_amount > 0:
@@ -136,10 +140,17 @@ class PokerGameUI:
                             self.game.pot += call_amount
                         else:
                             current_player.checked = True
-                        self.game.betting_manager.next_turn()
+
+                        has_next = self.game.betting_manager.next_turn()
+                        if not has_next:
+                            self.game.advance_game_phase()
+
                     elif self.fold_button_rect.collidepoint(event.pos):
                         current_player.folded = True
-                        self.game.betting_manager.next_turn()
+                        has_next = self.game.betting_manager.next_turn()
+                        if not has_next:
+                            self.game.advance_game_phase()
+
                     elif self.waiting_for_bet and self.ok_button.collidepoint(event.pos):
                         try:
                             amount = int(self.bet_input.text)
@@ -147,12 +158,19 @@ class PokerGameUI:
                                 current_player.total_bet += amount
                                 current_player.chips -= amount
                                 self.game.pot += amount
-                                self.game.betting_manager.current_bet = max(self.game.betting_manager.current_bet, current_player.total_bet)
+                                self.game.betting_manager.current_bet = max(
+                                    self.game.betting_manager.current_bet,
+                                    current_player.total_bet
+                                )
                                 self.waiting_for_bet = False
                                 self.bet_input.text = ""
-                                self.game.betting_manager.next_turn()
+
+                                has_next = self.game.betting_manager.next_turn()
+                                if not has_next:
+                                    self.game.advance_game_phase()
                         except ValueError:
                             pass
+
                 if self.waiting_for_bet:
                     self.bet_input.handle_event(event)
 
@@ -167,12 +185,16 @@ class PokerGameUI:
             if self.waiting_for_bet:
                 self.bet_input.draw(self.screen)
                 pg.draw.rect(self.screen, (0, 255, 0), self.ok_button)
-                self.screen.blit(pg.font.Font(None, 36).render("OK", True, (0, 0, 0)), (self.ok_button.x + 30, self.ok_button.y + 10))
+                self.screen.blit(
+                    pg.font.Font(None, 36).render("OK", True, (0, 0, 0)),
+                    (self.ok_button.x + 30, self.ok_button.y + 10)
+                )
 
             self.display_bet_ui()
             pg.display.flip()
 
         pg.quit()
+
 
 if __name__ == "__main__":
     ui = PokerGameUI()
