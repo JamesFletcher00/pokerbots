@@ -1,4 +1,5 @@
 import pygame as pg
+import time
 import random
 from GameLogic import GameLoop, BettingManager, hand_ranks, suits, ranks, card_values
 
@@ -25,6 +26,7 @@ class PokerGameUI:
         self.bet_input = self.TextInput(600, 850, 200, 50)
         self.ok_button = pg.Rect(820, 850, 100, 50)
         self.waiting_for_bet = False
+        self.last_state = self.game.state
 
     def load_assets(self):
         def load_scaled(path, size):
@@ -118,10 +120,20 @@ class PokerGameUI:
         self.screen.blit(self.small_blind, locations[sb_index])
         self.screen.blit(self.big_blind, locations[bb_index])
 
+    def update_after_round_reset(self):
+    # Rebuild the card images after new hole cards are dealt
+        self.hole_card_images = {
+            i: [self.card_images[f"{card.rank}_of_{card.suit}"] for card in player.hand]
+            for i, player in enumerate(self.game.players)
+    }
+
+        self.waiting_for_bet = False
+        self.bet_input.text = ""
+
     def run(self):
         running = True
         while running:
-            current_player = self.game.betting_manager.current_player()
+            current_player = self.game.betting_manager.betting_order[self.game.betting_manager.turn_index]
             self.screen.blit(self.poker_table, self.poker_table_rect)
 
             for event in pg.event.get():
@@ -148,12 +160,14 @@ class PokerGameUI:
                         has_next = self.game.betting_manager.next_turn()
                         if not has_next:
                             self.game.advance_game_phase()
+                            self.update_after_round_reset()
 
                     elif self.fold_button_rect.collidepoint(event.pos):
                         current_player.folded = True
                         has_next = self.game.betting_manager.next_turn()
                         if not has_next:
                             self.game.advance_game_phase()
+                            self.update_after_round_reset()
 
                     elif self.waiting_for_bet and self.ok_button.collidepoint(event.pos):
                         try:
@@ -172,6 +186,7 @@ class PokerGameUI:
                                 has_next = self.game.betting_manager.next_turn()
                                 if not has_next:
                                     self.game.advance_game_phase()
+                                    self.update_after_round_reset()
                         except ValueError:
                             pass
 
@@ -193,6 +208,11 @@ class PokerGameUI:
                     pg.font.Font(None, 36).render("OK", True, (0, 0, 0)),
                     (self.ok_button.x + 30, self.ok_button.y + 10)
                 )
+            
+            if self.game.state == "showdown":
+                pg.time.delay(2000)  # 2-second pause to show winner
+                self.game.reset_if_ready()
+                self.update_after_round_reset()
 
             self.display_bet_ui()
             pg.display.flip()

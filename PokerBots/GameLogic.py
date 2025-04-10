@@ -116,35 +116,31 @@ class BettingManager:
     def __init__(self, players, dealer_index):
         self.players = players
         self.dealer_index = dealer_index
-        self.sb_index = (dealer_index) % len(players)
-        self.bb_index = (dealer_index + 1) % len(players)
+        self.sb_index = None
+        self.bb_index = None
         self.current_bet = 0
         self.betting_order = []
         self.turn_index = 0
 
-    def post_blinds(self):
-        sb = self.players[self.sb_index]
-        bb = self.players[self.bb_index]
-        sb.current_bet = 25
-        sb.total_bet = 25
-        sb.chips -= 25
-        bb.current_bet = 50
-        bb.total_bet = 50
-        bb.chips -= 50
-        self.current_bet = 50
-        print(f"{sb.name} posts small blind (25)")
-        print(f"{bb.name} posts big blind (50)")
+    def set_blinds(self):
+        self.sb_index = (self.dealer_index) % len(self.players)
+        self.bb_index = (self.dealer_index + 1) % len(self.players)
 
-    def build_betting_order(self, phase):
+
+    def build_betting_order(self, state):
+        if state == "pre-flop":
+            start_index = (self.bb_index + 1) % len(self.players)
+        else:
+            start_index = (self.dealer_index + 1) % len(self.players)
+
         self.betting_order = []
-        start_index = (self.bb_index + 1) % len(self.players) if phase == "pre-flop" else (self.dealer_index + 1) % len(self.players)
         for i in range(len(self.players)):
-            index = (start_index + i) % len(self.players)
-            player = self.players[index]
-            if not player.folded:
-                self.betting_order.append(player)
-        self.turn_index = 0
-        print("Betting order:", [p.name for p in self.betting_order])
+            idx = (start_index + i) % len(self.players)
+            if not self.players[idx].folded:
+                self.betting_order.append(self.players[idx])
+
+        self.turn_index = 0  # Always reset turn index
+
 
     def current_player(self):
         return self.betting_order[self.turn_index] if self.turn_index < len(self.betting_order) else None
@@ -173,7 +169,8 @@ class GameLoop:
     def deal_hole_cards(self):
         for player in self.players:
             player.hand = [self.deck.draw_card(), self.deck.draw_card()]
-        self.betting_manager.post_blinds()
+        self.betting_manager.set_blinds()
+        self.post_blinds()
         self.betting_manager.build_betting_order(self.state)
         self.pot += 25 + 50
 
@@ -184,14 +181,36 @@ class GameLoop:
         return drawn
 
     def handle_betting_round(self):
-        current_player = self.betting_manager.current_player()
-        if current_player:
-            print(f"{current_player.name}'s turn to act.")
-            # Here you'd hook into UI or AI logic to handle action
-            self.betting_manager.next_turn()
+        players_in_hand = [p for p in self.players if not p.folded]
+
+        all_bets_equal = all(p.total_bet == self.current_bet for p in players_in_hand)
+        all_checked = all(p.checked for p in players_in_hand)
+
+        if (all_bets_equal and self.current_bet > 0) or all_checked:
+            self.advance_game_phase()  # 👈 still use this here!
+            self.reset_bets()
         else:
-            print("Betting round complete. Moving to next phase.")
-            self.advance_game_phase()
+            self.betting_manager.next_turn()
+
+
+    def post_blinds(self):
+        sb_index = self.betting_manager.sb_index
+        bb_index = self.betting_manager.bb_index
+
+        sb = self.players[sb_index]
+        bb = self.players[bb_index]
+
+        sb.current_bet = 25
+        sb.total_bet = 25
+        sb.chips -= 25
+
+        bb.current_bet = 50
+        bb.total_bet = 50
+        bb.chips -= 50
+
+        self.betting_manager.current_bet = 50
+        self.pot += 75
+
 
     def advance_game_phase(self):
         if self.state == "pre-flop":
@@ -210,7 +229,6 @@ class GameLoop:
         self.betting_manager.build_betting_order(self.state)
 
     def determine_winner(self):
-        print("Showdown! Determining winner...")
         player_hands = {
             player.name: PokerHandEvaluator.evaluate_five_card_hand(player.hand, self.community_cards)
             for player in self.players if not player.folded
@@ -218,7 +236,64 @@ class GameLoop:
         if not player_hands:
             print("No valid hands. No winner.")
             return None
-        winner = max(player_hands.items(), key=lambda x: x[1])
-        print(f"Winner: {winner[0]} with {list(hand_ranks.keys())[winner[1][0]]}")
-        return winner[0]
+        
+        winner_name, winner_hand = max(player_hands.items(), key=lambda x: x[1])
+        print(f"Winner: {winner_name} with {list(hand_ranks.keys())[winner_hand[0]]}")
+
+        # ✅ Give pot to winner
+        for player in self.players:
+            if player.name == winner_name:
+                player.chips += self.pot
+                break
+            
+        self.state = "showdown"
+        self._ready_to_reset = True
+        return winner_name
+    
+    def reset_round(self):
+        self.pot = 0
+        self.state = "pre-flop"
+        self.community_cards = []
+        self.flop = []
+        self.turn = []
+        self.river = []
+
+        for player in self.players:
+            player.hand = []
+            player.bet = 0
+            player.total_bet = 0
+            player.folded = False
+            player.checked = False
+
+        # ✅ Rotate dealer
+        self.dealer_index = (self.dealer_index + 1) % len(self.players)
+
+        # ✅ Create new betting manager and update blind positions
+        self.betting_manager = BettingManager(self.players, self.dealer_index)
+        self.betting_manager.set_blinds()
+
+        self.deck = Deck()
+
+        # ✅ DEBUG OUTPUT
+        print(f"[RESET] Dealer index is now: {self.dealer_index}")
+        print(f"[BLINDS] SB: {self.betting_manager.sb_index}, BB: {self.betting_manager.bb_index}")
+
+        # ✅ Deal hole cards and post blinds
+        self.deal_hole_cards()
+
+        # ✅ Build new betting order for this round
+        self.betting_manager.build_betting_order(self.state)
+
+        print("[ORDER] Betting order this round:")
+        for player in self.betting_manager.betting_order:
+            print(f"  - {player.name}")
+
+
+
+
+
+    def reset_if_ready(self):
+        if getattr(self, "_ready_to_reset", False):
+            self.reset_round()
+            self._ready_to_reset = False
 
