@@ -27,6 +27,7 @@ class PokerGameUI:
         self.ok_button = pg.Rect(820, 850, 100, 50)
         self.waiting_for_bet = False
         self.last_state = self.game.state
+        self.showdown_time = None 
 
     def load_assets(self):
         def load_scaled(path, size):
@@ -133,7 +134,9 @@ class PokerGameUI:
     def run(self):
         running = True
         while running:
-            current_player = self.game.betting_manager.betting_order[self.game.betting_manager.turn_index]
+            current_player = None
+            if self.game.betting_manager.turn_index < len(self.game.betting_manager.betting_order):
+                current_player = self.game.betting_manager.betting_order[self.game.betting_manager.turn_index]
             self.screen.blit(self.poker_table, self.poker_table_rect)
 
             for event in pg.event.get():
@@ -210,9 +213,12 @@ class PokerGameUI:
                 )
             
             if self.game.state == "showdown":
-                pg.time.delay(2000)  # 2-second pause to show winner
-                self.game.reset_if_ready()
-                self.update_after_round_reset()
+                if self.showdown_time is None:
+                    self.showdown_time = pg.time.get_ticks()  # Start timer
+                elif pg.time.get_ticks() - self.showdown_time > 2000:
+                    self.game.reset_if_ready()
+                    self.update_after_round_reset()
+                    self.showdown_time = None  # Reset for future rounds
 
             self.display_bet_ui()
             pg.display.flip()
