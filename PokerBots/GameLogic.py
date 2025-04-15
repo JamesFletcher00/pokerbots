@@ -83,7 +83,7 @@ class PokerHandEvaluator:
                 PokerHandEvaluator.evaluate_five_card_hand(list(combo))
                 for combo in combinations(all_cards, 5)
             ]
-            return max(possible_hands, key=lambda x: x[0]) if possible_hands else (0, [])
+            return max(possible_hands, key=lambda x: x[0:2]) if possible_hands else (0, [])
 
         if not hand or len(hand) != 5:
             return (0, [])
@@ -92,25 +92,41 @@ class PokerHandEvaluator:
         counts = Card.count_ranks(hand)
         flush = PokerHandEvaluator.is_flush(hand)
         straight = PokerHandEvaluator.is_straight(ranks)
-        sorted_counts = sorted(((cnt, rank) for rank, cnt in counts.items()), reverse=True)
+
+        sorted_counts = sorted(
+            ((cnt, card_values[rank]) for rank, cnt in counts.items()),
+            key=lambda x: (-x[0], -x[1])
+        )
+        rank_values = [card_values[card.rank] for card in hand]
+        rank_values.sort(reverse=True)
 
         if straight and flush:
-            return (9, ranks)
+            return (9, rank_values)
         if sorted_counts[0][0] == 4:
-            return (7, [sorted_counts[0][1], sorted_counts[1][1]])
+            four = sorted_counts[0][1]
+            kicker = max([v for v in rank_values if v != four])
+            return (7, [four, kicker])
         if sorted_counts[0][0] == 3 and sorted_counts[1][0] == 2:
             return (6, [sorted_counts[0][1], sorted_counts[1][1]])
         if flush:
-            return (5, ranks)
+            return (5, rank_values)
         if straight:
-            return (4, ranks)
+            return (4, rank_values)
         if sorted_counts[0][0] == 3:
-            return (3, [sorted_counts[0][1]] + ranks)
+            trips = sorted_counts[0][1]
+            kickers = [v for v in rank_values if v != trips][:2]
+            return (3, [trips] + kickers)
         if sorted_counts[0][0] == 2 and sorted_counts[1][0] == 2:
-            return (2, [sorted_counts[0][1], sorted_counts[1][1], sorted_counts[2][1]])
+            high_pair = sorted_counts[0][1]
+            low_pair = sorted_counts[1][1]
+            kicker = max([v for v in rank_values if v != high_pair and v != low_pair])
+            return (2, [high_pair, low_pair, kicker])
         if sorted_counts[0][0] == 2:
-            return (1, [sorted_counts[0][1]] + ranks)
-        return (0, ranks)
+            pair = sorted_counts[0][1]
+            kickers = [v for v in rank_values if v != pair][:3]
+            return (1, [pair] + kickers)
+        return (0, rank_values)
+
 
 class BettingManager:
     def __init__(self, players, dealer_index):
