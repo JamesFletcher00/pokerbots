@@ -197,14 +197,28 @@ class GameLoop:
     def handle_betting_round(self):
         players_in_hand = [p for p in self.players if not p.folded]
 
-        all_bets_equal = all(p.total_bet == self.current_bet for p in players_in_hand)
-        all_checked = all(p.checked for p in players_in_hand)
-
-        if (all_bets_equal and self.current_bet > 0) or all_checked:
-            self.advance_game_phase()  # 👈 still use this here!
-            self.reset_bets()
+        if self.state == "pre-flop":
+            # Check if all active players have acted
+            players_yet_to_act = [p for p in players_in_hand if not getattr(p, "has_acted", False)]
+            
+            # End pre-flop only when everyone has acted AND all bets are equal
+            if not players_yet_to_act and all(p.total_bet == self.betting_manager.current_bet for p in players_in_hand):
+                self.advance_game_phase()
+                self.reset_bets()
+                return
         else:
-            self.betting_manager.next_turn()
+            # Post-flop: regular condition
+            all_bets_equal = all(p.total_bet == self.betting_manager.current_bet for p in players_in_hand)
+            all_checked = all(p.checked for p in players_in_hand)
+
+            if (all_bets_equal and self.betting_manager.current_bet > 0) or all_checked:
+                self.advance_game_phase()
+                self.reset_bets()
+                return
+
+        # Otherwise continue to next player
+        self.betting_manager.next_turn()
+
 
 
     def post_blinds(self):

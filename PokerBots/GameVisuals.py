@@ -134,9 +134,11 @@ class PokerGameUI:
     def run(self):
         running = True
         while running:
+            # 🔁 Get the current player every frame
             current_player = None
             if self.game.betting_manager.turn_index < len(self.game.betting_manager.betting_order):
                 current_player = self.game.betting_manager.betting_order[self.game.betting_manager.turn_index]
+
             self.screen.blit(self.poker_table, self.poker_table_rect)
 
             for event in pg.event.get():
@@ -150,6 +152,7 @@ class PokerGameUI:
 
                     if self.bet_button_rect.collidepoint(event.pos):
                         self.waiting_for_bet = True
+                        # ❌ Do NOT set has_acted here — wait for OK button
 
                     elif self.call_button_rect.collidepoint(event.pos):
                         call_amount = self.game.betting_manager.current_bet - current_player.total_bet
@@ -157,25 +160,32 @@ class PokerGameUI:
                             current_player.total_bet += call_amount
                             current_player.chips -= call_amount
                             self.game.pot += call_amount
-                        else:
-                            current_player.checked = True
+                        current_player.has_acted = True
 
                         has_next = self.game.betting_manager.next_turn()
                         if not has_next:
-                            self.game.advance_game_phase()
-                            self.update_after_round_reset()
+                            self.game.handle_betting_round()
 
                     elif self.fold_button_rect.collidepoint(event.pos):
                         current_player.folded = True
                         has_next = self.game.betting_manager.next_turn()
                         if not has_next:
-                            self.game.advance_game_phase()
-                            self.update_after_round_reset()
+                            self.game.handle_betting_round()
 
                     elif self.waiting_for_bet and self.ok_button.collidepoint(event.pos):
+                        print("bet")
                         try:
                             amount = int(self.bet_input.text)
-                            if 0 < amount <= current_player.chips and amount >= self.game.betting_manager.current_bet - current_player.total_bet:
+                            min_required = self.game.betting_manager.current_bet - current_player.total_bet
+
+                            if 0 < amount <= current_player.chips and amount >= min_required:
+                                # ✅ Handle raises
+                                if amount > min_required:
+                                    for player in self.game.players:
+                                        if not player.folded:
+                                            player.has_acted = False
+                                current_player.has_acted = True  # ✅ Only set here after valid input
+
                                 current_player.total_bet += amount
                                 current_player.chips -= amount
                                 self.game.pot += amount
@@ -183,20 +193,20 @@ class PokerGameUI:
                                     self.game.betting_manager.current_bet,
                                     current_player.total_bet
                                 )
+
                                 self.waiting_for_bet = False
                                 self.bet_input.text = ""
 
                                 has_next = self.game.betting_manager.next_turn()
                                 if not has_next:
-                                    self.game.advance_game_phase()
-                                    self.update_after_round_reset()
+                                    self.game.handle_betting_round()
                         except ValueError:
                             pass
 
                 if self.waiting_for_bet:
                     self.bet_input.handle_event(event)
 
-            self.screen.blit(self.poker_table, self.poker_table_rect)
+            # Drawing
             self.screen.blit(self.call_button, self.call_button_rect.topleft)
             self.screen.blit(self.bet_button, self.bet_button_rect.topleft)
             self.screen.blit(self.fold_button, self.fold_button_rect.topleft)
@@ -211,19 +221,22 @@ class PokerGameUI:
                     pg.font.Font(None, 36).render("OK", True, (0, 0, 0)),
                     (self.ok_button.x + 30, self.ok_button.y + 10)
                 )
-            
+
+            # Non-blocking showdown reset
             if self.game.state == "showdown":
                 if self.showdown_time is None:
-                    self.showdown_time = pg.time.get_ticks()  # Start timer
+                    self.showdown_time = pg.time.get_ticks()
                 elif pg.time.get_ticks() - self.showdown_time > 2000:
                     self.game.reset_if_ready()
                     self.update_after_round_reset()
-                    self.showdown_time = None  # Reset for future rounds
+                    self.showdown_time = None
 
             self.display_bet_ui()
             pg.display.flip()
 
         pg.quit()
+
+
 
 
 if __name__ == "__main__":
