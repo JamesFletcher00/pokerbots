@@ -157,6 +157,13 @@ class BettingManager:
 
         self.turn_index = 0  # Always reset turn index
 
+    def reset_bets(self):
+        for player in self.players:
+            player.has_acted = False
+            player.checked = False
+            player.bet = 0
+        self.current_bet = 0
+        self.turn_index = 0
 
     def current_player(self):
         return self.betting_order[self.turn_index] if self.turn_index < len(self.betting_order) else None
@@ -204,7 +211,7 @@ class GameLoop:
             # End pre-flop only when everyone has acted AND all bets are equal
             if not players_yet_to_act and all(p.total_bet == self.betting_manager.current_bet for p in players_in_hand):
                 self.advance_game_phase()
-                self.reset_bets()
+                self.betting_manager.reset_bets()
                 return
         else:
             # Post-flop: regular condition
@@ -213,7 +220,7 @@ class GameLoop:
 
             if (all_bets_equal and self.betting_manager.current_bet > 0) or all_checked:
                 self.advance_game_phase()
-                self.reset_bets()
+                self.betting_manager.reset_bets()
                 return
 
         # Otherwise continue to next player
