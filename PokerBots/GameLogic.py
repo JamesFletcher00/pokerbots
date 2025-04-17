@@ -46,7 +46,6 @@ class Deck:
 
     def draw_card(self):
         return self.cards.pop() if self.cards else None
-
 class Player:
     def __init__(self, name, chips=1000):
         self.name = name
@@ -56,6 +55,8 @@ class Player:
         self.checked = False
         self.bet = 0
         self.total_bet = 0
+        self.has_acted = False
+
 
     def receive_card(self, card):
         self.hand.append(card)
@@ -169,11 +170,20 @@ class BettingManager:
         return self.betting_order[self.turn_index] if self.turn_index < len(self.betting_order) else None
 
     def next_turn(self):
-        self.turn_index += 1
-        if self.turn_index >= len(self.betting_order):
-            print("[TURN] End of betting order reached.")
-            return False
-        return True
+        total_players = len(self.betting_order)
+        starting_index = self.turn_index
+
+        while True:
+            self.turn_index = (self.turn_index + 1) % total_players
+            next_player = self.betting_order[self.turn_index]
+
+            if not next_player.folded and not next_player.has_acted:
+                return True  # ✅ Found the next player to act
+
+            # If we looped back to where we started, round is over
+            if self.turn_index == starting_index:
+                return False
+
 
 
 class GameLoop:
@@ -206,38 +216,21 @@ class GameLoop:
     def handle_betting_round(self):
         players_in_hand = [p for p in self.players if not p.folded]
 
-        if self.state == "pre-flop":
-            players_yet_to_act = [p for p in players_in_hand if not getattr(p, "has_acted", False)]
-            first_bet = players_in_hand[0].total_bet
-            all_bets_equal = all(p.total_bet == first_bet for p in players_in_hand)
+        # Ensure we have players
+        if not players_in_hand:
+            return
 
+        # Use the first player's total_bet as the reference
+        first_bet = players_in_hand[0].total_bet
 
-            if not players_yet_to_act and all_bets_equal:
-                print(f"[PHASE] Advancing from {self.state} to flop")
-                self.advance_game_phase()
-                return
-        else:
-            first_bet = players_in_hand[0].total_bet
-            all_bets_equal = all(p.total_bet == first_bet for p in players_in_hand)
-            all_checked = all(p.checked for p in players_in_hand)
+        # Check if all bets are the same and all players have acted
+        all_bets_equal = all(p.total_bet == first_bet for p in players_in_hand)
+        all_checked = all(p.checked for p in players_in_hand)
+        all_acted = all(p.has_acted for p in players_in_hand)
 
-            print("[DEBUG] Post-flop check:")
-            for p in players_in_hand:
-                print(f" - {p.name}: has_acted={p.has_acted}, total_bet={p.total_bet}")
-
-            print(f"[ROUND] {self.state.capitalize()} - All bets equal: {all_bets_equal}, All checked: {all_checked}")
-
-            if all_bets_equal or all_checked:
-                print(f"[PHASE] Advancing from {self.state}")
-                self.advance_game_phase()
-                return
-
-
-        # If not ready to advance, stay in the round
-        print("[ROUND] Waiting for remaining players to act...")
-
-
-
+        # Only advance if everyone acted AND bets are equal (or everyone checked)
+        if all_acted and (all_bets_equal or all_checked):
+            self.advance_game_phase()
 
     def post_blinds(self):
         sb_index = self.betting_manager.sb_index
@@ -338,9 +331,6 @@ class GameLoop:
         print("[ORDER] Betting order this round:")
         for player in self.betting_manager.betting_order:
             print(f"  - {player.name}")
-
-
-
 
 
     def reset_if_ready(self):
