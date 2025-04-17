@@ -171,8 +171,10 @@ class BettingManager:
     def next_turn(self):
         self.turn_index += 1
         if self.turn_index >= len(self.betting_order):
-            return False  # End of betting round
-        return True 
+            print("[TURN] End of betting order reached.")
+            return False
+        return True
+
 
 class GameLoop:
     def __init__(self, player_names, starting_chips=1000):
@@ -205,26 +207,35 @@ class GameLoop:
         players_in_hand = [p for p in self.players if not p.folded]
 
         if self.state == "pre-flop":
-            # Check if all active players have acted
             players_yet_to_act = [p for p in players_in_hand if not getattr(p, "has_acted", False)]
-            
-            # End pre-flop only when everyone has acted AND all bets are equal
-            if not players_yet_to_act and all(p.total_bet == self.betting_manager.current_bet for p in players_in_hand):
+            first_bet = players_in_hand[0].total_bet
+            all_bets_equal = all(p.total_bet == first_bet for p in players_in_hand)
+
+
+            if not players_yet_to_act and all_bets_equal:
+                print(f"[PHASE] Advancing from {self.state} to flop")
                 self.advance_game_phase()
-                self.betting_manager.reset_bets()
                 return
         else:
-            # Post-flop: regular condition
-            all_bets_equal = all(p.total_bet == self.betting_manager.current_bet for p in players_in_hand)
+            first_bet = players_in_hand[0].total_bet
+            all_bets_equal = all(p.total_bet == first_bet for p in players_in_hand)
             all_checked = all(p.checked for p in players_in_hand)
 
-            if (all_bets_equal and self.betting_manager.current_bet > 0) or all_checked:
+            print("[DEBUG] Post-flop check:")
+            for p in players_in_hand:
+                print(f" - {p.name}: has_acted={p.has_acted}, total_bet={p.total_bet}")
+
+            print(f"[ROUND] {self.state.capitalize()} - All bets equal: {all_bets_equal}, All checked: {all_checked}")
+
+            if all_bets_equal or all_checked:
+                print(f"[PHASE] Advancing from {self.state}")
                 self.advance_game_phase()
-                self.betting_manager.reset_bets()
                 return
 
-        # Otherwise continue to next player
-        self.betting_manager.next_turn()
+
+        # If not ready to advance, stay in the round
+        print("[ROUND] Waiting for remaining players to act...")
+
 
 
 
@@ -261,7 +272,12 @@ class GameLoop:
             self.state = "showdown"
             self.determine_winner()
 
+        self.betting_manager.reset_bets()
+        for p in self.players:
+            print(f"[DEBUG] {p.name} has_acted: {p.has_acted}")
         self.betting_manager.build_betting_order(self.state)
+        self.betting_manager.turn_index = 0
+
 
     def determine_winner(self):
         player_hands = {

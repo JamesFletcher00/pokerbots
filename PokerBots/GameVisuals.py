@@ -137,6 +137,8 @@ class PokerGameUI:
             current_player = None
             if self.game.betting_manager.turn_index < len(self.game.betting_manager.betting_order):
                 current_player = self.game.betting_manager.betting_order[self.game.betting_manager.turn_index]
+                #print(f"[TURN] Current turn index: {self.game.betting_manager.turn_index}, Total: {len(self.game.betting_manager.betting_order)}")
+
 
             self.screen.blit(self.poker_table, self.poker_table_rect)
 
@@ -155,40 +157,42 @@ class PokerGameUI:
                             min_required = self.game.betting_manager.current_bet - current_player.total_bet
 
                             print(f"[DEBUG] Player entered bet amount: {amount}")
-                            print(f"[CHECK] current_bet: {self.game.betting_manager.current_bet}, player_total: {current_player.total_bet}, min_required: {min_required}")
+                            print(f"[CHECK] Current bet: {self.game.betting_manager.current_bet}, Player total bet: {current_player.total_bet}, Min required: {min_required}")
 
                             if 0 < amount <= current_player.chips and amount >= min_required:
                                 print("[PASS] Bet amount accepted")
 
-                                # Handle raises
+                                # 🟡 If this is a NEW bet (i.e. a raise or opening), reset other players' has_acted
                                 if amount > min_required:
+                                    print(f"[RAISE] {current_player.name} raised to {amount}. Resetting others...")
                                     for player in self.game.players:
-                                        if not player.folded:
+                                        if not player.folded and player != current_player:
                                             player.has_acted = False
+                                            player.checked = False
+
+                                # ✅ This player has now acted
                                 current_player.has_acted = True
 
-                                # 💰 Update game state
+                                # 💰 Apply the bet
                                 current_player.total_bet += amount
-                                print(f"[UPDATE] Total bet: {current_player.total_bet}")
                                 current_player.chips -= amount
-                                print(f"[UPDATE] Chips left: {current_player.chips}")
                                 self.game.pot += amount
-                                print(f"[UPDATE] Pot: {self.game.pot}")
                                 self.game.betting_manager.current_bet = max(
                                     self.game.betting_manager.current_bet,
                                     current_player.total_bet
                                 )
 
-                                self.bet_input.text = ""
+                                self.bet_input.text = ""  # Clear input field
 
                                 has_next = self.game.betting_manager.next_turn()
-                                print(f"[TURN] Has next player? {has_next}")
+                                print(f"[TURN] Next player? {has_next}")
                                 if not has_next:
                                     self.game.handle_betting_round()
                             else:
-                                print("[FAIL] Bet amount rejected")
+                                print("[FAIL] Bet rejected. Invalid amount.")
                         except ValueError:
-                            print("[ERROR] Invalid input in bet field:", self.bet_input.text)
+                            print(f"[ERROR] Invalid input: '{self.bet_input.text}'")
+
 
 
                     elif self.call_button_rect.collidepoint(event.pos):
