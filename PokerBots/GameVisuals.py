@@ -1,7 +1,8 @@
 import pygame as pg
 import time
 import random
-from GameLogic import GameLoop, BettingManager, hand_ranks, suits, ranks, card_values
+from GameLogic import GameLoop, BettingManager, Player, hand_ranks, suits, ranks, card_values
+from Bots import BotA, BotB#, BotC, BotD
 
 pg.init()
 
@@ -15,7 +16,17 @@ class PokerGameUI:
         self.POT_FONT = pg.font.SysFont("bodoniblack", 72)
 
         self.load_assets()
-        self.game = GameLoop(["AIan", "AIleen", "AInsley", "AbigAIl"])
+
+        self.bot_names = ["AIan", "AIleen", "AInsley", "AbigAIl"]
+        self.bot_players = [
+            Player("AIan", is_bot=True, bot_instance=BotA("AIan")),
+            Player("AIleen", is_bot=True, bot_instance=BotB("AIleen")),
+            Player("AInsley", is_bot=True, bot_instance=BotA("AInsley")),
+            Player("AbigAIl", is_bot=True, bot_instance=BotB("AbigAIl")),
+        ]
+        self.game = GameLoop([bot.name for bot in self.bot_players])
+        self.game.players = self.bot_players
+
         self.game.deal_hole_cards()
 
         self.hole_card_images = {
@@ -140,6 +151,15 @@ class PokerGameUI:
 
             self.screen.blit(self.poker_table, self.poker_table_rect)
 
+            # 💡 BOT AUTOPLAY
+            if current_player and current_player.is_bot and current_player.bot_instance:
+                self.game.bot_take_action(current_player)
+                has_next = self.game.betting_manager.next_turn()
+                if not has_next:
+                    self.game.handle_betting_round()
+                continue  # Skip the rest of the loop for this frame
+
+            # 🎮 Human input
             for event in pg.event.get():
                 if event.type == pg.QUIT or (event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE):
                     running = False
@@ -154,7 +174,7 @@ class PokerGameUI:
                             amount = int(self.bet_input.text)
                             min_required = self.game.betting_manager.current_bet - current_player.total_bet
 
-                            # If this player bet more than anyone else has so far — it's a raise or open
+                            # Is it a valid raise?
                             is_raise = amount + current_player.total_bet > self.game.betting_manager.current_bet
 
                             if is_raise:
@@ -163,8 +183,7 @@ class PokerGameUI:
                                         player.has_acted = False
                                         player.checked = False
 
-                                self.game.betting_manager.turn_index = -1  # Reset turn index to restart turn loop
-
+                                self.game.betting_manager.turn_index = -1
 
                                 current_player.has_acted = True
                                 current_player.total_bet += amount
@@ -204,13 +223,13 @@ class PokerGameUI:
 
                 self.bet_input.handle_event(event)
 
+            # 🔄 UI rendering
             self.screen.blit(self.call_button, self.call_button_rect.topleft)
             self.screen.blit(self.bet_button, self.bet_button_rect.topleft)
             self.screen.blit(self.fold_button, self.fold_button_rect.topleft)
             self.draw_blinds()
             self.draw_cards()
             self.draw_player_chips()
-
             self.bet_input.draw(self.screen)
 
             if self.game.state == "showdown":
@@ -225,7 +244,6 @@ class PokerGameUI:
             pg.display.flip()
 
         pg.quit()
-
 
 
 

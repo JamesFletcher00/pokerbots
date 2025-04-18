@@ -1,5 +1,4 @@
-# Full updated script using BettingManager and cleaned GameLoop
-
+import torch
 import random
 from collections import Counter
 from itertools import combinations
@@ -47,7 +46,7 @@ class Deck:
     def draw_card(self):
         return self.cards.pop() if self.cards else None
 class Player:
-    def __init__(self, name, chips=1000):
+    def __init__(self, name, chips=1000, is_bot = False, bot_instance = None):
         self.name = name
         self.chips = chips
         self.hand = []
@@ -56,6 +55,8 @@ class Player:
         self.bet = 0
         self.total_bet = 0
         self.has_acted = False
+        self.is_bot = is_bot
+        self.bot_instance = bot_instance
 
 
     def receive_card(self, card):
@@ -228,9 +229,15 @@ class GameLoop:
         all_checked = all(p.checked for p in players_in_hand)
         all_acted = all(p.has_acted for p in players_in_hand)
 
+        current = self.betting_manager.current_player()
+        if current and current.is_bot:
+            self.bot_take_Action(current)
+            if not self.betting_manager.next_turn():
+                self.advance_game_phase()
+        else:
         # Only advance if everyone acted AND bets are equal (or everyone checked)
-        if all_acted and (all_bets_equal or all_checked):
-            self.advance_game_phase()
+            if all_acted and (all_bets_equal or all_checked):
+                self.advance_game_phase()
 
     def post_blinds(self):
         sb_index = self.betting_manager.sb_index
@@ -250,6 +257,42 @@ class GameLoop:
         self.betting_manager.current_bet = 50
         self.pot += 75
 
+    def get_bot_state(self, player):
+        hand_strength = PokerHandEvaluator.evaluate_five_card_hand(player.hand, self.community_cards)[0] / 9.0
+        position_index = self.index = self.players.index(player)
+        pot_ratio = (self.pot / player.chips) if player.chips else 1.0
+        street_map = {"pre-flop": 0, "flop": 1, "turn": 2, "river": 3, "showdown": 4}
+        street_val = street_map.get(self.state, 0)
+
+        return torch.tensor([hand_strength, position_index, pot_ratio, street_val])
+    
+
+    def bot_take_action (self, player):
+        if player.is_bot and player.bot_instance:
+            state_tensor = self.get_bot_state(player)
+            action = player.bot_instance.decide_action(state_tensor)
+
+            if action == "fold":
+                player.folded = True
+            elif action == "call":
+                bet_diff = self.betting_manager.current_bet - player.total_bet
+                if bet_diff > 0:
+                    player.total_bet += bet_diff
+                    player.chips -= bet_diff
+                    self.pot += bet_diff
+                else:
+                    player.checked == True
+            elif action == "raise":
+                raise_amount = 50 #temporary
+                total_required = (self.betting_manager.current_bet - player.total_bet) + raise_amount
+                if player.chips >= total_required:
+                    player.chips -= total_required
+                    player.total_bet += total_required
+                    self.pot += total_required
+                    self.betting_manager.current_bet = player.total_bet
+                else:
+                    player.checked = True
+            player.has_acted = True
 
     def advance_game_phase(self):
         if self.state == "pre-flop":
