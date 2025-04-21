@@ -14,6 +14,12 @@ class PokerGameUI:
         pg.display.set_caption("Poker")
         self.FONT = pg.font.SysFont("bodoniblack", 36)
         self.POT_FONT = pg.font.SysFont("bodoniblack", 72)
+        self.clock = pg.time.Clock()
+        self.game_start_time = None
+        self.waiting_to_start = True
+        self.pending_bot_action = None
+        self.bot_action_timer = 0
+
 
         self.load_assets()
 
@@ -24,8 +30,8 @@ class PokerGameUI:
             Player("AInsley", is_bot=True, bot_instance=BotA("AInsley")),
             Player("AbigAIl", is_bot=True, bot_instance=BotB("AbigAIl")),
         ]
-        self.game = GameLoop([bot.name for bot in self.bot_players])
-        self.game.players = self.bot_players
+        self.game = GameLoop(player_objs=self.bot_players)
+        
 
         self.game.deal_hole_cards()
 
@@ -145,36 +151,62 @@ class PokerGameUI:
     def run(self):
         running = True
         while running:
+            if self.game_start_time is None:
+                self.game_start_time = pg.time.get_ticks()
+
+            if self.waiting_to_start:
+                now = pg.time.get_ticks()
+                if now - self.game_start_time < 5000:
+                    # Show startup screen
+                    self.screen.fill((0, 0, 0))
+                    start_text = self.FONT.render("Starting Game...", True, (255, 255, 255))
+                    self.screen.blit(start_text, (self.screen_width // 2 - 150, self.screen_height // 2))
+                    pg.display.flip()
+                    self.clock.tick(30)
+                    continue
+                else:
+                    print("[DEBUG] Delay finished — entering main game loop.")
+                    self.waiting_to_start = False
+
+                    # Force one frame before AI starts acting
+                    self.screen.blit(self.poker_table, self.poker_table_rect)
+                    pg.display.flip()
+                    pg.time.delay(500)
+
             current_player = None
             if self.game.betting_manager.turn_index < len(self.game.betting_manager.betting_order):
                 current_player = self.game.betting_manager.betting_order[self.game.betting_manager.turn_index]
+                print(f"[CHECK] Current player: {current_player.name}, is_bot={current_player.is_bot}")
 
-            self.screen.blit(self.poker_table, self.poker_table_rect)
+            # Step 1: Schedule the bot, don't act yet
+            if current_player and current_player.is_bot and self.pending_bot_action is None:
+                self.pending_bot_action = current_player
+                self.bot_action_timer = pg.time.get_ticks()
 
-            # 💡 BOT AUTOPLAY
-            if current_player and current_player.is_bot and current_player.bot_instance:
-                self.game.bot_take_action(current_player)
-                has_next = self.game.betting_manager.next_turn()
-                if not has_next:
+            # Step 2: Perform bot action after delay
+            if self.pending_bot_action:
+                if pg.time.get_ticks() - self.bot_action_timer > 400:  # 400ms delay
+                    print(f"[BOT TURN] {self.pending_bot_action.name} acting...")
+                    self.game.bot_take_action(self.pending_bot_action)
                     self.game.handle_betting_round()
-                continue  # Skip the rest of the loop for this frame
 
-            # 🎮 Human input
+                    if self.game.state != "showdown":
+                        has_next = self.game.betting_manager.next_turn()
+                        if not has_next:
+                            self.game.handle_betting_round()
+
+                    self.pending_bot_action = None  # clear it so we wait again next turn
+
             for event in pg.event.get():
                 if event.type == pg.QUIT or (event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE):
                     running = False
                     pg.quit()
 
-                elif event.type == pg.MOUSEBUTTONDOWN:
-                    if not current_player:
-                        continue
-
-                    elif self.bet_button_rect.collidepoint(event.pos):
+                elif event.type == pg.MOUSEBUTTONDOWN and current_player:
+                    if self.bet_button_rect.collidepoint(event.pos):
                         try:
                             amount = int(self.bet_input.text)
                             min_required = self.game.betting_manager.current_bet - current_player.total_bet
-
-                            # Is it a valid raise?
                             is_raise = amount + current_player.total_bet > self.game.betting_manager.current_bet
 
                             if is_raise:
@@ -184,7 +216,6 @@ class PokerGameUI:
                                         player.checked = False
 
                                 self.game.betting_manager.turn_index = -1
-
                                 current_player.has_acted = True
                                 current_player.total_bet += amount
                                 current_player.chips -= amount
@@ -210,7 +241,6 @@ class PokerGameUI:
                             current_player.chips -= call_amount
                             self.game.pot += call_amount
                         current_player.has_acted = True
-
                         has_next = self.game.betting_manager.next_turn()
                         if not has_next:
                             self.game.handle_betting_round()
@@ -223,7 +253,6 @@ class PokerGameUI:
 
                 self.bet_input.handle_event(event)
 
-            # 🔄 UI rendering
             self.screen.blit(self.call_button, self.call_button_rect.topleft)
             self.screen.blit(self.bet_button, self.bet_button_rect.topleft)
             self.screen.blit(self.fold_button, self.fold_button_rect.topleft)
@@ -242,8 +271,10 @@ class PokerGameUI:
 
             self.display_bet_ui()
             pg.display.flip()
+            self.clock.tick(30)  # Keep frame rate stable
 
         pg.quit()
+
 
 
 

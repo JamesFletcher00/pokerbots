@@ -172,25 +172,37 @@ class BettingManager:
 
     def next_turn(self):
         total_players = len(self.betting_order)
-        starting_index = self.turn_index
+        original_index = self.turn_index
+        loop_count = 0
 
-        while True:
+        while loop_count < total_players:
             self.turn_index = (self.turn_index + 1) % total_players
             next_player = self.betting_order[self.turn_index]
 
             if not next_player.folded and not next_player.has_acted:
-                return True  # ✅ Found the next player to act
+                print(f"[NEXT TURN] Next player is {next_player.name}")
+                return True
 
-            # If we looped back to where we started, round is over
-            if self.turn_index == starting_index:
-                return False
+            loop_count += 1
+
+        print("[NEXT TURN] No players left to act.")
+        return False
+
 
 
 
 class GameLoop:
-    def __init__(self, player_names, starting_chips=1000):
+    def __init__(self, player_objs=None, player_names=None, starting_chips=1000):
         self.deck = Deck()
-        self.players = [Player(name, starting_chips) for name in player_names]
+
+        if player_objs:
+            self.players = player_objs
+        elif player_names:
+            self.players = [Player(name, starting_chips) for name in player_names]
+        else:
+            raise ValueError("Needs player_objs or player_names")
+        
+
         self.pot = 0
         self.state = "pre-flop"
         self.flop = []
@@ -217,27 +229,26 @@ class GameLoop:
     def handle_betting_round(self):
         players_in_hand = [p for p in self.players if not p.folded]
 
-        # Ensure we have players
         if not players_in_hand:
+            print("[ROUND] No players left in hand.")
             return
 
-        # Use the first player's total_bet as the reference
         first_bet = players_in_hand[0].total_bet
-
-        # Check if all bets are the same and all players have acted
         all_bets_equal = all(p.total_bet == first_bet for p in players_in_hand)
         all_checked = all(p.checked for p in players_in_hand)
         all_acted = all(p.has_acted for p in players_in_hand)
 
-        current = self.betting_manager.current_player()
-        if current and current.is_bot:
-            self.bot_take_Action(current)
-            if not self.betting_manager.next_turn():
-                self.advance_game_phase()
-        else:
-        # Only advance if everyone acted AND bets are equal (or everyone checked)
-            if all_acted and (all_bets_equal or all_checked):
-                self.advance_game_phase()
+        print("[ROUND CHECK]")
+        for p in players_in_hand:
+            print(f"  {p.name} - Bet: {p.total_bet}, Acted: {p.has_acted}, Checked: {p.checked}, Folded: {p.folded}")
+
+        print(f"  all_bets_equal={all_bets_equal}, all_checked={all_checked}, all_acted={all_acted}")
+
+        if all_acted and (all_bets_equal or all_checked):
+            print("[ROUND] Advancing to next phase...")
+            self.advance_game_phase()
+
+
 
     def post_blinds(self):
         sb_index = self.betting_manager.sb_index
@@ -258,22 +269,47 @@ class GameLoop:
         self.pot += 75
 
     def get_bot_state(self, player):
-        hand_strength = PokerHandEvaluator.evaluate_five_card_hand(player.hand, self.community_cards)[0] / 9.0
-        position_index = self.index = self.players.index(player)
-        pot_ratio = (self.pot / player.chips) if player.chips else 1.0
+        if self.state == "pre-flop":
+            # Estimate strength based on rank, suited, and pair
+            card1, card2 = player.hand
+            v1, v2 = card_values[card1.rank], card_values[card2.rank]
+            suited = card1.suit == card2.suit
+            pair = card1.rank == card2.rank
+
+            base_strength = (v1 + v2) / 28.0  # Normalize 2–14 + 2–14
+            if pair:
+                base_strength += 0.3
+            elif suited:
+                base_strength += 0.1
+
+            hand_strength = min(base_strength, 1.0)
+        else:
+            hand_strength = PokerHandEvaluator.evaluate_five_card_hand(player.hand, self.community_cards)[0] / 9.0
+
+        position_index = self.players.index(player)
+        pot_ratio = self.pot / (player.chips + 1)  # avoid div by zero
         street_map = {"pre-flop": 0, "flop": 1, "turn": 2, "river": 3, "showdown": 4}
         street_val = street_map.get(self.state, 0)
 
         return torch.tensor([hand_strength, position_index, pot_ratio, street_val])
+
     
 
     def bot_take_action (self, player):
+        print(f"[DEBUG] {player.name} Bot Acting – State: {self.state}, Chips: {player.chips}")
+
         if player.is_bot and player.bot_instance:
             state_tensor = self.get_bot_state(player)
             action = player.bot_instance.decide_action(state_tensor)
 
             if action == "fold":
-                player.folded = True
+                # If this is the last player in the hand, prevent fold
+                players_left = [p for p in self.players if not p.folded]
+                if len(players_left) <= 1:
+                    print(f"[BOT] {player.name} tried to fold but was the last player.")
+                    player.checked = True
+                else:
+                    player.folded = True
             elif action == "call":
                 bet_diff = self.betting_manager.current_bet - player.total_bet
                 if bet_diff > 0:
@@ -281,7 +317,9 @@ class GameLoop:
                     player.chips -= bet_diff
                     self.pot += bet_diff
                 else:
-                    player.checked == True
+                    player.checked = True  # ✅ Still needed
+                player.has_acted = True  # ✅ Always set this
+
             elif action == "raise":
                 raise_amount = 50 #temporary
                 total_required = (self.betting_manager.current_bet - player.total_bet) + raise_amount
@@ -295,6 +333,8 @@ class GameLoop:
             player.has_acted = True
 
     def advance_game_phase(self):
+        print(f"[ADVANCE] Moving from {self.state} to next phase.")
+
         if self.state == "pre-flop":
             self.flop = self.reveal_community_cards(3)
             self.state = "flop"

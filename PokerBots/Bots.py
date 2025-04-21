@@ -6,10 +6,11 @@ class BotA:
 
     def decide_action(self, state_tensor):
         hand_strength = state_tensor[0].item()
+        print(f"[Bot] Hand strength = {hand_strength:.4f}")
 
         if hand_strength > 0.8:
             return "raise"
-        elif hand_strength > 0.4:
+        elif hand_strength > 0:
             return "call"
         else:
             return "fold"
