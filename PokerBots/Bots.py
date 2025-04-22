@@ -10,7 +10,7 @@ class BotA:
 
         if hand_strength > 0.8:
             return "raise"
-        elif hand_strength > 0:
+        elif hand_strength > 0.1:
             return "call"
         else:
             return "fold"

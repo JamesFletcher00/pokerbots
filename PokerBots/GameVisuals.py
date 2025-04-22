@@ -122,13 +122,25 @@ class PokerGameUI:
 
     def display_bet_ui(self):
         current_player = self.game.betting_manager.current_player()
-        if current_player:
-            bet_text = self.FONT.render(f"{current_player.name}'s Bet: {current_player.bet}", True, (255, 255, 255))
-            pot_text = self.POT_FONT.render(f"Pot: {self.game.pot}", True, (0, 0, 0))
-            self.screen.blit(bet_text, (self.screen_width // 2 - 150, self.screen_height - 100))
-            box_rect = pg.Rect(524, 268, 1011 - 524, 371 - 268)
-            text_rect = pot_text.get_rect(center=box_rect.center)
-            self.screen.blit(pot_text, text_rect)
+        if not current_player:
+            return
+
+        # === Config ===
+        bet_pos = (self.screen_width // 2 - 150, self.screen_height - 100)
+        pot_box = pg.Rect(524, 268, 487, 103)  # (x, y, width, height)
+
+        # === Clear text areas ===
+        pg.draw.rect(self.screen, (79, 141, 36), (*bet_pos, 300, 50))     # Clear bet text zone
+        pg.draw.rect(self.screen, (255, 255, 255), pot_box)             # Clear pot box background
+
+        # === Render Text ===
+        bet_text = self.FONT.render(f"{current_player.name}'s Bet: {current_player.bet}", True, (255, 255, 255))
+        pot_text = self.POT_FONT.render(f"Pot: {self.game.pot}", True, (0, 0, 0))
+
+        # === Blit to screen ===
+        self.screen.blit(bet_text, bet_pos)
+        self.screen.blit(pot_text, pot_text.get_rect(center=pot_box.center))
+
 
 
     def draw_blinds(self):
@@ -185,7 +197,7 @@ class PokerGameUI:
 
             # Step 2: Perform bot action after delay
             if self.pending_bot_action:
-                if pg.time.get_ticks() - self.bot_action_timer > 400:  # 400ms delay
+                if pg.time.get_ticks() - self.bot_action_timer > 1000:  # 400ms delay
                     print(f"[BOT TURN] {self.pending_bot_action.name} acting...")
                     self.game.bot_take_action(self.pending_bot_action)
                     self.game.handle_betting_round()

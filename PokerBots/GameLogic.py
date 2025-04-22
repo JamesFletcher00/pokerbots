@@ -230,23 +230,19 @@ class GameLoop:
         players_in_hand = [p for p in self.players if not p.folded]
 
         if not players_in_hand:
-            print("[ROUND] No players left in hand.")
             return
 
-        first_bet = players_in_hand[0].total_bet
-        all_bets_equal = all(p.total_bet == first_bet for p in players_in_hand)
+        highest_bet = max(p.total_bet for p in players_in_hand)
+        all_bets_equal = all(p.total_bet == highest_bet for p in players_in_hand)
         all_checked = all(p.checked for p in players_in_hand)
         all_acted = all(p.has_acted for p in players_in_hand)
 
-        print("[ROUND CHECK]")
-        for p in players_in_hand:
-            print(f"  {p.name} - Bet: {p.total_bet}, Acted: {p.has_acted}, Checked: {p.checked}, Folded: {p.folded}")
-
-        print(f"  all_bets_equal={all_bets_equal}, all_checked={all_checked}, all_acted={all_acted}")
+        print(f"[ROUND CHECK] all_acted={all_acted}, all_bets_equal={all_bets_equal}, all_checked={all_checked}")
 
         if all_acted and (all_bets_equal or all_checked):
             print("[ROUND] Advancing to next phase...")
             self.advance_game_phase()
+
 
 
 
@@ -270,29 +266,32 @@ class GameLoop:
 
     def get_bot_state(self, player):
         if self.state == "pre-flop":
-            # Estimate strength based on rank, suited, and pair
+            # Estimate based on hand rank, suited, and pairs
             card1, card2 = player.hand
             v1, v2 = card_values[card1.rank], card_values[card2.rank]
             suited = card1.suit == card2.suit
             pair = card1.rank == card2.rank
 
-            base_strength = (v1 + v2) / 28.0  # Normalize 2–14 + 2–14
+            base_strength = (v1 + v2) / 28.0  # Normalize total rank to [0, 1]
             if pair:
                 base_strength += 0.3
             elif suited:
                 base_strength += 0.1
 
             hand_strength = min(base_strength, 1.0)
+
         else:
-            hand_strength = PokerHandEvaluator.evaluate_five_card_hand(player.hand, self.community_cards)[0] / 9.0
+            # Evaluate actual 5-card strength post-flop
+            rank, values = PokerHandEvaluator.evaluate_five_card_hand(player.hand, self.community_cards)
+            max_rank_value = values[0] if values else 0
+            hand_strength = (rank + (max_rank_value / 14.0) * 0.5) / 9.0  # Blend rank + card value
 
         position_index = self.players.index(player)
-        pot_ratio = self.pot / (player.chips + 1)  # avoid div by zero
+        pot_ratio = self.pot / (player.chips + 1)  # Avoid divide by zero
         street_map = {"pre-flop": 0, "flop": 1, "turn": 2, "river": 3, "showdown": 4}
         street_val = street_map.get(self.state, 0)
 
         return torch.tensor([hand_strength, position_index, pot_ratio, street_val])
-
     
 
     def bot_take_action (self, player):
@@ -321,16 +320,26 @@ class GameLoop:
                 player.has_acted = True  # ✅ Always set this
 
             elif action == "raise":
-                raise_amount = 50 #temporary
+                raise_amount = 50
                 total_required = (self.betting_manager.current_bet - player.total_bet) + raise_amount
+
                 if player.chips >= total_required:
+                    # Process raise
                     player.chips -= total_required
                     player.total_bet += total_required
                     self.pot += total_required
                     self.betting_manager.current_bet = player.total_bet
+
+                    # Reset other players' actions
+                    for p in self.players:
+                        if p != player and not p.folded:
+                            p.has_acted = False
+                            p.checked = False
+
                 else:
-                    player.checked = True
-            player.has_acted = True
+                    player.checked = True  # fallback
+                player.has_acted = True
+
 
     def advance_game_phase(self):
         print(f"[ADVANCE] Moving from {self.state} to next phase.")
