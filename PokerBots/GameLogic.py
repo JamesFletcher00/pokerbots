@@ -267,17 +267,28 @@ class GameLoop:
 
     def get_bot_state(self, player):
         if self.state == "pre-flop":
-            # Estimate based on hand rank, suited, and pairs
             card1, card2 = player.hand
             v1, v2 = card_values[card1.rank], card_values[card2.rank]
             suited = card1.suit == card2.suit
             pair = card1.rank == card2.rank
+            gap = abs(v1 - v2)
 
-            base_strength = (v1 + v2) / 28.0  # Normalize total rank to [0, 1]
+            base_strength = (v1 + v2) / 28.0  # Normalize 2–14 + 2–14
+
             if pair:
                 base_strength += 0.3
-            elif suited:
+            if suited:
                 base_strength += 0.1
+            if gap == 1:
+                base_strength += 0.05  # Connectors like 10-J
+            elif gap == 0:
+                pass  # already scored in pair bonus
+            elif gap <= 3:
+                base_strength += 0.02  # semi-connected
+
+            # Extra boost for high-card hands
+            high_card_bonus = max(v1, v2) / 14.0 * 0.05
+            base_strength += high_card_bonus
 
             hand_strength = min(base_strength, 1.0)
 
@@ -285,61 +296,62 @@ class GameLoop:
             # Evaluate actual 5-card strength post-flop
             rank, values = PokerHandEvaluator.evaluate_five_card_hand(player.hand, self.community_cards)
             max_rank_value = values[0] if values else 0
-            hand_strength = (rank + (max_rank_value / 14.0) * 0.5) / 9.0  # Blend rank + card value
+            hand_strength = (rank + (max_rank_value / 14.0) * 0.5) / 9.0  # Blend rank + high card
 
         position_index = self.players.index(player)
-        pot_ratio = self.pot / (player.chips + 1)  # Avoid divide by zero
+        pot_ratio = self.pot / (player.chips + 1)
         street_map = {"pre-flop": 0, "flop": 1, "turn": 2, "river": 3, "showdown": 4}
         street_val = street_map.get(self.state, 0)
 
         return torch.tensor([hand_strength, position_index, pot_ratio, street_val])
+
     
 
-    def bot_take_action (self, player):
+    def bot_take_action(self, player):
         print(f"[DEBUG] {player.name} Bot Acting – State: {self.state}, Chips: {player.chips}")
 
         if player.is_bot and player.bot_instance:
             state_tensor = self.get_bot_state(player)
-            action = player.bot_instance.decide_action(state_tensor)
+            bet_diff = self.betting_manager.current_bet - player.total_bet
+            can_check = bet_diff <= 0
+
+            action = player.bot_instance.decide_action(state_tensor, can_check=can_check)
+            print(f"[ACTION] {player.name} chose to {action.upper()} – Hand Strength: {state_tensor[0]:.2f}, Can Check: {can_check}")
 
             if action == "fold":
-                # If this is the last player in the hand, prevent fold
-                players_left = [p for p in self.players if not p.folded]
-                if len(players_left) <= 1:
-                    print(f"[BOT] {player.name} tried to fold but was the last player.")
-                    player.checked = True
-                else:
-                    player.folded = True
+                player.folded = True
+
+            elif action == "check" and can_check:
+                player.checked = True
+
             elif action == "call":
-                bet_diff = self.betting_manager.current_bet - player.total_bet
                 if bet_diff > 0:
                     player.total_bet += bet_diff
                     player.chips -= bet_diff
                     self.pot += bet_diff
                 else:
-                    player.checked = True  # ✅ Still needed
-                player.has_acted = True  # ✅ Always set this
+                    player.checked = True
 
             elif action == "raise":
-                raise_amount = 50
-                total_required = (self.betting_manager.current_bet - player.total_bet) + raise_amount
+                raise_amount = 50  # Temporary static raise
+                total_required = bet_diff + raise_amount
 
                 if player.chips >= total_required:
-                    # Process raise
-                    player.chips -= total_required
                     player.total_bet += total_required
+                    player.chips -= total_required
                     self.pot += total_required
                     self.betting_manager.current_bet = player.total_bet
 
-                    # Reset other players' actions
-                    for p in self.players:
-                        if p != player and not p.folded:
-                            p.has_acted = False
-                            p.checked = False
-
+                    # Force other players to act again
+                    for other in self.players:
+                        if other != player and not other.folded:
+                            other.has_acted = False
+                            other.checked = False
                 else:
-                    player.checked = True  # fallback
-                player.has_acted = True
+                    player.checked = True  # Not enough chips? Just check if allowed
+
+            player.has_acted = True
+
 
 
     def advance_game_phase(self):

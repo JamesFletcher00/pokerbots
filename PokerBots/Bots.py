@@ -4,22 +4,25 @@ class BotA:
     def __init__(self,name = "BotA"):
         self.name = name
 
-    def decide_action(self, state_tensor):
+    def decide_action(self, state_tensor, can_check=False):
         hand_strength = state_tensor[0].item()
-        print(f"[Bot] Hand strength = {hand_strength:.4f}")
+        print(f"[{self.name}] Strength: {hand_strength:.2f}, Can check: {can_check}")
 
-        if hand_strength > 0.8:
+        if hand_strength > 0.7:
             return "raise"
-        elif hand_strength > 0.1:
+        elif hand_strength > 0.25:
             return "call"
+        elif can_check:
+            return "check"
         else:
             return "fold"
+
         
 class BotB:
     def __init__(self, name="BotB"):
         self.name = name
 
-    def decide_action(self, state_tensor):
+    def decide_action(self, state_tensor, can_check=False):
         hand_strength = state_tensor[0].item()
         position_index = state_tensor[1].item()  # 0 = dealer, higher = early position
 
@@ -29,6 +32,8 @@ class BotB:
                 return "raise"
             elif hand_strength > 0.6:
                 return "call"
+            elif can_check:
+                return "check"
             else:
                 return "fold"
         else:  # Late position
@@ -36,5 +41,7 @@ class BotB:
                 return "raise"
             elif hand_strength > 0.3:
                 return "call"
+            elif can_check:
+                return "check"
             else:
                 return "fold"
