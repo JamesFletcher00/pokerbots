@@ -7,7 +7,7 @@ from Experience import ReplayBuffer
 class SimpleMLP(nn.Module):
     def __init__(self, input_size, output_size):
         super().__init__()
-        self.net == nn.Sequential(
+        self.net = nn.Sequential(
             nn.Linear(input_size, 64),
             nn.ReLU(),
             nn.Linear(64, output_size)

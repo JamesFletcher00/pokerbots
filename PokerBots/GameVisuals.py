@@ -25,10 +25,10 @@ class PokerGameUI:
 
         self.bot_names = ["AIan", "AIleen", "AInsley", "AbigAIl"]
         self.bot_players = [
-            Player("AIan", is_bot=True, bot_instance=BotWrapper("AIan")),
-            Player("AIleen", is_bot=True, bot_instance=BotWrapper("AIleen")),
-            Player("AInsley", is_bot=True, bot_instance=BotWrapper("AInsley")),
-            Player("AbigAIl", is_bot=True, bot_instance=BotWrapper("AbigAIl")),
+            Player("AIan", is_bot=True, bot_instance=BotWrapper("AIan", style="default")),
+            Player("AIleen", is_bot=True, bot_instance=BotWrapper("AIleen", style="default")),
+            Player("AInsley", is_bot=True, bot_instance=BotWrapper("AInsley", style="default")),
+            Player("AbigAIl", is_bot=True, bot_instance=BotWrapper("AbigAIl", style="default")),
         ]
         self.game = GameLoop(player_objs=self.bot_players)
         
@@ -192,7 +192,7 @@ class PokerGameUI:
             current_player = None
             if self.game.betting_manager.turn_index < len(self.game.betting_manager.betting_order):
                 current_player = self.game.betting_manager.betting_order[self.game.betting_manager.turn_index]
-                print(f"[CHECK] Current player: {current_player.name}, is_bot={current_player.is_bot}")
+                #print(f"[CHECK] Current player: {current_player.name}, is_bot={current_player.is_bot}")
 
             # Step 1: Schedule the bot, don't act yet
             if current_player and current_player.is_bot and self.pending_bot_action is None:

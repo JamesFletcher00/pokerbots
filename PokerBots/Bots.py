@@ -2,7 +2,7 @@ import torch
 from nfsp_agent import NFSPAgent
 
 class BotWrapper:
-    def __init__(self, name, state_size, action_size):
+    def __init__(self, name, style="default", state_size=4, action_size=3):
         self.agent = NFSPAgent(name, state_size, action_size)
 
     def decide_action(self, state_tensor, can_check=False):
