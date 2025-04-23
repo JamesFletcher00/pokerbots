@@ -2,6 +2,7 @@ import torch
 import random
 from collections import Counter
 from itertools import combinations
+from Bots import BotWrapper
 
 suits = ["Spades", "Hearts", "Clubs", "Diamonds"]
 ranks = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"]
@@ -198,7 +199,14 @@ class GameLoop:
         if player_objs:
             self.players = player_objs
         elif player_names:
-            self.players = [Player(name, starting_chips) for name in player_names]
+            self.players = []
+            for name in player_names:
+                if "AI" in name:
+                    bot = BotWrapper(name)
+                    self.players.append(Player(name, starting_chips, is_bot=True, bot_instance=bot))
+                else:
+                    self.players.append(Player(name, starting_chips))
+
         else:
             raise ValueError("Needs player_objs or player_names")
         
@@ -316,7 +324,7 @@ class GameLoop:
             can_check = bet_diff <= 0
 
             action = player.bot_instance.decide_action(state_tensor, can_check=can_check)
-            print(f"[ACTION] {player.name} chose to {action.upper()} – Hand Strength: {state_tensor[0]:.2f}, Can Check: {can_check}")
+            print(f"[ACTION] {player.name} decided to {action.upper()}")
 
             if action == "fold":
                 player.folded = True
@@ -333,22 +341,21 @@ class GameLoop:
                     player.checked = True
 
             elif action == "raise":
-                raise_amount = 50  # Temporary static raise
+                raise_amount = 50
                 total_required = bet_diff + raise_amount
-
                 if player.chips >= total_required:
                     player.total_bet += total_required
                     player.chips -= total_required
                     self.pot += total_required
                     self.betting_manager.current_bet = player.total_bet
 
-                    # Force other players to act again
-                    for other in self.players:
-                        if other != player and not other.folded:
-                            other.has_acted = False
-                            other.checked = False
+                    # Reset others
+                    for p in self.players:
+                        if p != player and not p.folded:
+                            p.has_acted = False
+                            p.checked = False
                 else:
-                    player.checked = True  # Not enough chips? Just check if allowed
+                    player.checked = True
 
             player.has_acted = True
 

@@ -2,7 +2,7 @@ import pygame as pg
 import time
 import random
 from GameLogic import GameLoop, BettingManager, Player, hand_ranks, suits, ranks, card_values
-from Bots import BotA, BotB#, BotC, BotD
+from Bots import BotWrapper
 
 pg.init()
 
@@ -25,10 +25,10 @@ class PokerGameUI:
 
         self.bot_names = ["AIan", "AIleen", "AInsley", "AbigAIl"]
         self.bot_players = [
-            Player("AIan", is_bot=True, bot_instance=BotA("AIan")),
-            Player("AIleen", is_bot=True, bot_instance=BotB("AIleen")),
-            Player("AInsley", is_bot=True, bot_instance=BotA("AInsley")),
-            Player("AbigAIl", is_bot=True, bot_instance=BotB("AbigAIl")),
+            Player("AIan", is_bot=True, bot_instance=BotWrapper("AIan")),
+            Player("AIleen", is_bot=True, bot_instance=BotWrapper("AIleen")),
+            Player("AInsley", is_bot=True, bot_instance=BotWrapper("AInsley")),
+            Player("AbigAIl", is_bot=True, bot_instance=BotWrapper("AbigAIl")),
         ]
         self.game = GameLoop(player_objs=self.bot_players)
         
