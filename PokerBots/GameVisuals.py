@@ -141,6 +141,10 @@ class PokerGameUI:
         self.screen.blit(bet_text, bet_pos)
         self.screen.blit(pot_text, pot_text.get_rect(center=pot_box.center))
 
+    def redraw_table(self):
+        self.screen.blit(self.poker_table, self.poker_table_rect)
+        pg.display.flip()
+
 
 
     def draw_blinds(self):
@@ -278,6 +282,10 @@ class PokerGameUI:
                     self.showdown_time = pg.time.get_ticks()
                 elif pg.time.get_ticks() - self.showdown_time > 2000:
                     self.game.reset_if_ready()
+                    if self.game._request_ui_clear:
+                        self.redraw_table()
+                        self.game._request_ui_clear = False
+
                     self.update_after_round_reset()
                     self.showdown_time = None
 
@@ -286,8 +294,6 @@ class PokerGameUI:
             self.clock.tick(30)  # Keep frame rate stable
 
         pg.quit()
-
-
 
 
 if __name__ == "__main__":

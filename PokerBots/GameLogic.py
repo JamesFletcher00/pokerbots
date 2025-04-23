@@ -211,6 +211,7 @@ class GameLoop:
         self.community_cards = []
         self.dealer_index = 0
         self.betting_manager = BettingManager(self.players, self.dealer_index)
+        self._request_ui_clear = False
 
     def deal_hole_cards(self):
         for player in self.players:
@@ -390,6 +391,7 @@ class GameLoop:
         self.pot = 0
         self.state = "pre-flop"
         self.community_cards = []
+        self._request_ui_clear = True
         self.flop = []
         self.turn = []
         self.river = []
