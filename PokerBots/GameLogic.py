@@ -1,4 +1,5 @@
 import torch
+import time
 import random
 from collections import Counter
 from itertools import combinations
@@ -356,6 +357,17 @@ class GameLoop:
                             p.checked = False
                 else:
                     player.checked = True
+                     
+            # Store transition: (state, action, reward, next_state, done=False)
+            next_state = self.get_bot_state(player)
+            player.bot_instance.store_experience(
+                state=state_tensor,
+                action=["fold", "call", "raise", "check"].index(action),  # convert to index
+                reward=0,  # Use actual chip diff or 0 here for now
+                next_state=next_state,
+                done=False
+            )
+
 
             player.has_acted = True
 
@@ -445,9 +457,13 @@ class GameLoop:
         for player in self.betting_manager.betting_order:
             print(f"  - {player.name}")
 
-
     def reset_if_ready(self):
         if getattr(self, "_ready_to_reset", False):
+            for player in self.players:
+                if player.is_bot and player.bot_instance:
+                    player.bot_instance.save_experiences_to_json()  # uses consistent name
+
             self.reset_round()
             self._ready_to_reset = False
+
 
