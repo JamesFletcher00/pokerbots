@@ -35,6 +35,21 @@ class NFSPAgent:
         self.loss_fn = nn.MSELoss()
         self.ce_loss = nn.CrossEntropyLoss()
 
+    def initialise_with_style(self, style):
+        with torch.no_grad():
+            if style == "novice":
+                # Bias toward folding early on
+                self.q_net.net[-1].bias[0] += 0.5  # Fold action
+            elif style == "aggressive":
+                # Bias toward raising
+                self.q_net.net[-1].bias[2] += 0.5  # Raise action
+            elif style == "conservative":
+                # Bias toward calling or checking
+                self.q_net.net[-1].bias[1] += 0.5  # Call action
+            elif style == "strategist":
+                # No strong bias — learns naturally
+                pass
+
     def select_action(self, state, use_avg_policy=False):
         if use_avg_policy:
             with torch.no_grad():
