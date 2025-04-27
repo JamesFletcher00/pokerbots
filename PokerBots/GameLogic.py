@@ -173,6 +173,8 @@ class BettingManager:
         return self.betting_order[self.turn_index] if self.turn_index < len(self.betting_order) else None
 
     def next_turn(self):
+        print(f"[NEXT TURN] Moved to: {self.turn_index} – {self.betting_order[self.turn_index].name}")
+
         total_players = len(self.betting_order)
         original_index = self.turn_index
         loop_count = 0
@@ -461,7 +463,14 @@ class GameLoop:
         if getattr(self, "_ready_to_reset", False):
             for player in self.players:
                 if player.is_bot and player.bot_instance:
-                    player.bot_instance.save_experiences_to_json()  # uses consistent name
+                    if not hasattr(player.bot_instance, 'results'):
+                        player.bot_instance.results = []  # Initialize storage
+
+                    # Track final chip stack or pot share
+                    player.bot_instance.results.append(player.chips)
+
+                    # Save experience if needed
+                    player.bot_instance.save_experiences_to_json()
 
             self.reset_round()
             self._ready_to_reset = False
