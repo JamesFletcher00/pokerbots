@@ -230,7 +230,7 @@ class GameLoop:
         self.betting_manager.set_blinds()
         self.post_blinds()
         self.betting_manager.build_betting_order(self.state)
-        self.pot += 25 + 50
+
 
 
     def reveal_community_cards(self, num):
@@ -242,6 +242,12 @@ class GameLoop:
         players_in_hand = [p for p in self.players if not p.folded]
 
         if not players_in_hand:
+            return
+        
+        if len(players_in_hand) == 1:
+            players_in_hand[0].chips += self.pot
+            self.pot = 0
+            self.end_round_immediately()
             return
 
         highest_bet = max(p.total_bet for p in players_in_hand)
@@ -328,6 +334,7 @@ class GameLoop:
 
             action = player.bot_instance.decide_action(state_tensor, can_check=can_check)
             print(f"[ACTION] {player.name} decided to {action.upper()}")
+            print(f"[ROUND CHECK] Folded: {[p.folded for p in self.players]}")
 
             if action == "fold":
                 player.folded = True
@@ -442,15 +449,12 @@ class GameLoop:
         # ✅ Create new betting manager and update blind positions
         self.betting_manager = BettingManager(self.players, self.dealer_index)
         self.betting_manager.set_blinds()
-
         self.deck = Deck()
+        self.deal_hole_cards()
 
         # ✅ DEBUG OUTPUT
         print(f"[RESET] Dealer index is now: {self.dealer_index}")
         print(f"[BLINDS] SB: {self.betting_manager.sb_index}, BB: {self.betting_manager.bb_index}")
-
-        # ✅ Deal hole cards and post blinds
-        self.deal_hole_cards()
 
         # ✅ Build new betting order for this round
         self.betting_manager.build_betting_order(self.state)
@@ -474,5 +478,9 @@ class GameLoop:
 
             self.reset_round()
             self._ready_to_reset = False
+
+    def end_round_immediately(self):
+        self.state="end_round"
+        self._ready_to_reset = True
 
 

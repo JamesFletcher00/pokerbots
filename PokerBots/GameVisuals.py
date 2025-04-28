@@ -25,10 +25,10 @@ class PokerGameUI:
 
         self.bot_names = ["AIan", "AIleen", "AInsley", "AbigAIl"]
         self.bot_players = [
-            Player("AIan", is_bot=True, bot_instance=BotWrapper("AIan", style="default")),
-            Player("AIleen", is_bot=True, bot_instance=BotWrapper("AIleen", style="default")),
-            Player("AInsley", is_bot=True, bot_instance=BotWrapper("AInsley", style="default")),
-            Player("AbigAIl", is_bot=True, bot_instance=BotWrapper("AbigAIl", style="default")),
+            Player("AIan", is_bot=True, bot_instance=BotWrapper("AIan", style="novice")),
+            Player("AIleen", is_bot=True, bot_instance=BotWrapper("AIleen", style="agressive")),
+            Player("AInsley", is_bot=True, bot_instance=BotWrapper("AInsley", style="conservative")),
+            Player("AbigAIl", is_bot=True, bot_instance=BotWrapper("AbigAIl", style="strategist")),
         ]
         self.game = GameLoop(player_objs=self.bot_players)
         
@@ -277,7 +277,7 @@ class PokerGameUI:
             self.draw_player_chips()
             self.bet_input.draw(self.screen)
 
-            if self.game.state == "showdown":
+            if self.game.state in ["showdown", "end_round"]:
                 if self.showdown_time is None:
                     self.showdown_time = pg.time.get_ticks()
                 elif pg.time.get_ticks() - self.showdown_time > 2000:
