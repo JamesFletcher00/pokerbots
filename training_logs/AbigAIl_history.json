@@ -4733,5 +4733,5211 @@
       3.0
     ],
     "done": false
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7571428418159485,
+      3.0,
+      0.07492507249116898,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7571428418159485,
+      3.0,
+      0.1942286342382431,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7571428418159485,
+      3.0,
+      0.3052164316177368,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7571428418159485,
+      3.0,
+      0.4681648015975952,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7571428418159485,
+      3.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7571428418159485,
+      3.0,
+      0.820256769657135,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7571428418159485,
+      3.0,
+      0.9629101157188416,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7571428418159485,
+      3.0,
+      1.2895175218582153,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7571428418159485,
+      3.0,
+      1.455906867980957,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.7571428418159485,
+      3.0,
+      1.455906867980957,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.19960080087184906,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7571428418159485,
+      3.0,
+      0.07492507249116898,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7571428418159485,
+      3.0,
+      0.1942286342382431,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7571428418159485,
+      3.0,
+      0.3052164316177368,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7571428418159485,
+      3.0,
+      0.4681648015975952,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7571428418159485,
+      3.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7571428418159485,
+      3.0,
+      0.820256769657135,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7571428418159485,
+      3.0,
+      0.9629101157188416,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7571428418159485,
+      3.0,
+      1.2895175218582153,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7571428418159485,
+      3.0,
+      1.455906867980957,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.7571428418159485,
+      3.0,
+      1.455906867980957,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.19960080087184906,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7735714316368103,
+      3.0,
+      0.12487512826919556,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.7735714316368103,
+      3.0,
+      0.12487512826919556,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7735714316368103,
+      3.0,
+      0.12487512826919556,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.7735714316368103,
+      3.0,
+      0.12487512826919556,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7735714316368103,
+      3.0,
+      0.12487512826919556,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.7735714316368103,
+      3.0,
+      0.12487512826919556,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6535714268684387,
+      3.0,
+      0.19980019330978394,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6535714268684387,
+      3.0,
+      0.19980019330978394,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7735714316368103,
+      3.0,
+      0.12487512826919556,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.7735714316368103,
+      3.0,
+      0.12487512826919556,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6535714268684387,
+      3.0,
+      0.19980019330978394,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6535714268684387,
+      3.0,
+      0.19980019330978394,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7735714316368103,
+      3.0,
+      0.12487512826919556,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.7735714316368103,
+      3.0,
+      0.12487512826919556,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6535714268684387,
+      3.0,
+      0.19980019330978394,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6535714268684387,
+      3.0,
+      0.19980019330978394,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.3464285731315613,
+      3.0,
+      0.10515247285366058,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.3464285731315613,
+      3.0,
+      0.10515247285366058,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7735714316368103,
+      3.0,
+      0.12487512826919556,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.7735714316368103,
+      3.0,
+      0.12487512826919556,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6535714268684387,
+      3.0,
+      0.19980019330978394,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6535714268684387,
+      3.0,
+      0.19980019330978394,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.3464285731315613,
+      3.0,
+      0.10515247285366058,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.3464285731315613,
+      3.0,
+      0.10515247285366058,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.17482517659664154,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.38190364837646484,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.17482517659664154,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.38190364837646484,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.17482517659664154,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.38190364837646484,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.17482517659664154,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.38190364837646484,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.17482517659664154,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.38190364837646484,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.9142857193946838,
+      3.0,
+      0.3745318353176117,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.9142857193946838,
+      3.0,
+      0.3745318353176117,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.17482517659664154,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.38190364837646484,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.9142857193946838,
+      3.0,
+      0.3745318353176117,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.9142857193946838,
+      3.0,
+      0.3745318353176117,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.17482517659664154,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.38190364837646484,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.9142857193946838,
+      3.0,
+      0.3745318353176117,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.9142857193946838,
+      3.0,
+      0.3745318353176117,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6571428775787354,
+      3.0,
+      0.41881442070007324,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6571428775787354,
+      3.0,
+      0.8319467306137085,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6571428775787354,
+      3.0,
+      1.0815308094024658,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6571428775787354,
+      3.0,
+      1.0815308094024658,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.09074410051107407,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.17482517659664154,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.38190364837646484,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.9142857193946838,
+      3.0,
+      0.3745318353176117,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.9142857193946838,
+      3.0,
+      0.3745318353176117,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6571428775787354,
+      3.0,
+      0.41881442070007324,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6571428775787354,
+      3.0,
+      0.8319467306137085,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6571428775787354,
+      3.0,
+      1.0815308094024658,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6571428775787354,
+      3.0,
+      1.0815308094024658,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.09074410051107407,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.17482517659664154,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.38190364837646484,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.9142857193946838,
+      3.0,
+      0.3745318353176117,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.9142857193946838,
+      3.0,
+      0.3745318353176117,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6571428775787354,
+      3.0,
+      0.41881442070007324,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6571428775787354,
+      3.0,
+      0.8319467306137085,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6571428775787354,
+      3.0,
+      1.0815308094024658,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6571428775787354,
+      3.0,
+      1.0815308094024658,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.09074410051107407,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5428571701049805,
+      3.0,
+      0.1361161470413208,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      3.0,
+      0.3880265951156616,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5428571701049805,
+      3.0,
+      0.6097561120986938,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      3.0,
+      0.6097561120986938,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.1246882826089859,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.17482517659664154,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.38190364837646484,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.9142857193946838,
+      3.0,
+      0.3745318353176117,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.9142857193946838,
+      3.0,
+      0.3745318353176117,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6571428775787354,
+      3.0,
+      0.41881442070007324,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6571428775787354,
+      3.0,
+      0.8319467306137085,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6571428775787354,
+      3.0,
+      1.0815308094024658,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6571428775787354,
+      3.0,
+      1.0815308094024658,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.09074410051107407,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5428571701049805,
+      3.0,
+      0.1361161470413208,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      3.0,
+      0.3880265951156616,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5428571701049805,
+      3.0,
+      0.6097561120986938,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      3.0,
+      0.6097561120986938,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.1246882826089859,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.17482517659664154,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.38190364837646484,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.9142857193946838,
+      3.0,
+      0.3745318353176117,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.9142857193946838,
+      3.0,
+      0.3745318353176117,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6571428775787354,
+      3.0,
+      0.41881442070007324,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6571428775787354,
+      3.0,
+      0.8319467306137085,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6571428775787354,
+      3.0,
+      1.0815308094024658,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6571428775787354,
+      3.0,
+      1.0815308094024658,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.09074410051107407,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5428571701049805,
+      3.0,
+      0.1361161470413208,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      3.0,
+      0.3880265951156616,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5428571701049805,
+      3.0,
+      0.6097561120986938,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      3.0,
+      0.6097561120986938,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.1246882826089859,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5392857193946838,
+      3.0,
+      0.18703241646289825,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5392857193946838,
+      3.0,
+      0.5813953280448914,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5392857193946838,
+      3.0,
+      0.9966777563095093,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.5392857193946838,
+      3.0,
+      0.9966777563095093,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.19920319318771362,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.17482517659664154,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.38190364837646484,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.9142857193946838,
+      3.0,
+      0.3745318353176117,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.9142857193946838,
+      3.0,
+      0.3745318353176117,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6571428775787354,
+      3.0,
+      0.41881442070007324,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6571428775787354,
+      3.0,
+      0.8319467306137085,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6571428775787354,
+      3.0,
+      1.0815308094024658,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6571428775787354,
+      3.0,
+      1.0815308094024658,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.09074410051107407,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5428571701049805,
+      3.0,
+      0.1361161470413208,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      3.0,
+      0.3880265951156616,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5428571701049805,
+      3.0,
+      0.6097561120986938,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      3.0,
+      0.6097561120986938,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.1246882826089859,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5392857193946838,
+      3.0,
+      0.18703241646289825,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5392857193946838,
+      3.0,
+      0.5813953280448914,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5392857193946838,
+      3.0,
+      0.9966777563095093,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.5392857193946838,
+      3.0,
+      0.9966777563095093,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.19920319318771362,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.17482517659664154,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.38190364837646484,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.9142857193946838,
+      3.0,
+      0.3745318353176117,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.9142857193946838,
+      3.0,
+      0.3745318353176117,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6571428775787354,
+      3.0,
+      0.41881442070007324,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6571428775787354,
+      3.0,
+      0.8319467306137085,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6571428775787354,
+      3.0,
+      1.0815308094024658,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6571428775787354,
+      3.0,
+      1.0815308094024658,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.09074410051107407,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5428571701049805,
+      3.0,
+      0.1361161470413208,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      3.0,
+      0.3880265951156616,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5428571701049805,
+      3.0,
+      0.6097561120986938,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      3.0,
+      0.6097561120986938,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.1246882826089859,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5392857193946838,
+      3.0,
+      0.18703241646289825,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5392857193946838,
+      3.0,
+      0.5813953280448914,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5392857193946838,
+      3.0,
+      0.9966777563095093,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.5392857193946838,
+      3.0,
+      0.9966777563095093,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.19920319318771362,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.42500001192092896,
+      3.0,
+      0.3731343150138855,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.42500001192092896,
+      3.0,
+      0.8278145790100098,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.42500001192092896,
+      3.0,
+      1.8211920261383057,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.42500001192092896,
+      3.0,
+      1.8211920261383057,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.17482517659664154,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.38190364837646484,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.9142857193946838,
+      3.0,
+      0.3745318353176117,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.9142857193946838,
+      3.0,
+      0.3745318353176117,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6571428775787354,
+      3.0,
+      0.41881442070007324,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6571428775787354,
+      3.0,
+      0.8319467306137085,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6571428775787354,
+      3.0,
+      1.0815308094024658,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6571428775787354,
+      3.0,
+      1.0815308094024658,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.09074410051107407,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5428571701049805,
+      3.0,
+      0.1361161470413208,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      3.0,
+      0.3880265951156616,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5428571701049805,
+      3.0,
+      0.6097561120986938,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      3.0,
+      0.6097561120986938,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.1246882826089859,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5392857193946838,
+      3.0,
+      0.18703241646289825,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5392857193946838,
+      3.0,
+      0.5813953280448914,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5392857193946838,
+      3.0,
+      0.9966777563095093,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.5392857193946838,
+      3.0,
+      0.9966777563095093,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.19920319318771362,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.42500001192092896,
+      3.0,
+      0.3731343150138855,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.42500001192092896,
+      3.0,
+      0.8278145790100098,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.42500001192092896,
+      3.0,
+      1.8211920261383057,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.42500001192092896,
+      3.0,
+      1.8211920261383057,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.17482517659664154,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.38190364837646484,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.9142857193946838,
+      3.0,
+      0.3745318353176117,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.9142857193946838,
+      3.0,
+      0.3745318353176117,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6571428775787354,
+      3.0,
+      0.41881442070007324,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6571428775787354,
+      3.0,
+      0.8319467306137085,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6571428775787354,
+      3.0,
+      1.0815308094024658,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6571428775787354,
+      3.0,
+      1.0815308094024658,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.09074410051107407,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5428571701049805,
+      3.0,
+      0.1361161470413208,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      3.0,
+      0.3880265951156616,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5428571701049805,
+      3.0,
+      0.6097561120986938,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      3.0,
+      0.6097561120986938,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.1246882826089859,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5392857193946838,
+      3.0,
+      0.18703241646289825,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5392857193946838,
+      3.0,
+      0.5813953280448914,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5392857193946838,
+      3.0,
+      0.9966777563095093,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.5392857193946838,
+      3.0,
+      0.9966777563095093,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.19920319318771362,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.42500001192092896,
+      3.0,
+      0.3731343150138855,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.42500001192092896,
+      3.0,
+      0.8278145790100098,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.42500001192092896,
+      3.0,
+      1.8211920261383057,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.42500001192092896,
+      3.0,
+      1.8211920261383057,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.3142857253551483,
+      3.0,
+      1.3888888359069824,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.3142857253551483,
+      3.0,
+      1.3888888359069824,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.17482517659664154,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.38190364837646484,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.9142857193946838,
+      3.0,
+      0.3745318353176117,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.9142857193946838,
+      3.0,
+      0.3745318353176117,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6571428775787354,
+      3.0,
+      0.41881442070007324,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6571428775787354,
+      3.0,
+      0.8319467306137085,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6571428775787354,
+      3.0,
+      1.0815308094024658,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6571428775787354,
+      3.0,
+      1.0815308094024658,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.09074410051107407,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5428571701049805,
+      3.0,
+      0.1361161470413208,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      3.0,
+      0.3880265951156616,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5428571701049805,
+      3.0,
+      0.6097561120986938,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      3.0,
+      0.6097561120986938,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.1246882826089859,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5392857193946838,
+      3.0,
+      0.18703241646289825,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5392857193946838,
+      3.0,
+      0.5813953280448914,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5392857193946838,
+      3.0,
+      0.9966777563095093,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.5392857193946838,
+      3.0,
+      0.9966777563095093,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.19920319318771362,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.42500001192092896,
+      3.0,
+      0.3731343150138855,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.42500001192092896,
+      3.0,
+      0.8278145790100098,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.42500001192092896,
+      3.0,
+      1.8211920261383057,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.42500001192092896,
+      3.0,
+      1.8211920261383057,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.3142857253551483,
+      3.0,
+      1.3888888359069824,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.3142857253551483,
+      3.0,
+      1.3888888359069824,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.17482517659664154,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.38190364837646484,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.9142857193946838,
+      3.0,
+      0.3745318353176117,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.9142857193946838,
+      3.0,
+      0.3745318353176117,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6571428775787354,
+      3.0,
+      0.41881442070007324,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6571428775787354,
+      3.0,
+      0.8319467306137085,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6571428775787354,
+      3.0,
+      1.0815308094024658,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6571428775787354,
+      3.0,
+      1.0815308094024658,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.09074410051107407,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5428571701049805,
+      3.0,
+      0.1361161470413208,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      3.0,
+      0.3880265951156616,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5428571701049805,
+      3.0,
+      0.6097561120986938,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      3.0,
+      0.6097561120986938,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.1246882826089859,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5392857193946838,
+      3.0,
+      0.18703241646289825,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5392857193946838,
+      3.0,
+      0.5813953280448914,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5392857193946838,
+      3.0,
+      0.9966777563095093,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.5392857193946838,
+      3.0,
+      0.9966777563095093,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.19920319318771362,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.42500001192092896,
+      3.0,
+      0.3731343150138855,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.42500001192092896,
+      3.0,
+      0.8278145790100098,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.42500001192092896,
+      3.0,
+      1.8211920261383057,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.42500001192092896,
+      3.0,
+      1.8211920261383057,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.3142857253551483,
+      3.0,
+      1.3888888359069824,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.3142857253551483,
+      3.0,
+      1.3888888359069824,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.9142857193946838,
+      3.0,
+      1.3888888359069824,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.9142857193946838,
+      3.0,
+      1.3888888359069824,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.17482517659664154,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.38190364837646484,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6878571510314941,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.28785714507102966,
+      3.0,
+      0.4112808406352997,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.9142857193946838,
+      3.0,
+      0.3745318353176117,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.9142857193946838,
+      3.0,
+      0.3745318353176117,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6571428775787354,
+      3.0,
+      0.41881442070007324,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6571428775787354,
+      3.0,
+      0.8319467306137085,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6571428775787354,
+      3.0,
+      1.0815308094024658,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6571428775787354,
+      3.0,
+      1.0815308094024658,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.09074410051107407,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5428571701049805,
+      3.0,
+      0.1361161470413208,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      3.0,
+      0.3880265951156616,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5428571701049805,
+      3.0,
+      0.6097561120986938,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      3.0,
+      0.6097561120986938,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.1246882826089859,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5392857193946838,
+      3.0,
+      0.18703241646289825,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5392857193946838,
+      3.0,
+      0.5813953280448914,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.5392857193946838,
+      3.0,
+      0.9966777563095093,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.5392857193946838,
+      3.0,
+      0.9966777563095093,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.19920319318771362,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.42500001192092896,
+      3.0,
+      0.3731343150138855,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.42500001192092896,
+      3.0,
+      0.8278145790100098,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.42500001192092896,
+      3.0,
+      1.8211920261383057,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.42500001192092896,
+      3.0,
+      1.8211920261383057,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.3142857253551483,
+      3.0,
+      1.3888888359069824,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.3142857253551483,
+      3.0,
+      1.3888888359069824,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.9142857193946838,
+      3.0,
+      1.3888888359069824,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.9142857193946838,
+      3.0,
+      1.3888888359069824,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6071428656578064,
+      3.0,
+      0.12487512826919556,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6071428656578064,
+      3.0,
+      0.12487512826919556,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6071428656578064,
+      3.0,
+      0.12487512826919556,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6071428656578064,
+      3.0,
+      0.12487512826919556,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      0.17482517659664154,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      0.38190364837646484,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      1.1055635213851929,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      1.5335235595703125,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      1.5335235595703125,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      0.17482517659664154,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      0.38190364837646484,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      1.1055635213851929,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      1.5335235595703125,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      1.5335235595703125,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      0.17482517659664154,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      0.38190364837646484,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      1.1055635213851929,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      1.5335235595703125,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      1.5335235595703125,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6142857074737549,
+      3.0,
+      0.855920135974884,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      3.0,
+      2.244389057159424,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6142857074737549,
+      3.0,
+      2.6184539794921875,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      3.0,
+      2.6184539794921875,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.3322259187698364,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      0.17482517659664154,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      0.38190364837646484,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      1.1055635213851929,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      1.5335235595703125,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      1.5335235595703125,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6142857074737549,
+      3.0,
+      0.855920135974884,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      3.0,
+      2.244389057159424,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6142857074737549,
+      3.0,
+      2.6184539794921875,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      3.0,
+      2.6184539794921875,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.3322259187698364,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      0.17482517659664154,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      0.38190364837646484,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      1.1055635213851929,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      1.5335235595703125,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      1.5335235595703125,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6142857074737549,
+      3.0,
+      0.855920135974884,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      3.0,
+      2.244389057159424,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6142857074737549,
+      3.0,
+      2.6184539794921875,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      3.0,
+      2.6184539794921875,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.3322259187698364,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6214285492897034,
+      3.0,
+      1.1952191591262817,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6214285492897034,
+      3.0,
+      1.1952191591262817,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      0.17482517659664154,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      0.38190364837646484,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      1.1055635213851929,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      1.5335235595703125,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      1.5335235595703125,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6142857074737549,
+      3.0,
+      0.855920135974884,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      3.0,
+      2.244389057159424,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6142857074737549,
+      3.0,
+      2.6184539794921875,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      3.0,
+      2.6184539794921875,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.3322259187698364,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6214285492897034,
+      3.0,
+      1.1952191591262817,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6214285492897034,
+      3.0,
+      1.1952191591262817,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      0.17482517659664154,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      0.38190364837646484,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      1.1055635213851929,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      1.5335235595703125,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      1.5335235595703125,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6142857074737549,
+      3.0,
+      0.855920135974884,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      3.0,
+      2.244389057159424,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6142857074737549,
+      3.0,
+      2.6184539794921875,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      3.0,
+      2.6184539794921875,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.3322259187698364,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6214285492897034,
+      3.0,
+      1.1952191591262817,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6214285492897034,
+      3.0,
+      1.1952191591262817,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6235714554786682,
+      3.0,
+      0.7743362784385681,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      3.0,
+      2.97029709815979,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6235714554786682,
+      3.0,
+      3.9603960514068604,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      3.0,
+      3.9603960514068604,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      100.0,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      0.17482517659664154,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      0.38190364837646484,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      1.1055635213851929,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      1.5335235595703125,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      1.5335235595703125,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6142857074737549,
+      3.0,
+      0.855920135974884,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      3.0,
+      2.244389057159424,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6142857074737549,
+      3.0,
+      2.6184539794921875,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      3.0,
+      2.6184539794921875,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.3322259187698364,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6214285492897034,
+      3.0,
+      1.1952191591262817,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6214285492897034,
+      3.0,
+      1.1952191591262817,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6235714554786682,
+      3.0,
+      0.7743362784385681,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      3.0,
+      2.97029709815979,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6235714554786682,
+      3.0,
+      3.9603960514068604,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      3.0,
+      3.9603960514068604,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      100.0,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      0.17482517659664154,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      0.38190364837646484,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      1.1055635213851929,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      1.5335235595703125,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      1.5335235595703125,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6142857074737549,
+      3.0,
+      0.855920135974884,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      3.0,
+      2.244389057159424,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6142857074737549,
+      3.0,
+      2.6184539794921875,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      3.0,
+      2.6184539794921875,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.3322259187698364,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6214285492897034,
+      3.0,
+      1.1952191591262817,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6214285492897034,
+      3.0,
+      1.1952191591262817,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6235714554786682,
+      3.0,
+      0.7743362784385681,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      3.0,
+      2.97029709815979,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6235714554786682,
+      3.0,
+      3.9603960514068604,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      3.0,
+      3.9603960514068604,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      100.0,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7735714316368103,
+      3.0,
+      125.0,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.7735714316368103,
+      3.0,
+      125.0,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      0.17482517659664154,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      0.38190364837646484,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      0.7344300746917725,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      1.1055635213851929,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7607142925262451,
+      3.0,
+      1.5335235595703125,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.7607142925262451,
+      3.0,
+      1.5335235595703125,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6142857074737549,
+      3.0,
+      0.855920135974884,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      3.0,
+      2.244389057159424,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6142857074737549,
+      3.0,
+      2.6184539794921875,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      3.0,
+      2.6184539794921875,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      0.3322259187698364,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6214285492897034,
+      3.0,
+      1.1952191591262817,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6214285492897034,
+      3.0,
+      1.1952191591262817,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6235714554786682,
+      3.0,
+      0.7743362784385681,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      3.0,
+      2.97029709815979,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.6235714554786682,
+      3.0,
+      3.9603960514068604,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      3.0,
+      3.9603960514068604,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0,
+      3.0,
+      100.0,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "strategist",
+    "state": [
+      0.7735714316368103,
+      3.0,
+      125.0,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.7735714316368103,
+      3.0,
+      125.0,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
   }
 ]

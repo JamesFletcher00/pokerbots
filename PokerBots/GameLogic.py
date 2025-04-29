@@ -223,6 +223,7 @@ class GameLoop:
         self.dealer_index = 0
         self.betting_manager = BettingManager(self.players, self.dealer_index)
         self._request_ui_clear = False
+        self.win_type = None
 
     def deal_hole_cards(self):
         for player in self.players:
@@ -247,17 +248,17 @@ class GameLoop:
         if len(players_in_hand) == 1:
             players_in_hand[0].chips += self.pot
             self.pot = 0
+            self.win_type = "fold"
             self.end_round_immediately()
             return
 
         highest_bet = max(p.total_bet for p in players_in_hand)
         all_bets_equal = all(p.total_bet == highest_bet for p in players_in_hand)
-        all_checked = all(p.checked for p in players_in_hand)
         all_acted = all(p.has_acted for p in players_in_hand)
 
-        print(f"[ROUND CHECK] all_acted={all_acted}, all_bets_equal={all_bets_equal}, all_checked={all_checked}")
+        print(f"[ROUND CHECK] all_acted={all_acted}, all_bets_equal={all_bets_equal}")
 
-        if all_acted and (all_bets_equal or all_checked):
+        if all_acted and all_bets_equal:
             print("[ROUND] Advancing to next phase...")
             self.advance_game_phase()
 
@@ -274,10 +275,14 @@ class GameLoop:
         sb.current_bet = 25
         sb.total_bet = 25
         sb.chips -= 25
+        sb.has_acted = False
+        sb.checked = False
 
         bb.current_bet = 50
         bb.total_bet = 50
         bb.chips -= 50
+        bb.has_acted = False
+        bb.checked = False
 
         self.betting_manager.current_bet = 50
         self.pot += 75
@@ -422,7 +427,8 @@ class GameLoop:
             if player.name == winner_name:
                 player.chips += self.pot
                 break
-            
+        
+        self.win_type = "showdown"
         self.state = "showdown"
         self._ready_to_reset = True
         return winner_name
@@ -467,6 +473,7 @@ class GameLoop:
         if getattr(self, "_ready_to_reset", False):
             for player in self.players:
                 if player.is_bot and player.bot_instance:
+                    player.bot_instance.save_experiences_to_json(win_type=self.win_type)
                     if not hasattr(player.bot_instance, 'results'):
                         player.bot_instance.results = []  # Initialize storage
 
@@ -478,6 +485,7 @@ class GameLoop:
 
             self.reset_round()
             self._ready_to_reset = False
+            self.win_type = None
 
     def end_round_immediately(self):
         self.state="end_round"

@@ -47,7 +47,7 @@ class BotWrapper:
         self.agent.train_rl(batch_size, gamma)
         self.agent.train_policy(batch_size)
 
-    def save_experiences_to_json(self, filename=None):
+    def save_experiences_to_json(self, filename=None, win_type = "unknown"):
         data = list(self.agent.rl_buffer.buffer)
         serializable_data = []
 
@@ -58,7 +58,8 @@ class BotWrapper:
                 "action": int(action),
                 "reward": float(reward),
                 "next_state": next_state.tolist(),
-                "done": bool(done)
+                "done": bool(done),
+                "win_type": win_type
             })
 
         os.makedirs("training_logs", exist_ok=True)

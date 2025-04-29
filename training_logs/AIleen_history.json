@@ -2338,5 +2338,7301 @@
       3.0
     ],
     "done": false
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.18401682376861572,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      0.3231492340564728,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.4406580626964569,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      0.6324900388717651,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.7656458020210266,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      1.036866307258606,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      1.1904761791229248,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      1.5880217552185059,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.18401682376861572,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      0.3231492340564728,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.4406580626964569,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      0.6324900388717651,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.7656458020210266,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      1.036866307258606,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      1.1904761791229248,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      1.5880217552185059,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.5878571271896362,
+      1.0,
+      0.21030494570732117,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5878571271896362,
+      1.0,
+      0.3525264263153076,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1468254029750824,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1468254029750824,
+      1.0,
+      -0.07401924580335617,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.5878571271896362,
+      1.0,
+      0.21030494570732117,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5878571271896362,
+      1.0,
+      0.3525264263153076,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1468254029750824,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1468254029750824,
+      1.0,
+      -0.07401924580335617,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.5878571271896362,
+      1.0,
+      0.21030494570732117,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5878571271896362,
+      1.0,
+      0.3525264263153076,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1468254029750824,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1468254029750824,
+      1.0,
+      -0.07401924580335617,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.48571428656578064,
+      1.0,
+      0.061174552887678146,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.48571428656578064,
+      1.0,
+      0.1303214579820633,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0357142873108387,
+      1.0,
+      0.17376194894313812,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0357142873108387,
+      1.0,
+      0.12489592283964157,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0357142873108387,
+      1.0,
+      0.12489592283964157,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0357142873108387,
+      1.0,
+      0.227066308259964,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0357142873108387,
+      1.0,
+      0.31789281964302063,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0357142873108387,
+      1.0,
+      0.44955044984817505,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0357142873108387,
+      1.0,
+      0.5494505763053894,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0357142873108387,
+      1.0,
+      0.7214206457138062,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0357142873108387,
+      1.0,
+      0.8324084281921387,
+      1.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.0357142873108387,
+      1.0,
+      0.8324084281921387,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0357142873108387,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0357142873108387,
+      1.0,
+      0.12484394758939743,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.5878571271896362,
+      1.0,
+      0.21030494570732117,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5878571271896362,
+      1.0,
+      0.3525264263153076,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1468254029750824,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1468254029750824,
+      1.0,
+      -0.07401924580335617,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.48571428656578064,
+      1.0,
+      0.061174552887678146,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.48571428656578064,
+      1.0,
+      0.1303214579820633,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0357142873108387,
+      1.0,
+      0.17376194894313812,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0357142873108387,
+      1.0,
+      0.12489592283964157,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0357142873108387,
+      1.0,
+      0.12489592283964157,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0357142873108387,
+      1.0,
+      0.227066308259964,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0357142873108387,
+      1.0,
+      0.31789281964302063,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0357142873108387,
+      1.0,
+      0.44955044984817505,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0357142873108387,
+      1.0,
+      0.5494505763053894,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0357142873108387,
+      1.0,
+      0.7214206457138062,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0357142873108387,
+      1.0,
+      0.8324084281921387,
+      1.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.0357142873108387,
+      1.0,
+      0.8324084281921387,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0357142873108387,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0357142873108387,
+      1.0,
+      0.12484394758939743,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.5878571271896362,
+      1.0,
+      0.21030494570732117,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5878571271896362,
+      1.0,
+      0.3525264263153076,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1468254029750824,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1468254029750824,
+      1.0,
+      -0.07401924580335617,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.48571428656578064,
+      1.0,
+      0.061174552887678146,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.48571428656578064,
+      1.0,
+      0.1303214579820633,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0357142873108387,
+      1.0,
+      0.17376194894313812,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0357142873108387,
+      1.0,
+      0.12489592283964157,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0357142873108387,
+      1.0,
+      0.12489592283964157,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0357142873108387,
+      1.0,
+      0.227066308259964,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0357142873108387,
+      1.0,
+      0.31789281964302063,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0357142873108387,
+      1.0,
+      0.44955044984817505,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0357142873108387,
+      1.0,
+      0.5494505763053894,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0357142873108387,
+      1.0,
+      0.7214206457138062,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0357142873108387,
+      1.0,
+      0.8324084281921387,
+      1.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.0357142873108387,
+      1.0,
+      0.8324084281921387,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0357142873108387,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0357142873108387,
+      1.0,
+      0.12484394758939743,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.8285714387893677,
+      1.0,
+      0.24968789517879486,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.8285714387893677,
+      1.0,
+      0.5376344323158264,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0555555559694767,
+      1.0,
+      0.5376344323158264,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      1.0,
+      0.427960067987442,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0555555559694767,
+      1.0,
+      0.5706133842468262,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      1.0,
+      0.6912442445755005,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      0.5376344323158264,
+      2.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      0.427960067987442,
+      2.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      0.5706133842468262,
+      2.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      0.8319467306137085,
+      2.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      0.9983360767364502,
+      2.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      1.3972055912017822,
+      2.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      1.5968064069747925,
+      2.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      2.244389057159424,
+      2.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      2.4937655925750732,
+      2.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      3.654484987258911,
+      2.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      3.986711025238037,
+      2.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      6.4676618576049805,
+      2.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      6.965174198150635,
+      2.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      14.851485252380371,
+      2.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      15.841584205627441,
+      2.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      1700.0,
+      2.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      1800.0,
+      2.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      1800.0,
+      2.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      1800.0,
+      2.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      1800.0,
+      2.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      1800.0,
+      2.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      1800.0,
+      2.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      1800.0,
+      2.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      1800.0,
+      2.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      1800.0,
+      2.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      1800.0,
+      2.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      1800.0,
+      2.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      1800.0,
+      2.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.5878571271896362,
+      1.0,
+      0.21030494570732117,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5878571271896362,
+      1.0,
+      0.3525264263153076,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1468254029750824,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1468254029750824,
+      1.0,
+      -0.07401924580335617,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.48571428656578064,
+      1.0,
+      0.061174552887678146,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.48571428656578064,
+      1.0,
+      0.1303214579820633,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0357142873108387,
+      1.0,
+      0.17376194894313812,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0357142873108387,
+      1.0,
+      0.12489592283964157,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0357142873108387,
+      1.0,
+      0.12489592283964157,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0357142873108387,
+      1.0,
+      0.227066308259964,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0357142873108387,
+      1.0,
+      0.31789281964302063,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0357142873108387,
+      1.0,
+      0.44955044984817505,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0357142873108387,
+      1.0,
+      0.5494505763053894,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0357142873108387,
+      1.0,
+      0.7214206457138062,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0357142873108387,
+      1.0,
+      0.8324084281921387,
+      1.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.0357142873108387,
+      1.0,
+      0.8324084281921387,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0357142873108387,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0357142873108387,
+      1.0,
+      0.12484394758939743,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.8285714387893677,
+      1.0,
+      0.24968789517879486,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.8285714387893677,
+      1.0,
+      0.5376344323158264,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0555555559694767,
+      1.0,
+      0.5376344323158264,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      1.0,
+      0.427960067987442,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0555555559694767,
+      1.0,
+      0.5706133842468262,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      1.0,
+      0.6912442445755005,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      0.5376344323158264,
+      2.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      0.427960067987442,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      0.5706133842468262,
+      2.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      0.8319467306137085,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      0.9983360767364502,
+      2.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      1.3972055912017822,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      1.5968064069747925,
+      2.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      2.244389057159424,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      2.4937655925750732,
+      2.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      3.654484987258911,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      3.986711025238037,
+      2.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      6.4676618576049805,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      6.965174198150635,
+      2.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      14.851485252380371,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      15.841584205627441,
+      2.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      1700.0,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      1800.0,
+      2.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      1800.0,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      1800.0,
+      2.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      1800.0,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      1800.0,
+      2.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      1800.0,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      1800.0,
+      2.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      1800.0,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      1800.0,
+      2.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      1800.0,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      1800.0,
+      2.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      1800.0,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1547619104385376,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1547619104385376,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.341745525598526,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.7802746295928955,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      1.0342367887496948,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.341745525598526,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.7802746295928955,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      1.0342367887496948,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.341745525598526,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.7802746295928955,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      1.0342367887496948,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.08922198414802551,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.1959247589111328,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.2742946743965149,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.32626426219940186,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0436507947742939,
+      1.0,
+      0.32626426219940186,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0436507947742939,
+      1.0,
+      0.18168604373931885,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.341745525598526,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.7802746295928955,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      1.0342367887496948,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.08922198414802551,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.1959247589111328,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.2742946743965149,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.32626426219940186,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0436507947742939,
+      1.0,
+      0.32626426219940186,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0436507947742939,
+      1.0,
+      0.18168604373931885,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.341745525598526,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.7802746295928955,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      1.0342367887496948,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.08922198414802551,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.1959247589111328,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.2742946743965149,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.32626426219940186,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0436507947742939,
+      1.0,
+      0.32626426219940186,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0436507947742939,
+      1.0,
+      0.18168604373931885,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6000000238418579,
+      1.0,
+      0.04914810135960579,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6000000238418579,
+      1.0,
+      0.12272089719772339,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6000000238418579,
+      1.0,
+      0.21037867665290833,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6000000238418579,
+      1.0,
+      0.30165913701057434,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.341745525598526,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.7802746295928955,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      1.0342367887496948,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.08922198414802551,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.1959247589111328,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.2742946743965149,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.32626426219940186,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0436507947742939,
+      1.0,
+      0.32626426219940186,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0436507947742939,
+      1.0,
+      0.18168604373931885,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6000000238418579,
+      1.0,
+      0.04914810135960579,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6000000238418579,
+      1.0,
+      0.12272089719772339,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6000000238418579,
+      1.0,
+      0.21037867665290833,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6000000238418579,
+      1.0,
+      0.30165913701057434,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.341745525598526,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.7802746295928955,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      1.0342367887496948,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.08922198414802551,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.1959247589111328,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.2742946743965149,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.32626426219940186,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0436507947742939,
+      1.0,
+      0.32626426219940186,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0436507947742939,
+      1.0,
+      0.18168604373931885,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6000000238418579,
+      1.0,
+      0.04914810135960579,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6000000238418579,
+      1.0,
+      0.12272089719772339,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6000000238418579,
+      1.0,
+      0.21037867665290833,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6000000238418579,
+      1.0,
+      0.30165913701057434,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.04107338562607765,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.07038288563489914,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.07038288563489914,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.10139049589633942,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.2896871268749237,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.4124365448951721,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.341745525598526,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.7802746295928955,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      1.0342367887496948,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.08922198414802551,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.1959247589111328,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.2742946743965149,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.32626426219940186,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0436507947742939,
+      1.0,
+      0.32626426219940186,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0436507947742939,
+      1.0,
+      0.18168604373931885,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6000000238418579,
+      1.0,
+      0.04914810135960579,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6000000238418579,
+      1.0,
+      0.12272089719772339,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6000000238418579,
+      1.0,
+      0.21037867665290833,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6000000238418579,
+      1.0,
+      0.30165913701057434,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.04107338562607765,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.07038288563489914,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.07038288563489914,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.10139049589633942,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.2896871268749237,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.4124365448951721,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.341745525598526,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.7802746295928955,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      1.0342367887496948,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.08922198414802551,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.1959247589111328,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.2742946743965149,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.32626426219940186,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0436507947742939,
+      1.0,
+      0.32626426219940186,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0436507947742939,
+      1.0,
+      0.18168604373931885,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6000000238418579,
+      1.0,
+      0.04914810135960579,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6000000238418579,
+      1.0,
+      0.12272089719772339,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6000000238418579,
+      1.0,
+      0.21037867665290833,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6000000238418579,
+      1.0,
+      0.30165913701057434,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.04107338562607765,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.07038288563489914,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.07038288563489914,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.10139049589633942,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.2896871268749237,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.4124365448951721,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6628571152687073,
+      1.0,
+      0.07861635088920593,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6628571152687073,
+      1.0,
+      0.12935090065002441,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.341745525598526,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.7802746295928955,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      1.0342367887496948,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.08922198414802551,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.1959247589111328,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.2742946743965149,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.32626426219940186,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0436507947742939,
+      1.0,
+      0.32626426219940186,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0436507947742939,
+      1.0,
+      0.18168604373931885,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6000000238418579,
+      1.0,
+      0.04914810135960579,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6000000238418579,
+      1.0,
+      0.12272089719772339,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6000000238418579,
+      1.0,
+      0.21037867665290833,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6000000238418579,
+      1.0,
+      0.30165913701057434,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.04107338562607765,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.07038288563489914,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.07038288563489914,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.10139049589633942,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.2896871268749237,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.4124365448951721,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6628571152687073,
+      1.0,
+      0.07861635088920593,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6628571152687073,
+      1.0,
+      0.12935090065002441,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.341745525598526,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.7802746295928955,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      1.0342367887496948,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.08922198414802551,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.1959247589111328,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.2742946743965149,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.32626426219940186,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0436507947742939,
+      1.0,
+      0.32626426219940186,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0436507947742939,
+      1.0,
+      0.18168604373931885,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6000000238418579,
+      1.0,
+      0.04914810135960579,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6000000238418579,
+      1.0,
+      0.12272089719772339,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6000000238418579,
+      1.0,
+      0.21037867665290833,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6000000238418579,
+      1.0,
+      0.30165913701057434,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.04107338562607765,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.07038288563489914,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.07038288563489914,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.10139049589633942,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.2896871268749237,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.4124365448951721,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6628571152687073,
+      1.0,
+      0.07861635088920593,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6628571152687073,
+      1.0,
+      0.12935090065002441,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7071428298950195,
+      1.0,
+      0.07213520258665085,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7071428298950195,
+      1.0,
+      0.1303780972957611,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.341745525598526,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.7802746295928955,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      1.0342367887496948,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.08922198414802551,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.1959247589111328,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.2742946743965149,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.32626426219940186,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0436507947742939,
+      1.0,
+      0.32626426219940186,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0436507947742939,
+      1.0,
+      0.18168604373931885,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6000000238418579,
+      1.0,
+      0.04914810135960579,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6000000238418579,
+      1.0,
+      0.12272089719772339,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6000000238418579,
+      1.0,
+      0.21037867665290833,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6000000238418579,
+      1.0,
+      0.30165913701057434,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.04107338562607765,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.07038288563489914,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.07038288563489914,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.10139049589633942,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.2896871268749237,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.4124365448951721,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6628571152687073,
+      1.0,
+      0.07861635088920593,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6628571152687073,
+      1.0,
+      0.12935090065002441,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7071428298950195,
+      1.0,
+      0.07213520258665085,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7071428298950195,
+      1.0,
+      0.1303780972957611,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.341745525598526,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.7802746295928955,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      1.0342367887496948,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.08922198414802551,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.1959247589111328,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.2742946743965149,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.32626426219940186,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0436507947742939,
+      1.0,
+      0.32626426219940186,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0436507947742939,
+      1.0,
+      0.18168604373931885,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6000000238418579,
+      1.0,
+      0.04914810135960579,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6000000238418579,
+      1.0,
+      0.12272089719772339,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6000000238418579,
+      1.0,
+      0.21037867665290833,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6000000238418579,
+      1.0,
+      0.30165913701057434,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.04107338562607765,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.07038288563489914,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.07038288563489914,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.10139049589633942,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.2896871268749237,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.4124365448951721,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6628571152687073,
+      1.0,
+      0.07861635088920593,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6628571152687073,
+      1.0,
+      0.12935090065002441,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7071428298950195,
+      1.0,
+      0.07213520258665085,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7071428298950195,
+      1.0,
+      0.1303780972957611,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7642857432365417,
+      1.0,
+      0.047152016311883926,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7642857432365417,
+      1.0,
+      0.10995601862668991,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.341745525598526,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.7802746295928955,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      1.0342367887496948,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.08922198414802551,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.1959247589111328,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.2742946743965149,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.32626426219940186,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0436507947742939,
+      1.0,
+      0.32626426219940186,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0436507947742939,
+      1.0,
+      0.18168604373931885,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6000000238418579,
+      1.0,
+      0.04914810135960579,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6000000238418579,
+      1.0,
+      0.12272089719772339,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6000000238418579,
+      1.0,
+      0.21037867665290833,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6000000238418579,
+      1.0,
+      0.30165913701057434,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.04107338562607765,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.07038288563489914,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.07038288563489914,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.10139049589633942,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.2896871268749237,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.4124365448951721,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6628571152687073,
+      1.0,
+      0.07861635088920593,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6628571152687073,
+      1.0,
+      0.12935090065002441,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7071428298950195,
+      1.0,
+      0.07213520258665085,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7071428298950195,
+      1.0,
+      0.1303780972957611,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7642857432365417,
+      1.0,
+      0.047152016311883926,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7642857432365417,
+      1.0,
+      0.10995601862668991,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.341745525598526,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.7802746295928955,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      1.0342367887496948,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.08922198414802551,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.1959247589111328,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.2742946743965149,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.32626426219940186,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0436507947742939,
+      1.0,
+      0.32626426219940186,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0436507947742939,
+      1.0,
+      0.18168604373931885,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6000000238418579,
+      1.0,
+      0.04914810135960579,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6000000238418579,
+      1.0,
+      0.12272089719772339,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6000000238418579,
+      1.0,
+      0.21037867665290833,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6000000238418579,
+      1.0,
+      0.30165913701057434,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.04107338562607765,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.07038288563489914,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.07038288563489914,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.10139049589633942,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.2896871268749237,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.4124365448951721,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6628571152687073,
+      1.0,
+      0.07861635088920593,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6628571152687073,
+      1.0,
+      0.12935090065002441,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7071428298950195,
+      1.0,
+      0.07213520258665085,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7071428298950195,
+      1.0,
+      0.1303780972957611,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7642857432365417,
+      1.0,
+      0.047152016311883926,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7642857432365417,
+      1.0,
+      0.10995601862668991,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.23928570747375488,
+      1.0,
+      0.02520161308348179,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.23928570747375488,
+      1.0,
+      0.06084839999675751,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.341745525598526,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.7802746295928955,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      1.0342367887496948,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.08922198414802551,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.1959247589111328,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.2742946743965149,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.32626426219940186,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0436507947742939,
+      1.0,
+      0.32626426219940186,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0436507947742939,
+      1.0,
+      0.18168604373931885,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6000000238418579,
+      1.0,
+      0.04914810135960579,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6000000238418579,
+      1.0,
+      0.12272089719772339,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6000000238418579,
+      1.0,
+      0.21037867665290833,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6000000238418579,
+      1.0,
+      0.30165913701057434,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.04107338562607765,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.07038288563489914,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.07038288563489914,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.10139049589633942,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.2896871268749237,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.4124365448951721,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6628571152687073,
+      1.0,
+      0.07861635088920593,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6628571152687073,
+      1.0,
+      0.12935090065002441,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7071428298950195,
+      1.0,
+      0.07213520258665085,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7071428298950195,
+      1.0,
+      0.1303780972957611,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7642857432365417,
+      1.0,
+      0.047152016311883926,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7642857432365417,
+      1.0,
+      0.10995601862668991,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.23928570747375488,
+      1.0,
+      0.02520161308348179,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.23928570747375488,
+      1.0,
+      0.06084839999675751,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.341745525598526,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.7802746295928955,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      1.0342367887496948,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.08922198414802551,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.1959247589111328,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.2742946743965149,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.32626426219940186,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0436507947742939,
+      1.0,
+      0.32626426219940186,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0436507947742939,
+      1.0,
+      0.18168604373931885,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6000000238418579,
+      1.0,
+      0.04914810135960579,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6000000238418579,
+      1.0,
+      0.12272089719772339,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6000000238418579,
+      1.0,
+      0.21037867665290833,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6000000238418579,
+      1.0,
+      0.30165913701057434,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.04107338562607765,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.07038288563489914,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.07038288563489914,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.10139049589633942,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.2896871268749237,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.4124365448951721,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6628571152687073,
+      1.0,
+      0.07861635088920593,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6628571152687073,
+      1.0,
+      0.12935090065002441,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7071428298950195,
+      1.0,
+      0.07213520258665085,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7071428298950195,
+      1.0,
+      0.1303780972957611,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7642857432365417,
+      1.0,
+      0.047152016311883926,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7642857432365417,
+      1.0,
+      0.10995601862668991,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.23928570747375488,
+      1.0,
+      0.02520161308348179,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.23928570747375488,
+      1.0,
+      0.06084839999675751,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7642857432365417,
+      1.0,
+      0.058313895016908646,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7642857432365417,
+      1.0,
+      0.09479489922523499,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.341745525598526,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6235714554786682,
+      1.0,
+      0.7802746295928955,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6235714554786682,
+      1.0,
+      1.0342367887496948,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.08922198414802551,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.1959247589111328,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.4571428596973419,
+      1.0,
+      0.2742946743965149,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.4571428596973419,
+      1.0,
+      0.32626426219940186,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0436507947742939,
+      1.0,
+      0.32626426219940186,
+      1.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.0436507947742939,
+      1.0,
+      0.18168604373931885,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6000000238418579,
+      1.0,
+      0.04914810135960579,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6000000238418579,
+      1.0,
+      0.12272089719772339,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6000000238418579,
+      1.0,
+      0.21037867665290833,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6000000238418579,
+      1.0,
+      0.30165913701057434,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.04107338562607765,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.07038288563489914,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.07038288563489914,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.10139049589633942,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7378571629524231,
+      1.0,
+      0.2896871268749237,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7378571629524231,
+      1.0,
+      0.4124365448951721,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6628571152687073,
+      1.0,
+      0.07861635088920593,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6628571152687073,
+      1.0,
+      0.12935090065002441,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7071428298950195,
+      1.0,
+      0.07213520258665085,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7071428298950195,
+      1.0,
+      0.1303780972957611,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7642857432365417,
+      1.0,
+      0.047152016311883926,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7642857432365417,
+      1.0,
+      0.10995601862668991,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.23928570747375488,
+      1.0,
+      0.02520161308348179,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.23928570747375488,
+      1.0,
+      0.06084839999675751,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.7642857432365417,
+      1.0,
+      0.058313895016908646,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7642857432365417,
+      1.0,
+      0.09479489922523499,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.5785714387893677,
+      1.0,
+      0.13144059479236603,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5785714387893677,
+      1.0,
+      0.1942286342382431,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1587301641702652,
+      1.0,
+      0.24972252547740936,
+      1.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      1.0,
+      0.24972252547740936,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1587301641702652,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      1.0,
+      -0.05257623642683029,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.5785714387893677,
+      1.0,
+      0.13144059479236603,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5785714387893677,
+      1.0,
+      0.1942286342382431,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1587301641702652,
+      1.0,
+      0.24972252547740936,
+      1.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      1.0,
+      0.24972252547740936,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.1587301641702652,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      1.0,
+      -0.05257623642683029,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      0.341745525598526,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      0.9675405621528625,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      1.4208909273147583,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      1.6513056755065918,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      2.132486343383789,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0515873022377491,
+      1.0,
+      2.2232306003570557,
+      1.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.0515873022377491,
+      1.0,
+      2.2232306003570557,
+      1.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0555555559694767,
+      1.0,
+      2.2232306003570557,
+      2.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      1.0,
+      2.2232306003570557,
+      2.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.5,
+      1.0,
+      2.2232306003570557,
+      3.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.5,
+      1.0,
+      2.2232306003570557,
+      3.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.5,
+      1.0,
+      0.6897522807121277,
+      4.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5,
+      1.0,
+      0.37913602590560913,
+      4.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      0.341745525598526,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      0.9675405621528625,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      1.4208909273147583,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      1.6513056755065918,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      2.132486343383789,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0515873022377491,
+      1.0,
+      2.2232306003570557,
+      1.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.0515873022377491,
+      1.0,
+      2.2232306003570557,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0555555559694767,
+      1.0,
+      2.2232306003570557,
+      2.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      1.0,
+      2.2232306003570557,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.5,
+      1.0,
+      2.2232306003570557,
+      3.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.5,
+      1.0,
+      2.2232306003570557,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.5,
+      1.0,
+      0.6897522807121277,
+      4.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5,
+      1.0,
+      0.37913602590560913,
+      4.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      0.341745525598526,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      0.9675405621528625,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      1.4208909273147583,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      1.6513056755065918,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      2.132486343383789,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0515873022377491,
+      1.0,
+      2.2232306003570557,
+      1.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.0515873022377491,
+      1.0,
+      2.2232306003570557,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0555555559694767,
+      1.0,
+      2.2232306003570557,
+      2.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      1.0,
+      2.2232306003570557,
+      2.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.5,
+      1.0,
+      2.2232306003570557,
+      3.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.5,
+      1.0,
+      2.2232306003570557,
+      3.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.5,
+      1.0,
+      0.6897522807121277,
+      4.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5,
+      1.0,
+      0.37913602590560913,
+      4.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.03486750274896622,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      0.07225433737039566,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.14450867474079132,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      0.2024291455745697,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.4554655849933624,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      0.5750274062156677,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      0.341745525598526,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      0.9675405621528625,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      1.4208909273147583,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      1.6513056755065918,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      2.132486343383789,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0515873022377491,
+      1.0,
+      2.2232306003570557,
+      1.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.0515873022377491,
+      1.0,
+      2.2232306003570557,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0555555559694767,
+      1.0,
+      2.2232306003570557,
+      2.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      1.0,
+      2.2232306003570557,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.5,
+      1.0,
+      2.2232306003570557,
+      3.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.5,
+      1.0,
+      2.2232306003570557,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.5,
+      1.0,
+      0.6897522807121277,
+      4.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5,
+      1.0,
+      0.37913602590560913,
+      4.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.03486750274896622,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      0.07225433737039566,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.14450867474079132,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      0.2024291455745697,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.4554655849933624,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      0.5750274062156677,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      0.341745525598526,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      0.9675405621528625,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      1.4208909273147583,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      1.6513056755065918,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      2.132486343383789,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0515873022377491,
+      1.0,
+      2.2232306003570557,
+      1.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.0515873022377491,
+      1.0,
+      2.2232306003570557,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0555555559694767,
+      1.0,
+      2.2232306003570557,
+      2.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      1.0,
+      2.2232306003570557,
+      2.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.5,
+      1.0,
+      2.2232306003570557,
+      3.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.5,
+      1.0,
+      2.2232306003570557,
+      3.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.5,
+      1.0,
+      0.6897522807121277,
+      4.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5,
+      1.0,
+      0.37913602590560913,
+      4.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.03486750274896622,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      0.07225433737039566,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.14450867474079132,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      0.2024291455745697,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.4554655849933624,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      0.5750274062156677,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.75,
+      1.0,
+      0.02520161308348179,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.75,
+      1.0,
+      0.06084839999675751,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.75,
+      1.0,
+      0.10431154072284698,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.75,
+      1.0,
+      0.14409221708774567,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      0.341745525598526,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      0.9675405621528625,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      1.4208909273147583,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      1.6513056755065918,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      2.132486343383789,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0515873022377491,
+      1.0,
+      2.2232306003570557,
+      1.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.0515873022377491,
+      1.0,
+      2.2232306003570557,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0555555559694767,
+      1.0,
+      2.2232306003570557,
+      2.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      1.0,
+      2.2232306003570557,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.5,
+      1.0,
+      2.2232306003570557,
+      3.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.5,
+      1.0,
+      2.2232306003570557,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.5,
+      1.0,
+      0.6897522807121277,
+      4.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5,
+      1.0,
+      0.37913602590560913,
+      4.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.03486750274896622,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      0.07225433737039566,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.14450867474079132,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      0.2024291455745697,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.4554655849933624,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      0.5750274062156677,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.75,
+      1.0,
+      0.02520161308348179,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.75,
+      1.0,
+      0.06084839999675751,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.75,
+      1.0,
+      0.10431154072284698,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.75,
+      1.0,
+      0.14409221708774567,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      0.341745525598526,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      0.9675405621528625,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      1.4208909273147583,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      1.6513056755065918,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      2.132486343383789,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0515873022377491,
+      1.0,
+      2.2232306003570557,
+      1.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.0515873022377491,
+      1.0,
+      2.2232306003570557,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0555555559694767,
+      1.0,
+      2.2232306003570557,
+      2.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      1.0,
+      2.2232306003570557,
+      2.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.5,
+      1.0,
+      2.2232306003570557,
+      3.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.5,
+      1.0,
+      2.2232306003570557,
+      3.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.5,
+      1.0,
+      0.6897522807121277,
+      4.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5,
+      1.0,
+      0.37913602590560913,
+      4.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.03486750274896622,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      0.07225433737039566,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.14450867474079132,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      0.2024291455745697,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.4554655849933624,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      0.5750274062156677,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.75,
+      1.0,
+      0.02520161308348179,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.75,
+      1.0,
+      0.06084839999675751,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.75,
+      1.0,
+      0.10431154072284698,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.75,
+      1.0,
+      0.14409221708774567,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.3464285731315613,
+      1.0,
+      0.022893773391842842,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.3464285731315613,
+      1.0,
+      0.05510075390338898,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.3464285731315613,
+      1.0,
+      0.0944584384560585,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.3464285731315613,
+      1.0,
+      0.1300390064716339,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      0.341745525598526,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      0.9675405621528625,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      1.4208909273147583,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      1.6513056755065918,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      2.132486343383789,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0515873022377491,
+      1.0,
+      2.2232306003570557,
+      1.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.0515873022377491,
+      1.0,
+      2.2232306003570557,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0555555559694767,
+      1.0,
+      2.2232306003570557,
+      2.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      1.0,
+      2.2232306003570557,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.5,
+      1.0,
+      2.2232306003570557,
+      3.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.5,
+      1.0,
+      2.2232306003570557,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.5,
+      1.0,
+      0.6897522807121277,
+      4.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5,
+      1.0,
+      0.37913602590560913,
+      4.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.03486750274896622,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      0.07225433737039566,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.14450867474079132,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      0.2024291455745697,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.4554655849933624,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      0.5750274062156677,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.75,
+      1.0,
+      0.02520161308348179,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.75,
+      1.0,
+      0.06084839999675751,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.75,
+      1.0,
+      0.10431154072284698,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.75,
+      1.0,
+      0.14409221708774567,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.3464285731315613,
+      1.0,
+      0.022893773391842842,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.3464285731315613,
+      1.0,
+      0.05510075390338898,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.3464285731315613,
+      1.0,
+      0.0944584384560585,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.3464285731315613,
+      1.0,
+      0.1300390064716339,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      0.341745525598526,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      0.9675405621528625,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      1.4208909273147583,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      1.6513056755065918,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      2.132486343383789,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0515873022377491,
+      1.0,
+      2.2232306003570557,
+      1.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.0515873022377491,
+      1.0,
+      2.2232306003570557,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0555555559694767,
+      1.0,
+      2.2232306003570557,
+      2.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      1.0,
+      2.2232306003570557,
+      2.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.5,
+      1.0,
+      2.2232306003570557,
+      3.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.5,
+      1.0,
+      2.2232306003570557,
+      3.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.5,
+      1.0,
+      0.6897522807121277,
+      4.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5,
+      1.0,
+      0.37913602590560913,
+      4.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.03486750274896622,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      0.07225433737039566,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.14450867474079132,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      0.2024291455745697,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.4554655849933624,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      0.5750274062156677,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.75,
+      1.0,
+      0.02520161308348179,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.75,
+      1.0,
+      0.06084839999675751,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.75,
+      1.0,
+      0.10431154072284698,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.75,
+      1.0,
+      0.14409221708774567,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.3464285731315613,
+      1.0,
+      0.022893773391842842,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.3464285731315613,
+      1.0,
+      0.05510075390338898,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.3464285731315613,
+      1.0,
+      0.0944584384560585,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.3464285731315613,
+      1.0,
+      0.1300390064716339,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.9071428775787354,
+      1.0,
+      0.02127056196331978,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.9071428775787354,
+      1.0,
+      0.03596087545156479,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      0.341745525598526,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      0.5930087566375732,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      0.9675405621528625,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      1.4208909273147583,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.6142857074737549,
+      1.0,
+      1.6513056755065918,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.6142857074737549,
+      1.0,
+      2.132486343383789,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0515873022377491,
+      1.0,
+      2.2232306003570557,
+      1.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.0515873022377491,
+      1.0,
+      2.2232306003570557,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.0555555559694767,
+      1.0,
+      2.2232306003570557,
+      2.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      1.0,
+      2.2232306003570557,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.5,
+      1.0,
+      2.2232306003570557,
+      3.0
+    ],
+    "action": 3,
+    "reward": 0.0,
+    "next_state": [
+      0.5,
+      1.0,
+      2.2232306003570557,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.5,
+      1.0,
+      0.6897522807121277,
+      4.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.5,
+      1.0,
+      0.37913602590560913,
+      4.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.03486750274896622,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      0.07225433737039566,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.14450867474079132,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      0.2024291455745697,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      1.0,
+      1.0,
+      0.4554655849933624,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      1.0,
+      0.5750274062156677,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.75,
+      1.0,
+      0.02520161308348179,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.75,
+      1.0,
+      0.06084839999675751,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.75,
+      1.0,
+      0.10431154072284698,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.75,
+      1.0,
+      0.14409221708774567,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.3464285731315613,
+      1.0,
+      0.022893773391842842,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.3464285731315613,
+      1.0,
+      0.05510075390338898,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.3464285731315613,
+      1.0,
+      0.0944584384560585,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.3464285731315613,
+      1.0,
+      0.1300390064716339,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "agressive",
+    "state": [
+      0.9071428775787354,
+      1.0,
+      0.02127056196331978,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.9071428775787354,
+      1.0,
+      0.03596087545156479,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
   }
 ]
