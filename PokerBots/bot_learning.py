@@ -2,48 +2,56 @@ import matplotlib.pyplot as plt
 import os
 import json
 
-def plot_bot_wins(bot_name):
+def count_bot_wins(bot_name):
     filepath = f"training_logs/{bot_name}_history.json"
 
     if not os.path.exists(filepath):
         print(f"[WARNING] No log found for {bot_name}")
-        return
+        return 0
 
     with open(filepath, "r") as f:
         data = json.load(f)
 
-    cumulative_wins = []
-    total_wins = 0
-
+    wins = 0
     for entry in data:
-        win_type = entry.get("win_type", "")
-        done = entry.get("done", False)
+        if entry.get("win_type") in ["fold", "showdown"]:
+            wins += 1
+    return wins
 
-        # Count only when it's a final round-winning entry
-        if win_type in ["fold", "showdown"] and done:
-            total_wins += 1
-            cumulative_wins.append(total_wins)
+def format_label(pct, all_vals):
+    total = sum(all_vals)
+    count = int(round(pct * total / 100.0))
+    return f'{pct:.1f}% ({count})'
 
-    rounds = list(range(1, len(cumulative_wins) + 1))
-    plt.plot(rounds, cumulative_wins, label=bot_name)
-    if rounds:
-        plt.text(rounds[-1] + 0.5, cumulative_wins[-1], f"{bot_name}: {cumulative_wins[-1]} wins",
-                 fontsize=9, verticalalignment='center')
 
-def plot_all_bot_wins(bot_names):
-    plt.figure(figsize=(12, 6))
+
+
+def plot_bot_wins_pie(bot_names):
+    labels = []
+    win_counts = []
 
     for name in bot_names:
-        plot_bot_wins(name)
+        wins = count_bot_wins(name)
+        if wins > 0:
+            labels.append(name)
+            win_counts.append(wins)
 
-    plt.title("Cumulative Wins Per Round")
-    plt.xlabel("Rounds Played")
-    plt.ylabel("Total Wins")
-    plt.legend()
-    plt.grid(True)
+    if not win_counts:
+        print("No wins recorded for any bots.")
+        return
+
+    plt.figure(figsize=(8, 8))
+    plt.pie(
+        win_counts,
+        labels=labels,
+        autopct=lambda pct: format_label(pct, win_counts),
+        startangle=140
+    )
+    plt.title("Total Wins by Poker Bot")
+    plt.axis('equal')  # Equal aspect ratio makes pie circular.
     plt.tight_layout()
     plt.show()
 
 if __name__ == "__main__":
     bot_names = ["AIan", "AIleen", "AInsley", "AbigAIl"]
-    plot_all_bot_wins(bot_names)
+    plot_bot_wins_pie(bot_names)
