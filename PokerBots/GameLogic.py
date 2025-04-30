@@ -56,6 +56,7 @@ class Player:
         self.checked = False
         self.bet = 0
         self.total_bet = 0
+        self.all_in = False
         self.has_acted = False
         self.is_bot = is_bot
         self.bot_instance = bot_instance
@@ -328,63 +329,86 @@ class GameLoop:
         return torch.tensor([hand_strength, position_index, pot_ratio, street_val])
 
     
-
     def bot_take_action(self, player):
         print(f"[DEBUG] {player.name} Bot Acting – State: {self.state}, Chips: {player.chips}")
 
-        if player.is_bot and player.bot_instance:
-            state_tensor = self.get_bot_state(player)
-            bet_diff = self.betting_manager.current_bet - player.total_bet
-            can_check = bet_diff <= 0
+        if not player.is_bot or not player.bot_instance:
+            return
 
-            action = player.bot_instance.decide_action(state_tensor, can_check=can_check)
-            print(f"[ACTION] {player.name} decided to {action.upper()}")
-            print(f"[ROUND CHECK] Folded: {[p.folded for p in self.players]}")
+        # Get bot decision
+        state_tensor = self.get_bot_state(player)
+        can_check = player.total_bet == self.betting_manager.current_bet
+        action = player.bot_instance.decide_action(state_tensor, can_check=can_check)
 
-            if action == "fold":
-                player.folded = True
+        print(f"[ACTION] {player.name} decided to {action.upper()}")
 
-            elif action == "check" and can_check:
+        # Normalize for RL training
+        normalized_action = "call" if action == "check" else action
+        action_index = ["fold", "call", "raise"].index(normalized_action)
+
+        if action == "fold":
+            player.folded = True
+
+        elif action == "check":
+            player.checked = True
+
+        elif action == "call":
+            call_amount = self.betting_manager.current_bet - player.total_bet
+            if call_amount > 0:
+                if player.chips <= call_amount:
+                    call_amount = player.chips
+                    player.all_in = True
+                    print(f"[ALL-IN] {player.name} is all-in for {call_amount} chips!")
+
+                player.chips -= call_amount
+                player.total_bet += call_amount
+                self.pot += call_amount
+            else:
                 player.checked = True
 
-            elif action == "call":
-                if bet_diff > 0:
-                    player.total_bet += bet_diff
-                    player.chips -= bet_diff
-                    self.pot += bet_diff
-                else:
-                    player.checked = True
+        elif action == "raise":
+            hand_strength = state_tensor[0].item()
 
-            elif action == "raise":
-                raise_amount = 50
-                total_required = bet_diff + raise_amount
-                if player.chips >= total_required:
-                    player.total_bet += total_required
-                    player.chips -= total_required
-                    self.pot += total_required
-                    self.betting_manager.current_bet = player.total_bet
+            # Dynamic raise: up to 25% of chips, but minimum 5
+            proposed_raise = int(player.chips * hand_strength * 0.25)
+            proposed_raise = max(5, round(proposed_raise / 5) * 5)  # Round to nearest 5
 
-                    # Reset others
-                    for p in self.players:
-                        if p != player and not p.folded:
-                            p.has_acted = False
-                            p.checked = False
-                else:
-                    player.checked = True
-                     
-            # Store transition: (state, action, reward, next_state, done=False)
-            next_state = self.get_bot_state(player)
-            player.bot_instance.store_experience(
-                state=state_tensor,
-                action=["fold", "call", "raise", "check"].index(action),  # convert to index
-                reward=0,  # Use actual chip diff or 0 here for now
-                next_state=next_state,
-                done=False
-            )
+            # Calculate total needed for raise
+            total_required = (self.betting_manager.current_bet - player.total_bet) + proposed_raise
+            total_required = max(total_required, 0)
 
+            if player.chips <= total_required:
+                # Not enough chips? Go all-in
+                total_required = player.chips
+                player.all_in = True
+                print(f"[ALL-IN] {player.name} raises all-in with {total_required} chips!")
 
-            player.has_acted = True
+            player.chips -= total_required
+            player.total_bet += total_required
+            self.pot += total_required
 
+            # Always update current bet to match highest bet on table
+            self.betting_manager.current_bet = max(self.betting_manager.current_bet, player.total_bet)
+
+            # Reset others' states because of raise
+            for p in self.players:
+                if p != player and not p.folded and not p.all_in:
+                    p.has_acted = False
+                    p.checked = False
+
+        player.has_acted = True
+
+        # Store experience
+        next_state = self.get_bot_state(player)
+        player.bot_instance.store_experience(
+            state=state_tensor,
+            action=action_index,
+            reward=0,
+            next_state=next_state,
+            done=False
+        )
+
+        print(f"[DEBUG] {player.name} completed action. Chips now: {player.chips}, Total Bet: {player.total_bet}, Pot: {self.pot}")
 
 
     def advance_game_phase(self):
@@ -448,6 +472,7 @@ class GameLoop:
             player.total_bet = 0
             player.folded = False
             player.checked = False
+            player.all_in = False
 
         # ✅ Rotate dealer
         self.dealer_index = (self.dealer_index + 1) % len(self.players)
