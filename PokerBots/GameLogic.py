@@ -61,6 +61,7 @@ class Player:
         self.has_acted = False
         self.is_bot = is_bot
         self.bot_instance = bot_instance
+        self.eliminated = False
 
 
     def receive_card(self, card):
@@ -145,8 +146,10 @@ class BettingManager:
         self.turn_index = 0
 
     def set_blinds(self):
-        self.sb_index = (self.dealer_index) % len(self.players)
-        self.bb_index = (self.dealer_index + 1) % len(self.players)
+        active = [p for p in self.players if not p.eliminated]
+        self.sb_index = self.players.index(active[self.dealer_index % len(active)])
+        self.bb_index = self.players.index(active[(self.dealer_index + 1) % len(active)])
+
 
 
     def build_betting_order(self, state):
@@ -156,12 +159,16 @@ class BettingManager:
             start_index = (self.dealer_index + 1) % len(self.players)
 
         self.betting_order = []
+
         for i in range(len(self.players)):
             idx = (start_index + i) % len(self.players)
-            if not self.players[idx].folded:
-                self.betting_order.append(self.players[idx])
+            player = self.players[idx]
+            if not player.folded and not player.eliminated:
+                self.betting_order.append(player)
 
-        self.turn_index = 0  # Always reset turn index
+        self.turn_index = 0
+
+
 
     def reset_bets(self):
         for player in self.players:
@@ -173,6 +180,19 @@ class BettingManager:
 
     def current_player(self):
         return self.betting_order[self.turn_index] if self.turn_index < len(self.betting_order) else None
+    
+    @property
+    def all_acted(self):
+        return all(p.has_acted or p.folded or p.all_in or p.eliminated for p in self.players)
+
+    @property
+    def all_bets_equal(self):
+        active_players = [p for p in self.players if not p.folded and not p.all_in and not p.eliminated]
+        if not active_players:
+            return True
+        first_bet = active_players[0].total_bet
+        return all(p.total_bet == first_bet for p in active_players)
+
 
     def next_turn(self):
         print(f"[NEXT TURN] Moved to: {self.turn_index} – {self.betting_order[self.turn_index].name}")
@@ -185,11 +205,12 @@ class BettingManager:
             self.turn_index = (self.turn_index + 1) % total_players
             next_player = self.betting_order[self.turn_index]
 
-            if not next_player.folded and not next_player.has_acted:
+            if not next_player.folded and not next_player.has_acted and not next_player.eliminated:
                 print(f"[NEXT TURN] Next player is {next_player.name}")
                 return True
 
             loop_count += 1
+
 
         print("[NEXT TURN] No players left to act.")
         return False
@@ -228,6 +249,8 @@ class GameLoop:
 
     def deal_hole_cards(self):
         for player in self.players:
+            if player.eliminated:
+                continue
             player.hand = [self.deck.draw_card(), self.deck.draw_card()]
         self.betting_manager.set_blinds()
         self.post_blinds()
@@ -239,7 +262,7 @@ class GameLoop:
         return drawn
 
     def handle_betting_round(self):
-        players_in_hand = [p for p in self.players if not p.folded]
+        players_in_hand = [p for p in self.players if not p.folded and not p.eliminated]
 
         if not players_in_hand:
             return
@@ -257,9 +280,19 @@ class GameLoop:
 
         print(f"[ROUND CHECK] all_acted={all_acted}, all_bets_equal={all_bets_equal}")
 
-        if all_acted and all_bets_equal:
+        if self.betting_manager.all_acted and self.betting_manager.all_bets_equal:
             print("[ROUND] Advancing to next phase...")
             self.advance_game_phase()
+
+        if self.betting_manager.all_acted and not self.betting_manager.all_bets_equal:
+            print("[WARN] All acted but bets unequal — resetting actions and restarting turn order.")
+            for p in self.players:
+                if not p.folded and not p.all_in and not p.eliminated:
+                    p.has_acted = False
+            self.betting_manager.turn_index = -1  # So next_turn starts at 0
+            self.betting_manager.build_betting_order(self.state)
+            return
+
 
     def post_blinds(self):
         sb_index = self.betting_manager.sb_index
@@ -327,6 +360,9 @@ class GameLoop:
     def bot_take_action(self, player):
         print(f"[DEBUG] {player.name} Bot Acting – State: {self.state}, Chips: {player.chips}")
 
+        if player.chips <= 0 or player.folded:
+            return
+
         if not player.is_bot or not player.bot_instance:
             return
 
@@ -387,7 +423,7 @@ class GameLoop:
 
             # Reset others' states because of raise
             for p in self.players:
-                if p != player and not p.folded and not p.all_in:
+                if p != player and not p.folded and not p.all_in and not p.eliminated:
                     p.has_acted = False
                     p.checked = False
 
@@ -454,8 +490,11 @@ class GameLoop:
     
     def reset_round(self):
 
-        eliminated = [p.name for p in self.players if p.chips <= 0]
-        self.players = [p for p in self.players if p.chips > 0]
+        for p in self.players:
+                if p.chips <= 0:
+                    p.eliminated = True
+        
+        active_players = [p for p in self.players if not p.eliminated]
 
         self.pot = 0
         self.state = "pre-flop"
@@ -493,6 +532,8 @@ class GameLoop:
         for player in self.betting_manager.betting_order:
             print(f"  - {player.name}")
 
+        self.pending_bot_action = None
+
     def reset_if_ready(self):
         if getattr(self, "_ready_to_reset", False):
             for player in self.players:
@@ -519,7 +560,7 @@ class GameLoop:
                 bot_names = [p.name for p in self.players if p.is_bot]
                 plot_bot_wins_pie(bot_names, save_path=filename)
 
-            active_players = [p for p in self.players if p.chips > 0]
+            active_players = [p for p in self.players if not p.eliminated]
             if len(active_players) == 1:
                 winner = active_players[0].name
                 print(f"[GAME COMPLETE] {winner} wins the full game!")

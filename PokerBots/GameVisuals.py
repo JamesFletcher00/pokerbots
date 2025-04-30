@@ -37,10 +37,10 @@ class PokerGameUI:
 
         self.hole_card_images = {
             i: [self.card_images[f"{card.rank}_of_{card.suit}"] for card in player.hand]
-            for i, player in enumerate(self.game.players)
+            for i, player in enumerate(self.game.players) if not player.eliminated
         }
 
-        self.bet_input = self.TextInput(600, 850, 200, 50)
+        self.bet_input = self.TextInput(00, 0, 00, 0)
         self.ok_button = pg.Rect(820, 850, 100, 50)
         self.waiting_for_bet = False
         self.last_state = self.game.state
@@ -121,31 +121,14 @@ class PokerGameUI:
             self.screen.blit(self.card_images[name], (448 + i * 128, 384))
 
     def display_bet_ui(self):
-        current_player = self.game.betting_manager.current_player()
-        if not current_player:
-            return
-
-        # === Config ===
-        bet_pos = (self.screen_width // 2 - 150, self.screen_height - 100)
         pot_box = pg.Rect(524, 268, 487, 103)  # (x, y, width, height)
-
-        # === Clear text areas ===
-        pg.draw.rect(self.screen, (79, 141, 36), (*bet_pos, 300, 50))     # Clear bet text zone
         pg.draw.rect(self.screen, (255, 255, 255), pot_box)             # Clear pot box background
-
-        # === Render Text ===
-        bet_text = self.FONT.render(f"{current_player.name}'s Bet: {current_player.bet}", True, (255, 255, 255))
         pot_text = self.POT_FONT.render(f"Pot: {self.game.pot}", True, (0, 0, 0))
-
-        # === Blit to screen ===
-        self.screen.blit(bet_text, bet_pos)
         self.screen.blit(pot_text, pot_text.get_rect(center=pot_box.center))
 
     def redraw_table(self):
         self.screen.blit(self.poker_table, self.poker_table_rect)
         pg.display.flip()
-
-
 
     def draw_blinds(self):
         sb_index = self.game.betting_manager.sb_index
@@ -172,8 +155,7 @@ class PokerGameUI:
 
             if self.waiting_to_start:
                 now = pg.time.get_ticks()
-                if now - self.game_start_time < 5000:
-                    # Show startup screen
+                if now - self.game_start_time < 500:
                     self.screen.fill((0, 0, 0))
                     start_text = self.FONT.render("Starting Game...", True, (255, 255, 255))
                     self.screen.blit(start_text, (self.screen_width // 2 - 150, self.screen_height // 2))
@@ -183,25 +165,28 @@ class PokerGameUI:
                 else:
                     print("[DEBUG] Delay finished — entering main game loop.")
                     self.waiting_to_start = False
-
-                    # Force one frame before AI starts acting
                     self.screen.blit(self.poker_table, self.poker_table_rect)
                     pg.display.flip()
                     pg.time.delay(500)
 
             current_player = None
             if self.game.betting_manager.turn_index < len(self.game.betting_manager.betting_order):
-                current_player = self.game.betting_manager.betting_order[self.game.betting_manager.turn_index]
-                #print(f"[CHECK] Current player: {current_player.name}, is_bot={current_player.is_bot}")
+                candidate = self.game.betting_manager.betting_order[self.game.betting_manager.turn_index]
+                if not candidate.eliminated:
+                    current_player = candidate
 
-            # Step 1: Schedule the bot, don't act yet
+
             if current_player and current_player.is_bot and self.pending_bot_action is None:
                 self.pending_bot_action = current_player
                 self.bot_action_timer = pg.time.get_ticks()
 
-            # Step 2: Perform bot action after delay
             if self.pending_bot_action:
-                if pg.time.get_ticks() - self.bot_action_timer > 1000:  # 400ms delay
+                if self.pending_bot_action.eliminated or self.pending_bot_action.chips <= 0:
+                    print(f"[SKIP] {self.pending_bot_action.name} eliminated. Clearing pending action.")
+                    self.pending_bot_action = None
+                    self.game.betting_manager.next_turn()  # ✅ Advance turn to avoid deadlock
+
+                elif pg.time.get_ticks() - self.bot_action_timer > 1000:
                     print(f"[BOT TURN] {self.pending_bot_action.name} acting...")
                     self.game.bot_take_action(self.pending_bot_action)
                     self.game.handle_betting_round()
@@ -211,8 +196,9 @@ class PokerGameUI:
                         if not has_next:
                             self.game.handle_betting_round()
 
-                    self.pending_bot_action = None  # clear it so we wait again next turn
+                    self.pending_bot_action = None
 
+            # Handle events
             for event in pg.event.get():
                 if event.type == pg.QUIT or (event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE):
                     running = False
@@ -222,9 +208,7 @@ class PokerGameUI:
                     if self.bet_button_rect.collidepoint(event.pos):
                         try:
                             amount = int(self.bet_input.text)
-                            min_required = self.game.betting_manager.current_bet - current_player.total_bet
                             is_raise = amount + current_player.total_bet > self.game.betting_manager.current_bet
-
                             if is_raise:
                                 for player in self.game.players:
                                     if not player.folded and player != current_player:
@@ -269,6 +253,7 @@ class PokerGameUI:
 
                 self.bet_input.handle_event(event)
 
+            # Draw interface
             self.screen.blit(self.call_button, self.call_button_rect.topleft)
             self.screen.blit(self.bet_button, self.bet_button_rect.topleft)
             self.screen.blit(self.fold_button, self.fold_button_rect.topleft)
@@ -285,13 +270,12 @@ class PokerGameUI:
                     if self.game._request_ui_clear:
                         self.redraw_table()
                         self.game._request_ui_clear = False
-
                     self.update_after_round_reset()
                     self.showdown_time = None
 
             self.display_bet_ui()
             pg.display.flip()
-            self.clock.tick(30)  # Keep frame rate stable
+            self.clock.tick(30)
 
         pg.quit()
 
