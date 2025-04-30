@@ -1,6 +1,7 @@
 import torch
 import time
 import random
+import json
 from collections import Counter
 from itertools import combinations
 from Bots import BotWrapper
@@ -193,9 +194,6 @@ class BettingManager:
         print("[NEXT TURN] No players left to act.")
         return False
 
-
-
-
 class GameLoop:
     def __init__(self, player_objs=None, player_names=None, starting_chips=1000):
         self.deck = Deck()
@@ -214,7 +212,6 @@ class GameLoop:
         else:
             raise ValueError("Needs player_objs or player_names")
         
-
         self.pot = 0
         self.state = "pre-flop"
         self.flop = []
@@ -225,6 +222,9 @@ class GameLoop:
         self.betting_manager = BettingManager(self.players, self.dealer_index)
         self._request_ui_clear = False
         self.win_type = None
+        self.completed_rounds = 0
+        self.initial_player_names = [p.name for p in player_objs] if player_objs else player_names
+        self.games_won = {name: 0 for name in self.initial_player_names}
 
     def deal_hole_cards(self):
         for player in self.players:
@@ -232,8 +232,6 @@ class GameLoop:
         self.betting_manager.set_blinds()
         self.post_blinds()
         self.betting_manager.build_betting_order(self.state)
-
-
 
     def reveal_community_cards(self, num):
         drawn = [self.deck.draw_card() for _ in range(num)]
@@ -262,9 +260,6 @@ class GameLoop:
         if all_acted and all_bets_equal:
             print("[ROUND] Advancing to next phase...")
             self.advance_game_phase()
-
-
-
 
     def post_blinds(self):
         sb_index = self.betting_manager.sb_index
@@ -458,6 +453,10 @@ class GameLoop:
         return winner_name
     
     def reset_round(self):
+
+        eliminated = [p.name for p in self.players if p.chips <= 0]
+        self.players = [p for p in self.players if p.chips > 0]
+
         self.pot = 0
         self.state = "pre-flop"
         self.community_cards = []
@@ -512,8 +511,48 @@ class GameLoop:
             self._ready_to_reset = False
             self.win_type = None
 
+            self.completed_rounds += 1
+
+            if self.completed_rounds % 200 == 0:
+                from bot_learning import plot_bot_wins_pie
+                filename = f"training_logs/pie_round_{self.completed_rounds}.png"
+                bot_names = [p.name for p in self.players if p.is_bot]
+                plot_bot_wins_pie(bot_names, save_path=filename)
+
+            active_players = [p for p in self.players if p.chips > 0]
+            if len(active_players) == 1:
+                winner = active_players[0].name
+                print(f"[GAME COMPLETE] {winner} wins the full game!")
+                self.games_won[winner] += 1
+
+                with open("training_logs/game_wins.json", "w") as f:
+                    json.dump(self.games_won, f, indent=2)
+
+                self.restart_full_game()
+            
+
     def end_round_immediately(self):
         self.state="end_round"
         self._ready_to_reset = True
+    
+    def restart_full_game(self):
+        self.players = []
+        for name in self.initial_player_names:
+            bot = BotWrapper(name)
+            self.players.append(Player(name, chips=1000, is_bot=True, bot_instance=bot))
+
+        self.dealer_index = 0
+        self.deck = Deck()
+        self.pot = 0
+        self.state = "pre-flop"
+        self.community_cards = []
+        self.flop, self.turn, self.river = [], [], []
+        self._request_ui_clear = True
+
+        self.betting_manager = BettingManager(self.players, self.dealer_index)
+        self.betting_manager.set_blinds()
+        self.deal_hole_cards()
+        self.betting_manager.build_betting_order(self.state)
+
 
 

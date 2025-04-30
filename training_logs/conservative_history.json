@@ -1,0 +1,4182 @@
+[
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.07492507249116898,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.13144059479236603,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.6519452929496765,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.9371146559715271,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      0.9371146559715271,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      0.9371146559715271,
+      3.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      1.004932165145874,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      1.1507936716079712,
+      3.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      1.25,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      1.280160903930664,
+      3.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.07492507249116898,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.13144059479236603,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.6519452929496765,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.9371146559715271,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      0.9371146559715271,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      0.9371146559715271,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      1.004932165145874,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      1.1507936716079712,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      1.25,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      1.280160903930664,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.07492507249116898,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.13144059479236603,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.6519452929496765,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.9371146559715271,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      0.9371146559715271,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      0.9371146559715271,
+      3.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      1.004932165145874,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      1.1507936716079712,
+      3.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      1.25,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      1.280160903930664,
+      3.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.1877649873495102,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.24824951589107513,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.5060471296310425,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.6139154434204102,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.7094133496284485,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.7697740197181702,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      1.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      2.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      3.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      4.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      4.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.07492507249116898,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.13144059479236603,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.6519452929496765,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.9371146559715271,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      0.9371146559715271,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      0.9371146559715271,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      1.004932165145874,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      1.1507936716079712,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      1.25,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      1.280160903930664,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.1877649873495102,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.24824951589107513,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.5060471296310425,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.6139154434204102,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.7094133496284485,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.7697740197181702,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      4.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      4.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.07492507249116898,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.13144059479236603,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.6519452929496765,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.9371146559715271,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      0.9371146559715271,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      0.9371146559715271,
+      3.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      1.004932165145874,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      1.1507936716079712,
+      3.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      1.25,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      1.280160903930664,
+      3.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.1877649873495102,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.24824951589107513,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.5060471296310425,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.6139154434204102,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.7094133496284485,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.7697740197181702,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      1.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      2.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      3.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      4.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      4.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5128571391105652,
+      2.0,
+      0.05391804501414299,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5128571391105652,
+      2.0,
+      0.07320643961429596,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5128571391105652,
+      2.0,
+      0.28550511598587036,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5128571391105652,
+      2.0,
+      0.5595026612281799,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5128571391105652,
+      2.0,
+      0.9058614373207092,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5128571391105652,
+      2.0,
+      1.0418648719787598,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.0555555559694767,
+      2.0,
+      1.0418648719787598,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      2.0,
+      1.0418648719787598,
+      1.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.0555555559694767,
+      2.0,
+      1.0418648719787598,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      2.0,
+      1.0418648719787598,
+      2.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      1.0418648719787598,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      1.0418648719787598,
+      3.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.07492507249116898,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.13144059479236603,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.6519452929496765,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.9371146559715271,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      0.9371146559715271,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      0.9371146559715271,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      1.004932165145874,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      1.1507936716079712,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      1.25,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      1.280160903930664,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.1877649873495102,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.24824951589107513,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.5060471296310425,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.6139154434204102,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.7094133496284485,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.7697740197181702,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      4.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      4.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5128571391105652,
+      2.0,
+      0.05391804501414299,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5128571391105652,
+      2.0,
+      0.07320643961429596,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5128571391105652,
+      2.0,
+      0.28550511598587036,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5128571391105652,
+      2.0,
+      0.5595026612281799,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5128571391105652,
+      2.0,
+      0.9058614373207092,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5128571391105652,
+      2.0,
+      1.0418648719787598,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.0555555559694767,
+      2.0,
+      1.0418648719787598,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      2.0,
+      1.0418648719787598,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.0555555559694767,
+      2.0,
+      1.0418648719787598,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      2.0,
+      1.0418648719787598,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      1.0418648719787598,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      1.0418648719787598,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.07492507249116898,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.13144059479236603,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.6519452929496765,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.9371146559715271,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      0.9371146559715271,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      0.9371146559715271,
+      3.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      1.004932165145874,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      1.1507936716079712,
+      3.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      1.25,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      1.280160903930664,
+      3.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.1877649873495102,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.24824951589107513,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.5060471296310425,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.6139154434204102,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.7094133496284485,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.7697740197181702,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      1.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      2.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      3.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      4.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      4.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5128571391105652,
+      2.0,
+      0.05391804501414299,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5128571391105652,
+      2.0,
+      0.07320643961429596,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5128571391105652,
+      2.0,
+      0.28550511598587036,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5128571391105652,
+      2.0,
+      0.5595026612281799,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5128571391105652,
+      2.0,
+      0.9058614373207092,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5128571391105652,
+      2.0,
+      1.0418648719787598,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.0555555559694767,
+      2.0,
+      1.0418648719787598,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      2.0,
+      1.0418648719787598,
+      1.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.0555555559694767,
+      2.0,
+      1.0418648719787598,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      2.0,
+      1.0418648719787598,
+      2.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      1.0418648719787598,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      1.0418648719787598,
+      3.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.6107142567634583,
+      2.0,
+      0.2568981945514679,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.6107142567634583,
+      2.0,
+      0.5896510481834412,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.6107142567634583,
+      2.0,
+      1.0168471336364746,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.6107142567634583,
+      2.0,
+      1.408046007156372,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.6107142567634583,
+      2.0,
+      2.004310369491577,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.6107142567634583,
+      2.0,
+      2.760791301727295,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.0515873022377491,
+      2.0,
+      2.760791301727295,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0515873022377491,
+      2.0,
+      2.760791301727295,
+      1.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.0515873022377491,
+      2.0,
+      2.760791301727295,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0515873022377491,
+      2.0,
+      2.760791301727295,
+      1.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.0515873022377491,
+      2.0,
+      2.760791301727295,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0515873022377491,
+      2.0,
+      2.760791301727295,
+      2.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.0555555559694767,
+      2.0,
+      2.760791301727295,
+      3.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      2.0,
+      2.760791301727295,
+      3.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.07492507249116898,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.13144059479236603,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.6519452929496765,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.9371146559715271,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      0.9371146559715271,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      0.9371146559715271,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      1.004932165145874,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      1.1507936716079712,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      1.25,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      1.280160903930664,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.1877649873495102,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.24824951589107513,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.5060471296310425,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.6139154434204102,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.7094133496284485,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.7697740197181702,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      4.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      4.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5128571391105652,
+      2.0,
+      0.05391804501414299,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5128571391105652,
+      2.0,
+      0.07320643961429596,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5128571391105652,
+      2.0,
+      0.28550511598587036,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5128571391105652,
+      2.0,
+      0.5595026612281799,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5128571391105652,
+      2.0,
+      0.9058614373207092,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5128571391105652,
+      2.0,
+      1.0418648719787598,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.0555555559694767,
+      2.0,
+      1.0418648719787598,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      2.0,
+      1.0418648719787598,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.0555555559694767,
+      2.0,
+      1.0418648719787598,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      2.0,
+      1.0418648719787598,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      1.0418648719787598,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      1.0418648719787598,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.6107142567634583,
+      2.0,
+      0.2568981945514679,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.6107142567634583,
+      2.0,
+      0.5896510481834412,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.6107142567634583,
+      2.0,
+      1.0168471336364746,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.6107142567634583,
+      2.0,
+      1.408046007156372,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.6107142567634583,
+      2.0,
+      2.004310369491577,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.6107142567634583,
+      2.0,
+      2.760791301727295,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.0515873022377491,
+      2.0,
+      2.760791301727295,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0515873022377491,
+      2.0,
+      2.760791301727295,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.0515873022377491,
+      2.0,
+      2.760791301727295,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0515873022377491,
+      2.0,
+      2.760791301727295,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.0515873022377491,
+      2.0,
+      2.760791301727295,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0515873022377491,
+      2.0,
+      2.760791301727295,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.0555555559694767,
+      2.0,
+      2.760791301727295,
+      3.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      2.0,
+      2.760791301727295,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.07492507249116898,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.13144059479236603,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.6519452929496765,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.9371146559715271,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      0.9371146559715271,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      0.9371146559715271,
+      3.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      1.004932165145874,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      1.1507936716079712,
+      3.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      1.25,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      1.280160903930664,
+      3.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.1877649873495102,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.24824951589107513,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.5060471296310425,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.6139154434204102,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.7094133496284485,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.7697740197181702,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      2.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      3.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      4.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      4.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5128571391105652,
+      2.0,
+      0.05391804501414299,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5128571391105652,
+      2.0,
+      0.07320643961429596,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5128571391105652,
+      2.0,
+      0.28550511598587036,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5128571391105652,
+      2.0,
+      0.5595026612281799,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5128571391105652,
+      2.0,
+      0.9058614373207092,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5128571391105652,
+      2.0,
+      1.0418648719787598,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.0555555559694767,
+      2.0,
+      1.0418648719787598,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      2.0,
+      1.0418648719787598,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.0555555559694767,
+      2.0,
+      1.0418648719787598,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      2.0,
+      1.0418648719787598,
+      2.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      1.0418648719787598,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      1.0418648719787598,
+      3.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.6107142567634583,
+      2.0,
+      0.2568981945514679,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.6107142567634583,
+      2.0,
+      0.5896510481834412,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.6107142567634583,
+      2.0,
+      1.0168471336364746,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.6107142567634583,
+      2.0,
+      1.408046007156372,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.6107142567634583,
+      2.0,
+      2.004310369491577,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.6107142567634583,
+      2.0,
+      2.760791301727295,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.0515873022377491,
+      2.0,
+      2.760791301727295,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0515873022377491,
+      2.0,
+      2.760791301727295,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.0515873022377491,
+      2.0,
+      2.760791301727295,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0515873022377491,
+      2.0,
+      2.760791301727295,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.0515873022377491,
+      2.0,
+      2.760791301727295,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0515873022377491,
+      2.0,
+      2.760791301727295,
+      2.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.0555555559694767,
+      2.0,
+      2.760791301727295,
+      3.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      2.0,
+      2.760791301727295,
+      3.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.7214285731315613,
+      2.0,
+      2.2661869525909424,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.7214285731315613,
+      2.0,
+      1815.0,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.7214285731315613,
+      2.0,
+      1815.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.7214285731315613,
+      2.0,
+      1815.0,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.7214285731315613,
+      2.0,
+      1815.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.7214285731315613,
+      2.0,
+      1815.0,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.7214285731315613,
+      2.0,
+      1815.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7214285731315613,
+      2.0,
+      1815.0,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.07492507249116898,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.13144059479236603,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.6519452929496765,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.9371146559715271,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      0.9371146559715271,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      0.9371146559715271,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      0.9371146559715271,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      1.004932165145874,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      1.1507936716079712,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.2698412835597992,
+      2.0,
+      1.25,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.2698412835597992,
+      2.0,
+      1.280160903930664,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.1877649873495102,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.24824951589107513,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.5060471296310425,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.6139154434204102,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5428571701049805,
+      2.0,
+      0.7094133496284485,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5428571701049805,
+      2.0,
+      0.7697740197181702,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      4.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1190476194024086,
+      2.0,
+      0.7697740197181702,
+      4.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5128571391105652,
+      2.0,
+      0.05391804501414299,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5128571391105652,
+      2.0,
+      0.07320643961429596,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5128571391105652,
+      2.0,
+      0.28550511598587036,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5128571391105652,
+      2.0,
+      0.5595026612281799,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.5128571391105652,
+      2.0,
+      0.9058614373207092,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.5128571391105652,
+      2.0,
+      1.0418648719787598,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.0555555559694767,
+      2.0,
+      1.0418648719787598,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      2.0,
+      1.0418648719787598,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.0555555559694767,
+      2.0,
+      1.0418648719787598,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      2.0,
+      1.0418648719787598,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.1587301641702652,
+      2.0,
+      1.0418648719787598,
+      3.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.1587301641702652,
+      2.0,
+      1.0418648719787598,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.6107142567634583,
+      2.0,
+      0.2568981945514679,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.6107142567634583,
+      2.0,
+      0.5896510481834412,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.6107142567634583,
+      2.0,
+      1.0168471336364746,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.6107142567634583,
+      2.0,
+      1.408046007156372,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.6107142567634583,
+      2.0,
+      2.004310369491577,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.6107142567634583,
+      2.0,
+      2.760791301727295,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.0515873022377491,
+      2.0,
+      2.760791301727295,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0515873022377491,
+      2.0,
+      2.760791301727295,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.0515873022377491,
+      2.0,
+      2.760791301727295,
+      1.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0515873022377491,
+      2.0,
+      2.760791301727295,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.0515873022377491,
+      2.0,
+      2.760791301727295,
+      2.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.0515873022377491,
+      2.0,
+      2.760791301727295,
+      2.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.0555555559694767,
+      2.0,
+      2.760791301727295,
+      3.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.0555555559694767,
+      2.0,
+      2.760791301727295,
+      3.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.7214285731315613,
+      2.0,
+      2.2661869525909424,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.7214285731315613,
+      2.0,
+      1815.0,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.7214285731315613,
+      2.0,
+      1815.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.7214285731315613,
+      2.0,
+      1815.0,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.7214285731315613,
+      2.0,
+      1815.0,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.7214285731315613,
+      2.0,
+      1815.0,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.7214285731315613,
+      2.0,
+      1815.0,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.7214285731315613,
+      2.0,
+      1815.0,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.32357141375541687,
+      2.0,
+      0.07492507249116898,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.32357141375541687,
+      2.0,
+      0.13144059479236603,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "conservative",
+    "state": [
+      0.32357141375541687,
+      2.0,
+      0.07492507249116898,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.32357141375541687,
+      2.0,
+      0.13144059479236603,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  }
+]

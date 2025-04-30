@@ -23,12 +23,12 @@ class PokerGameUI:
 
         self.load_assets()
 
-        self.bot_names = ["AIan", "AIleen", "AInsley", "AbigAIl"]
+        self.bot_names = ["novice", "agressive", "conservative", "strategist"]
         self.bot_players = [
-            Player("AIan", is_bot=True, bot_instance=BotWrapper("AIan", style="novice")),
-            Player("AIleen", is_bot=True, bot_instance=BotWrapper("AIleen", style="agressive")),
-            Player("AInsley", is_bot=True, bot_instance=BotWrapper("AInsley", style="conservative")),
-            Player("AbigAIl", is_bot=True, bot_instance=BotWrapper("AbigAIl", style="strategist")),
+            Player("novice", is_bot=True, bot_instance=BotWrapper("novice", style="novice")),
+            Player("agressive", is_bot=True, bot_instance=BotWrapper("agressive", style="agressive")),
+            Player("conservative", is_bot=True, bot_instance=BotWrapper("conservative", style="conservative")),
+            Player("strategist", is_bot=True, bot_instance=BotWrapper("strategist", style="strategist")),
         ]
         self.game = GameLoop(player_objs=self.bot_players)
         

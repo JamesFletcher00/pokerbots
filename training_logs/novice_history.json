@@ -1,0 +1,1104 @@
+[
+  {
+    "personality": "novice",
+    "state": [
+      0.4821428656578064,
+      0.0,
+      0.3227458894252777,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.4821428656578064,
+      0.0,
+      0.59186190366745,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.0476190485060215,
+      0.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.0476190485060215,
+      0.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.4821428656578064,
+      0.0,
+      0.3227458894252777,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.4821428656578064,
+      0.0,
+      0.59186190366745,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.0476190485060215,
+      0.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.0476190485060215,
+      0.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.4821428656578064,
+      0.0,
+      0.3227458894252777,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.4821428656578064,
+      0.0,
+      0.59186190366745,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.0476190485060215,
+      0.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.0476190485060215,
+      0.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.24857142567634583,
+      0.0,
+      0.22194820642471313,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.24857142567634583,
+      0.0,
+      0.45521292090415955,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.24857142567634583,
+      0.0,
+      0.8590308427810669,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.24857142567634583,
+      0.0,
+      1.1979166269302368,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.24857142567634583,
+      0.0,
+      1.71875,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.24857142567634583,
+      0.0,
+      1.71875,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.4821428656578064,
+      0.0,
+      0.3227458894252777,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.4821428656578064,
+      0.0,
+      0.59186190366745,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.0476190485060215,
+      0.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.0476190485060215,
+      0.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.24857142567634583,
+      0.0,
+      0.22194820642471313,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.24857142567634583,
+      0.0,
+      0.45521292090415955,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.24857142567634583,
+      0.0,
+      0.8590308427810669,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.24857142567634583,
+      0.0,
+      1.1979166269302368,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.24857142567634583,
+      0.0,
+      1.71875,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.24857142567634583,
+      0.0,
+      1.71875,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.4821428656578064,
+      0.0,
+      0.3227458894252777,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.4821428656578064,
+      0.0,
+      0.59186190366745,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.0476190485060215,
+      0.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.0476190485060215,
+      0.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.24857142567634583,
+      0.0,
+      0.22194820642471313,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.24857142567634583,
+      0.0,
+      0.45521292090415955,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.24857142567634583,
+      0.0,
+      0.8590308427810669,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.24857142567634583,
+      0.0,
+      1.1979166269302368,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.24857142567634583,
+      0.0,
+      1.71875,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.24857142567634583,
+      0.0,
+      1.71875,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.5821428298950195,
+      0.0,
+      1.640625,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.5821428298950195,
+      0.0,
+      1.640625,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.4821428656578064,
+      0.0,
+      0.3227458894252777,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.4821428656578064,
+      0.0,
+      0.59186190366745,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.0476190485060215,
+      0.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.0476190485060215,
+      0.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.24857142567634583,
+      0.0,
+      0.22194820642471313,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.24857142567634583,
+      0.0,
+      0.45521292090415955,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.24857142567634583,
+      0.0,
+      0.8590308427810669,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.24857142567634583,
+      0.0,
+      1.1979166269302368,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.24857142567634583,
+      0.0,
+      1.71875,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.24857142567634583,
+      0.0,
+      1.71875,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.5821428298950195,
+      0.0,
+      1.640625,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.5821428298950195,
+      0.0,
+      1.640625,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.4821428656578064,
+      0.0,
+      0.3227458894252777,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.4821428656578064,
+      0.0,
+      0.59186190366745,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.0476190485060215,
+      0.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.0476190485060215,
+      0.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.24857142567634583,
+      0.0,
+      0.22194820642471313,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.24857142567634583,
+      0.0,
+      0.45521292090415955,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.24857142567634583,
+      0.0,
+      0.8590308427810669,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.24857142567634583,
+      0.0,
+      1.1979166269302368,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.24857142567634583,
+      0.0,
+      1.71875,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.24857142567634583,
+      0.0,
+      1.71875,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.5821428298950195,
+      0.0,
+      1.640625,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.5821428298950195,
+      0.0,
+      1.640625,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.4464285671710968,
+      0.0,
+      0.9315589070320129,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.4464285671710968,
+      0.0,
+      0.9315589070320129,
+      0.0
+    ],
+    "done": false,
+    "win_type": "showdown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.4821428656578064,
+      0.0,
+      0.3227458894252777,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.4821428656578064,
+      0.0,
+      0.59186190366745,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.0476190485060215,
+      0.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.0476190485060215,
+      0.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.24857142567634583,
+      0.0,
+      0.22194820642471313,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.24857142567634583,
+      0.0,
+      0.45521292090415955,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.24857142567634583,
+      0.0,
+      0.8590308427810669,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.24857142567634583,
+      0.0,
+      1.1979166269302368,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.24857142567634583,
+      0.0,
+      1.71875,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.24857142567634583,
+      0.0,
+      1.71875,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.5821428298950195,
+      0.0,
+      1.640625,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.5821428298950195,
+      0.0,
+      1.640625,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.4464285671710968,
+      0.0,
+      0.9315589070320129,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.4464285671710968,
+      0.0,
+      0.9315589070320129,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.4821428656578064,
+      0.0,
+      0.3227458894252777,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.4821428656578064,
+      0.0,
+      0.59186190366745,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.0476190485060215,
+      0.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.0476190485060215,
+      0.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.24857142567634583,
+      0.0,
+      0.22194820642471313,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.24857142567634583,
+      0.0,
+      0.45521292090415955,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.24857142567634583,
+      0.0,
+      0.8590308427810669,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.24857142567634583,
+      0.0,
+      1.1979166269302368,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.24857142567634583,
+      0.0,
+      1.71875,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.24857142567634583,
+      0.0,
+      1.71875,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.5821428298950195,
+      0.0,
+      1.640625,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.5821428298950195,
+      0.0,
+      1.640625,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.4464285671710968,
+      0.0,
+      0.9315589070320129,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.4464285671710968,
+      0.0,
+      0.9315589070320129,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      1.0,
+      0.0,
+      2.514970064163208,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      0.0,
+      2.514970064163208,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.4821428656578064,
+      0.0,
+      0.3227458894252777,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.4821428656578064,
+      0.0,
+      0.59186190366745,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.0476190485060215,
+      0.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.0476190485060215,
+      0.0,
+      0.9371146559715271,
+      1.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.24857142567634583,
+      0.0,
+      0.22194820642471313,
+      0.0
+    ],
+    "action": 1,
+    "reward": 0.0,
+    "next_state": [
+      0.24857142567634583,
+      0.0,
+      0.45521292090415955,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.24857142567634583,
+      0.0,
+      0.8590308427810669,
+      0.0
+    ],
+    "action": 2,
+    "reward": 0.0,
+    "next_state": [
+      0.24857142567634583,
+      0.0,
+      1.1979166269302368,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.24857142567634583,
+      0.0,
+      1.71875,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.24857142567634583,
+      0.0,
+      1.71875,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.5821428298950195,
+      0.0,
+      1.640625,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.5821428298950195,
+      0.0,
+      1.640625,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.4464285671710968,
+      0.0,
+      0.9315589070320129,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.4464285671710968,
+      0.0,
+      0.9315589070320129,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      1.0,
+      0.0,
+      2.514970064163208,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      1.0,
+      0.0,
+      2.514970064163208,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.9357143044471741,
+      0.0,
+      0.1280737668275833,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.9357143044471741,
+      0.0,
+      0.1280737668275833,
+      0.0
+    ],
+    "done": false,
+    "win_type": "fold"
+  },
+  {
+    "personality": "novice",
+    "state": [
+      0.9357143044471741,
+      0.0,
+      0.1280737668275833,
+      0.0
+    ],
+    "action": 0,
+    "reward": 0.0,
+    "next_state": [
+      0.9357143044471741,
+      0.0,
+      0.1280737668275833,
+      0.0
+    ],
+    "done": false,
+    "win_type": "unknown"
+  }
+]

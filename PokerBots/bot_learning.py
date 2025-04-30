@@ -18,15 +18,8 @@ def count_bot_wins(bot_name):
             wins += 1
     return wins
 
-def format_label(pct, all_vals):
-    total = sum(all_vals)
-    count = int(round(pct * total / 100.0))
-    return f'{pct:.1f}% ({count})'
 
-
-
-
-def plot_bot_wins_pie(bot_names):
+def plot_bot_wins_pie(bot_names, save_path="None"):
     labels = []
     win_counts = []
 
@@ -39,6 +32,11 @@ def plot_bot_wins_pie(bot_names):
     if not win_counts:
         print("No wins recorded for any bots.")
         return
+    
+    def format_label(pct, all_vals):
+        total = sum(all_vals)
+        count = int(round(pct * total / 100.0))
+        return f'{pct:.1f}% ({count})'
 
     plt.figure(figsize=(8, 8))
     plt.pie(
@@ -49,9 +47,14 @@ def plot_bot_wins_pie(bot_names):
     )
     plt.title("Total Wins by Poker Bot")
     plt.axis('equal')  # Equal aspect ratio makes pie circular.
-    plt.tight_layout()
-    plt.show()
+    if save_path:
+        plt.savefig(save_path)
+        print(f"[SAVED] Pie chart saved to {save_path}")
+        plt.close()
+    else:
+        plt.tight_layout()
+        plt.show()
 
 if __name__ == "__main__":
-    bot_names = ["AIan", "AIleen", "AInsley", "AbigAIl"]
+    bot_names = ["novice", "agressive", "conservative", "strategist"]
     plot_bot_wins_pie(bot_names)
