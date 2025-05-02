@@ -51,7 +51,7 @@ def plot_bot_wins_pie(bot_names, save_path="None"):
         plt.show()
 
 def plot_round_win_pie(save_path="round_wins.png"):
-    path = "training_logs/round_wins.ndjson"
+    path = "training_logs/round_wins.json"
     if not os.path.exists(path):
         print("[ROUND PIE] No round_wins.json found.")
         return
