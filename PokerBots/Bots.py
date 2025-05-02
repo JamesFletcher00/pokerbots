@@ -94,8 +94,6 @@ class BotWrapper:
         with open(filepath, "w") as f:
             json.dump(existing, f, indent=2)
 
-        print(f"[LOG] Appended {len(serializable_data)} entries to {filepath}")
-
     def update_opponent_profile(self):
         for name, stats in self.opponent_stats.items():
             rounds = max(1, stats.get("rounds", 1))

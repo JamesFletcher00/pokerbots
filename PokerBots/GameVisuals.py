@@ -186,7 +186,7 @@ class PokerGameUI:
                     self.pending_bot_action = None
                     self.game.betting_manager.next_turn()  # ✅ Advance turn to avoid deadlock
 
-                elif pg.time.get_ticks() - self.bot_action_timer > 1000:
+                elif pg.time.get_ticks() - self.bot_action_timer > 500:
                     print(f"[BOT TURN] {self.pending_bot_action.name} acting...")
                     self.game.bot_take_action(self.pending_bot_action)
                     self.game.handle_betting_round()
@@ -265,7 +265,7 @@ class PokerGameUI:
             if self.game.state in ["showdown", "end_round"]:
                 if self.showdown_time is None:
                     self.showdown_time = pg.time.get_ticks()
-                elif pg.time.get_ticks() - self.showdown_time > 2000:
+                elif pg.time.get_ticks() - self.showdown_time > 1000:
                     self.game.reset_if_ready()
                     if self.game._request_ui_clear:
                         self.redraw_table()
