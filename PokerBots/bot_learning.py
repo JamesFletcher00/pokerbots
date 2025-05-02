@@ -51,18 +51,13 @@ def plot_bot_wins_pie(bot_names, save_path="None"):
         plt.show()
 
 def plot_round_win_pie(save_path="round_wins.png"):
-    path = "training_logs/round_wins.json"
+    path = "training_logs/round_wins.ndjson"
     if not os.path.exists(path):
         print("[ROUND PIE] No round_wins.json found.")
         return
 
-    win_data = []
     with open(path, "r") as f:
-        for line in f:
-            try:
-                win_data.append(json.loads(line))
-            except json.JSONDecodeError:
-                continue  # skip corrupted or incomplete lines
+        win_data = json.load(f)
 
 
     if not win_data:
@@ -106,13 +101,8 @@ def plot_combined_win_pie(save_path=None):
         print("[WARNING] No round_wins.json file found.")
         return
 
-    data = []
-    with open(save_path, "r") as f:
-        for line in f:
-            try:
-                data.append(json.loads(line))
-            except json.JSONDecodeError:
-                continue  # skip corrupted or incomplete lines
+    with open(round_win_file, "r") as f:
+        data = json.load(f)
 
 
     labels = []

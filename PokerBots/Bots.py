@@ -1,6 +1,7 @@
 import torch
 import os
 import json
+import sqlite3
 from nfsp_agent import NFSPAgent
 
 class BotWrapper:
@@ -10,6 +11,9 @@ class BotWrapper:
         self.agent = NFSPAgent(name, state_size, action_size)
         self.opponent_stats = {}
         self.opponent_profiles = {}
+        os.makedirs("training_logs", exist_ok=True)
+        self.db_path = f"training_logs/{name}_experiences.sqlite"
+        self._init_db()
 
         # Initialize policy based on style
         self.agent.initialise_with_style(style)
@@ -57,42 +61,99 @@ class BotWrapper:
         self.agent.rl_buffer.buffer[-1] = (state, action, final_reward, next_state, True)
 
     def train(self, batch_size=32, gamma=0.99):
-        """Train both RL and SL networks."""
+        # Load past experience
+        experiences = self.load_experiences_from_sqlite(limit=10000)
+        if len(experiences) < batch_size:
+            print(f"[TRAIN] Not enough data to train {self.name}.")
+            return
+
+        # Load into RL buffer temporarily
+        self.agent.rl_buffer.buffer.clear()
+        for exp in experiences:
+            self.agent.rl_buffer.push(exp)
+
         self.agent.train_rl(batch_size, gamma)
         self.agent.train_policy(batch_size)
+        print(f"[TRAIN] {self.name} trained on {len(experiences)} samples.")
 
-    def save_experiences_to_json(self, filename=None, win_type="unknown"):
-        """Save RL buffer to a JSON file."""
+
+    def save_experiences_to_sqlite(self, win_type="unknown"):
         data = list(self.agent.rl_buffer.buffer)
-        serializable_data = []
+        if not data:
+            return
+
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
 
         for state, action, reward, next_state, done in data:
-            serializable_data.append({
-                "personality": self.style,
-                "state": state.tolist(),
-                "action": int(action),
-                "reward": float(reward),
-                "next_state": next_state.tolist(),
-                "done": bool(done),
-                "win_type": win_type
-            })
+            cursor.execute("""
+                INSERT INTO bot_experiences 
+                (bot_name, personality, state, action, reward, next_state, done, win_type)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                self.name,
+                self.style,
+                json.dumps(state.tolist()),
+                int(action),
+                float(reward),
+                json.dumps(next_state.tolist()),
+                bool(done),
+                win_type
+            ))
 
-        os.makedirs("training_logs", exist_ok=True)
-        if not filename:
-            filename = f"{self.name}_history"
+        conn.commit()
+        conn.close()
+        print(f"[SQLITE] {self.name} stored {len(data)} experiences.")
 
-        filepath = os.path.join("training_logs", f"{filename}.json")
 
-        if os.path.exists(filepath):
-            with open(filepath, "r") as f:
-                existing = json.load(f)
-        else:
-            existing = []
+    def _init_db(self):
+        import sqlite3
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS bot_experiences (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                bot_name TEXT,
+                personality TEXT,
+                state TEXT,
+                action INTEGER,
+                reward REAL,
+                next_state TEXT,
+                done BOOLEAN,
+                win_type TEXT,
+                timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+            );
+        """)
+        conn.commit()
+        conn.close()
 
-        existing.extend(serializable_data)
+    def load_experiences_from_sqlite(self, limit=10000):
+        conn = sqlite3.connect(self.db_path)
+        cursor = conn.cursor()
+        cursor.execute("""
+            SELECT state, action, reward, next_state, done
+            FROM bot_experiences
+            ORDER BY id DESC
+            LIMIT ?
+        """, (limit,))
+        rows = cursor.fetchall()
+        conn.close()
 
-        with open(filepath, "w") as f:
-            json.dump(existing, f, indent=2)
+        experiences = []
+        for state, action, reward, next_state, done in rows:
+            try:
+                experiences.append((
+                    torch.tensor(json.loads(state)),
+                    int(action),
+                    float(reward),
+                    torch.tensor(json.loads(next_state)),
+                    bool(done)
+                ))
+            except Exception:
+                continue  # skip malformed rows
+
+        return experiences
+
 
     def update_opponent_profile(self):
         for name, stats in self.opponent_stats.items():

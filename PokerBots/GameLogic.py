@@ -50,7 +50,7 @@ class Deck:
     def draw_card(self):
         return self.cards.pop() if self.cards else None
 class Player:
-    def __init__(self, name, chips=1000, is_bot = False, bot_instance = None):
+    def __init__(self, name, chips=750, is_bot = False, bot_instance = None):
         self.name = name
         self.chips = chips
         self.hand = []
@@ -324,6 +324,16 @@ class GameLoop:
             self.pot = 0
             self.win_type = "fold"
             self.end_round_immediately()
+            return
+        
+        # NEW: Auto-advance if no players can act
+        active_and_able = [
+            p for p in self.players 
+            if not p.folded and not p.all_in and not p.eliminated
+        ]
+        if not active_and_able:
+            print("[AUTO] All remaining players are folded or all-in. Advancing phase...")
+            self.advance_game_phase()
             return
 
         highest_bet = max(p.total_bet for p in players_in_hand)
@@ -725,7 +735,7 @@ class GameLoop:
             # ✅ Save experiences (now using NDJSON)
             for player in self.players:
                 if player.is_bot and player.bot_instance:
-                    player.bot_instance.save_experiences_to_json(win_type=self.win_type)
+                    player.bot_instance.save_experiences_to_sqlite(win_type=self.win_type)
                     if not hasattr(player.bot_instance, 'results'):
                         player.bot_instance.results = []
                     player.bot_instance.results.append(player.chips)
@@ -751,7 +761,7 @@ class GameLoop:
                 return
 
             # ✅ Chart generation every N rounds
-            if round_wins["rounds_played"] % 250 == 0:
+            if round_wins["rounds_played"] == 50 or round_wins["rounds_played"] % 250 == 0:
                 from bot_learning import plot_round_win_pie, plot_combined_win_pie
                 pie_path = f"training_logs/round_pie_{round_wins['rounds_played']}.png"
                 plot_round_win_pie(save_path=pie_path)

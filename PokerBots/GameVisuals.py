@@ -19,7 +19,7 @@ class PokerGameUI:
         self.waiting_to_start = True
         self.pending_bot_action = None
         self.bot_action_timer = 0
-
+        self.last_debug_time = 0
 
         self.load_assets()
 
@@ -168,6 +168,22 @@ class PokerGameUI:
                     self.screen.blit(self.poker_table, self.poker_table_rect)
                     pg.display.flip()
                     pg.time.delay(500)
+
+                        # Every 5 seconds, print debug status
+            now = pg.time.get_ticks()
+            if now - self.last_debug_time > 5000:
+                self.last_debug_time = now
+                folded = [p.name for p in self.game.players if p.folded]
+                all_in = [p.name for p in self.game.players if p.all_in]
+                current_turn = (
+                    self.game.betting_manager.betting_order[self.game.betting_manager.turn_index].name
+                    if self.game.betting_manager.betting_order and self.game.betting_manager.turn_index < len(self.game.betting_manager.betting_order)
+                    else "None"
+                )
+                print(f"[DEBUG] Folded: {folded}")
+                print(f"[DEBUG] All-in: {all_in}")
+                print(f"[DEBUG] Current turn: {current_turn}")
+
 
             current_player = None
             if self.game.betting_manager.turn_index < len(self.game.betting_manager.betting_order):
