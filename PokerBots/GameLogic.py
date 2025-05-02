@@ -2,6 +2,7 @@ import torch
 import time
 import random
 import json
+import os
 from collections import Counter
 from itertools import combinations
 from Bots import BotWrapper
@@ -86,53 +87,86 @@ class PokerHandEvaluator:
             all_cards = hand + community_cards
             if len(all_cards) < 5:
                 return (0, [])
-            possible_hands = [
-                PokerHandEvaluator.evaluate_five_card_hand(list(combo))
-                for combo in combinations(all_cards, 5)
-            ]
-            return max(possible_hands, key=lambda x: x[0:2]) if possible_hands else (0, [])
+            best = max(
+                (PokerHandEvaluator.evaluate_five_card_hand(list(combo)) for combo in combinations(all_cards, 5)),
+                key=lambda x: (x[0], x[1])
+            )
+            return best
 
         if not hand or len(hand) != 5:
             return (0, [])
 
-        ranks = Card.get_card_ranks(hand)
-        counts = Card.count_ranks(hand)
-        flush = PokerHandEvaluator.is_flush(hand)
-        straight = PokerHandEvaluator.is_straight(ranks)
+        # Rank counts
+        counts = Counter(card.rank for card in hand)
+        count_pairs = sorted(counts.items(), key=lambda x: (-x[1], -card_values[x[0]]))
+        sorted_ranks = sorted([card_values[card.rank] for card in hand], reverse=True)
+        suits = [card.suit for card in hand]
+        values = [card_values[card.rank] for card in hand]
+        is_flush = len(set(suits)) == 1
 
-        sorted_counts = sorted(
-            ((cnt, card_values[rank]) for rank, cnt in counts.items()),
-            key=lambda x: (-x[0], -x[1])
-        )
-        rank_values = [card_values[card.rank] for card in hand]
-        rank_values.sort(reverse=True)
+        unique_values = sorted(set(values), reverse=True)
 
-        if straight and flush:
-            return (9, rank_values)
-        if sorted_counts[0][0] == 4:
-            four = sorted_counts[0][1]
-            kicker = max([v for v in rank_values if v != four])
-            return (7, [four, kicker])
-        if sorted_counts[0][0] == 3 and sorted_counts[1][0] == 2:
-            return (6, [sorted_counts[0][1], sorted_counts[1][1]])
-        if flush:
-            return (5, rank_values)
-        if straight:
-            return (4, rank_values)
-        if sorted_counts[0][0] == 3:
-            trips = sorted_counts[0][1]
-            kickers = [v for v in rank_values if v != trips][:2]
-            return (3, [trips] + kickers)
-        if sorted_counts[0][0] == 2 and sorted_counts[1][0] == 2:
-            high_pair = sorted_counts[0][1]
-            low_pair = sorted_counts[1][1]
-            kicker = max([v for v in rank_values if v != high_pair and v != low_pair])
+        # Ace-low straight handling
+        straight_low = [14, 5, 4, 3, 2]
+        is_straight = False
+        high_card = None
+        if unique_values == straight_low:
+            is_straight = True
+            high_card = 5
+        elif len(unique_values) >= 5 and all(unique_values[i] - 1 == unique_values[i+1] for i in range(len(unique_values)-1)):
+            is_straight = True
+            high_card = unique_values[0]
+
+        # Royal flush
+        if is_flush and set(values) == {10, 11, 12, 13, 14}:
+            return (9, [14])  # Royal flush
+
+        # Straight flush
+        if is_flush and is_straight:
+            return (8, [high_card])
+
+        # Four of a Kind
+        if count_pairs[0][1] == 4:
+            four_val = card_values[count_pairs[0][0]]
+            kicker = max(v for v in values if v != four_val)
+            return (7, [four_val, kicker])
+
+        # Full House
+        if count_pairs[0][1] == 3 and count_pairs[1][1] == 2:
+            triple = card_values[count_pairs[0][0]]
+            pair = card_values[count_pairs[1][0]]
+            return (6, [triple, pair])
+
+        # Flush
+        if is_flush:
+            return (5, sorted(values, reverse=True))
+
+        # Straight
+        if is_straight:
+            return (4, [high_card])
+
+        # Three of a Kind
+        if count_pairs[0][1] == 3:
+            triple = card_values[count_pairs[0][0]]
+            kickers = sorted([v for v in values if v != triple], reverse=True)[:2]
+            return (3, [triple] + kickers)
+
+        # Two Pair
+        if count_pairs[0][1] == 2 and count_pairs[1][1] == 2:
+            high_pair = card_values[count_pairs[0][0]]
+            low_pair = card_values[count_pairs[1][0]]
+            kicker = max(v for v in values if v != high_pair and v != low_pair)
             return (2, [high_pair, low_pair, kicker])
-        if sorted_counts[0][0] == 2:
-            pair = sorted_counts[0][1]
-            kickers = [v for v in rank_values if v != pair][:3]
+
+        # One Pair
+        if count_pairs[0][1] == 2:
+            pair = card_values[count_pairs[0][0]]
+            kickers = sorted([v for v in values if v != pair], reverse=True)[:3]
             return (1, [pair] + kickers)
-        return (0, rank_values)
+
+        # High Card
+        return (0, sorted(values, reverse=True))
+
 
 
 class BettingManager:
@@ -163,7 +197,7 @@ class BettingManager:
         for i in range(len(self.players)):
             idx = (start_index + i) % len(self.players)
             player = self.players[idx]
-            if not player.folded and not player.eliminated:
+            if not player.folded and not player.eliminated and not player.all_in:
                 self.betting_order.append(player)
 
         self.turn_index = 0
@@ -196,6 +230,10 @@ class BettingManager:
 
     def next_turn(self):
         print(f"[NEXT TURN] Moved to: {self.turn_index} – {self.betting_order[self.turn_index].name}")
+        
+        # ✅ Ensure turn_index is within bounds of current betting_order
+        if self.turn_index >= len(self.betting_order):
+            self.turn_index = 0
 
         total_players = len(self.betting_order)
         original_index = self.turn_index
@@ -205,7 +243,12 @@ class BettingManager:
             self.turn_index = (self.turn_index + 1) % total_players
             next_player = self.betting_order[self.turn_index]
 
-            if not next_player.folded and not next_player.has_acted and not next_player.eliminated:
+            if (
+                not next_player.folded and 
+                not next_player.has_acted and 
+                not next_player.eliminated and 
+                not next_player.all_in
+                ):
                 print(f"[NEXT TURN] Next player is {next_player.name}")
                 return True
 
@@ -239,6 +282,7 @@ class GameLoop:
         self.turn = []
         self.river = []
         self.community_cards = []
+        self.recent_actions = []
         self.dealer_index = 0
         self.betting_manager = BettingManager(self.players, self.dealer_index)
         self._request_ui_clear = False
@@ -255,6 +299,7 @@ class GameLoop:
         self.betting_manager.set_blinds()
         self.post_blinds()
         self.betting_manager.build_betting_order(self.state)
+        self.betting_manager.turn_index = 0
 
     def reveal_community_cards(self, num):
         drawn = [self.deck.draw_card() for _ in range(num)]
@@ -291,6 +336,7 @@ class GameLoop:
                     p.has_acted = False
             self.betting_manager.turn_index = -1  # So next_turn starts at 0
             self.betting_manager.build_betting_order(self.state)
+            self.betting_manager.turn_index = 0
             return
 
 
@@ -301,20 +347,25 @@ class GameLoop:
         sb = self.players[sb_index]
         bb = self.players[bb_index]
 
-        sb.current_bet = 25
-        sb.total_bet = 25
-        sb.chips -= 25
-        sb.has_acted = False
-        sb.checked = False
+        sb_blind = min(sb.chips, 25)
+        bb_blind = min(bb.chips, 50)
 
-        bb.current_bet = 50
-        bb.total_bet = 50
-        bb.chips -= 50
-        bb.has_acted = False
-        bb.checked = False
+        sb.current_bet = sb_blind
+        sb.total_bet = sb_blind
+        sb.chips -= sb_blind
+        if sb.chips == 0:
+            sb.all_in = True
+            print(f"[BLIND] {sb.name} posts small blind and is all-in!")
 
-        self.betting_manager.current_bet = 50
-        self.pot += 75
+        bb.current_bet = bb_blind
+        bb.total_bet = bb_blind
+        bb.chips -= bb_blind
+        if bb.chips == 0:
+            bb.all_in = True
+            print(f"[BLIND] {bb.name} posts big blind and is all-in!")
+
+        self.betting_manager.current_bet = max(sb_blind, bb_blind)
+        self.pot += sb_blind + bb_blind
 
     def get_bot_state(self, player):
         if self.state == "pre-flop":
@@ -354,13 +405,39 @@ class GameLoop:
         street_map = {"pre-flop": 0, "flop": 1, "turn": 2, "river": 3, "showdown": 4}
         street_val = street_map.get(self.state, 0)
 
-        return torch.tensor([hand_strength, position_index, pot_ratio, street_val])
+        # Per-round (short-term) aggression
+        opponent_names = [p.name for p in self.players if p != player and not p.eliminated]
+        opponent_raises = [1 for name, act in self.recent_actions if name in opponent_names and act == "raise"]
+        opponent_actions = [1 for name, act in self.recent_actions if name in opponent_names]
+        round_raise_rate = len(opponent_raises) / max(1, len(opponent_actions))
+
+        # Cumulative (long-term) aggression
+        opp_stats = player.bot_instance.opponent_stats
+        raise_rates = []
+        for name in opponent_names:
+            stats = opp_stats.get(name, {})
+            r = stats.get("raise", 0)
+            rounds = max(1, stats.get("rounds", 0))
+            raise_rates.append(r / rounds)
+        avg_opp_aggressiveness = sum(raise_rates) / max(1, len(raise_rates))
+
+        # Final state vector: 6 dimensions
+        return torch.tensor([
+            hand_strength,
+            position_index,
+            pot_ratio,
+            street_val,
+            round_raise_rate,
+            avg_opp_aggressiveness
+        ])
+
 
     
     def bot_take_action(self, player):
         print(f"[DEBUG] {player.name} Bot Acting – State: {self.state}, Chips: {player.chips}")
 
-        if player.chips <= 0 or player.folded:
+        # Skip if not valid
+        if player.eliminated or player.folded or player.all_in:
             return
 
         if not player.is_bot or not player.bot_instance:
@@ -372,10 +449,22 @@ class GameLoop:
         action = player.bot_instance.decide_action(state_tensor, can_check=can_check)
 
         print(f"[ACTION] {player.name} decided to {action.upper()}")
+        self.recent_actions.append((player.name, action))
 
-        # Normalize for RL training
-        normalized_action = "call" if action == "check" else action
-        action_index = ["fold", "call", "raise"].index(normalized_action)
+        for opp in self.players:
+            if opp == player or opp.eliminated:
+                continue
+            bot = player.bot_instance
+            if opp.name not in bot.opponent_stats:
+                bot.opponent_stats[opp.name] = {"raise": 0, "fold": 0, "call": 0, "showdown": 0, "wins": 0, "rounds": 0}
+
+            # Record visible action tendencies (not hidden strategy)
+            action_key = action.lower()
+            if action_key in ["raise", "call", "fold"]:
+                bot.opponent_stats[opp.name][action_key] += 1
+                # Normalize for RL training
+                normalized_action = "call" if action == "check" else action
+                action_index = ["fold", "call", "raise"].index(normalized_action)
 
         if action == "fold":
             player.folded = True
@@ -388,9 +477,7 @@ class GameLoop:
             if call_amount > 0:
                 if player.chips <= call_amount:
                     call_amount = player.chips
-                    player.all_in = True
                     print(f"[ALL-IN] {player.name} is all-in for {call_amount} chips!")
-
                 player.chips -= call_amount
                 player.total_bet += call_amount
                 self.pot += call_amount
@@ -400,32 +487,32 @@ class GameLoop:
         elif action == "raise":
             hand_strength = state_tensor[0].item()
 
-            # Dynamic raise: up to 25% of chips, but minimum 5
+            # Dynamic raise: up to 25% of chips, minimum 5
             proposed_raise = int(player.chips * hand_strength * 0.25)
-            proposed_raise = max(5, round(proposed_raise / 5) * 5)  # Round to nearest 5
+            proposed_raise = max(5, round(proposed_raise / 5) * 5)
 
-            # Calculate total needed for raise
             total_required = (self.betting_manager.current_bet - player.total_bet) + proposed_raise
             total_required = max(total_required, 0)
 
             if player.chips <= total_required:
-                # Not enough chips? Go all-in
                 total_required = player.chips
-                player.all_in = True
                 print(f"[ALL-IN] {player.name} raises all-in with {total_required} chips!")
 
             player.chips -= total_required
             player.total_bet += total_required
             self.pot += total_required
 
-            # Always update current bet to match highest bet on table
             self.betting_manager.current_bet = max(self.betting_manager.current_bet, player.total_bet)
 
-            # Reset others' states because of raise
             for p in self.players:
                 if p != player and not p.folded and not p.all_in and not p.eliminated:
                     p.has_acted = False
                     p.checked = False
+
+        # ✅ Final chip check for all-in status
+        if player.chips <= 0 and not player.eliminated:
+            player.all_in = True
+            player.chips = 0
 
         player.has_acted = True
 
@@ -440,7 +527,6 @@ class GameLoop:
         )
 
         print(f"[DEBUG] {player.name} completed action. Chips now: {player.chips}, Total Bet: {player.total_bet}, Pot: {self.pot}")
-
 
     def advance_game_phase(self):
         print(f"[ADVANCE] Moving from {self.state} to next phase.")
@@ -466,33 +552,67 @@ class GameLoop:
 
 
     def determine_winner(self):
+        # Evaluate hands of players still in the hand
         player_hands = {
             player.name: PokerHandEvaluator.evaluate_five_card_hand(player.hand, self.community_cards)
             for player in self.players if not player.folded
         }
-        if not player_hands:
-            print("No valid hands. No winner.")
-            return None
-        
-        winner_name, winner_hand = max(player_hands.items(), key=lambda x: x[1])
-        print(f"Winner: {winner_name} with {list(hand_ranks.keys())[winner_hand[0]]}")
 
-        # ✅ Give pot to winner
+        if not player_hands:
+            print("[SHOWDOWN] No valid hands to evaluate.")
+            return None
+
+        # Find the best hand (rank and tiebreak values)
+        best_hand = max(player_hands.values(), key=lambda x: (x[0], x[1]))
+        best_rank, best_values = best_hand
+
+        # Find all players who tied for the best hand
+        tied_players = [
+            name for name, hand in player_hands.items()
+            if hand[0] == best_rank and hand[1] == best_values
+        ]
+
+        # Split the pot
+        split_amount = self.pot // len(tied_players)
+        remainder = self.pot % len(tied_players)
+
         for player in self.players:
-            if player.name == winner_name:
-                player.chips += self.pot
-                break
-        
+            if player.name in tied_players:
+                player.chips += split_amount
+
+        # Distribute remainder to tied players one chip at a time (dealer order)
+        dealer_index = self.dealer_index
+        name_order = [self.players[(dealer_index + i) % len(self.players)].name for i in range(len(self.players))]
+        tied_order = [name for name in name_order if name in tied_players]
+
+        for i in range(remainder):
+            recipient = tied_order[i % len(tied_order)]
+            for player in self.players:
+                if player.name == recipient:
+                    player.chips += 1
+                    break
+
+        # Log outcome
+        if len(tied_players) > 1:
+            print(f"[SHOWDOWN] Split pot between: {', '.join(tied_players)}")
+            self.round_winner_name = tied_players[0]  # Use one winner for consistency
+        else:
+            print(f"[SHOWDOWN] Winner: {tied_players[0]} with {list(hand_ranks.keys())[best_rank]}")
+            self.round_winner_name = tied_players[0]
+
         self.win_type = "showdown"
         self.state = "showdown"
         self._ready_to_reset = True
-        return winner_name
+        return self.round_winner_name
+
+
     
     def reset_round(self):
 
         for p in self.players:
                 if p.chips <= 0:
                     p.eliminated = True
+                p.all_in = False
         
         active_players = [p for p in self.players if not p.eliminated]
 
@@ -527,6 +647,7 @@ class GameLoop:
 
         # ✅ Build new betting order for this round
         self.betting_manager.build_betting_order(self.state)
+        self.betting_manager.turn_index = 0
 
         print("[ORDER] Betting order this round:")
         for player in self.betting_manager.betting_order:
@@ -536,44 +657,79 @@ class GameLoop:
 
     def reset_if_ready(self):
         if getattr(self, "_ready_to_reset", False):
+
+            # ✅ Log round win
+            round_winner = getattr(self, "round_winner_name", None)
+            if round_winner:
+                round_win_path = "training_logs/round_wins.json"
+                os.makedirs("training_logs", exist_ok=True)
+
+                if os.path.exists(round_win_path):
+                    with open(round_win_path, "r") as f:
+                        round_wins = json.load(f)
+                else:
+                    round_wins = {}
+
+                if round_winner not in round_wins:
+                    round_wins[round_winner] = {"fold": 0, "showdown": 0}
+
+                round_wins[round_winner][self.win_type] += 1
+
+                with open(round_win_path, "w") as f:
+                    json.dump(round_wins, f, indent=2)
+
+            # ✅ Update opponent stats
+            for player in self.players:
+                if player.is_bot and player.bot_instance:
+                    # Update rounds
+                    for opp_name in player.bot_instance.opponent_stats:
+                        player.bot_instance.opponent_stats[opp_name]["rounds"] += 1
+
+                    # Update win count
+                    if round_winner and round_winner in player.bot_instance.opponent_stats:
+                        player.bot_instance.opponent_stats[round_winner]["wins"] += 1
+
+            # ✅ Save experiences
             for player in self.players:
                 if player.is_bot and player.bot_instance:
                     player.bot_instance.save_experiences_to_json(win_type=self.win_type)
                     if not hasattr(player.bot_instance, 'results'):
-                        player.bot_instance.results = []  # Initialize storage
-
-                    # Track final chip stack or pot share
+                        player.bot_instance.results = []
                     player.bot_instance.results.append(player.chips)
-
-                    # Save experience if needed
                     player.bot_instance.save_experiences_to_json()
 
+            # ✅ Reset round
             self.reset_round()
             self._ready_to_reset = False
             self.win_type = None
 
-            self.completed_rounds += 1
-
-            if self.completed_rounds % 200 == 0:
-                from bot_learning import plot_bot_wins_pie
-                filename = f"training_logs/pie_round_{self.completed_rounds}.png"
-                bot_names = [p.name for p in self.players if p.is_bot]
-                plot_bot_wins_pie(bot_names, save_path=filename)
-
+            # ✅ Check for game over
             active_players = [p for p in self.players if not p.eliminated]
             if len(active_players) == 1:
                 winner = active_players[0].name
                 print(f"[GAME COMPLETE] {winner} wins the full game!")
                 self.games_won[winner] += 1
 
+                os.makedirs("training_logs", exist_ok=True)
                 with open("training_logs/game_wins.json", "w") as f:
                     json.dump(self.games_won, f, indent=2)
 
                 self.restart_full_game()
-            
+                return
+
+            # ✅ Round complete tracking
+            self.completed_rounds += 1
+            if self.completed_rounds % 50 == 0:
+                from bot_learning import plot_round_win_pie
+                pie_path = f"training_logs/round_pie_{self.completed_rounds}.png"
+                plot_round_win_pie(save_path=pie_path)
 
     def end_round_immediately(self):
-        self.state="end_round"
+        remaining = [p for p in self.players if not p.folded and not p.eliminated and p.chips > 0]
+        if remaining:
+            self.round_winner_name = remaining[0].name
+        self.win_type = "fold"
+        self.state = "end_round"
         self._ready_to_reset = True
     
     def restart_full_game(self):
@@ -594,6 +750,7 @@ class GameLoop:
         self.betting_manager.set_blinds()
         self.deal_hole_cards()
         self.betting_manager.build_betting_order(self.state)
+        self.betting_manager.turn_index = 0
 
 
 

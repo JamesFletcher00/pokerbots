@@ -4,10 +4,11 @@ import json
 from nfsp_agent import NFSPAgent
 
 class BotWrapper:
-    def __init__(self, name, style="default", state_size=4, action_size=3):
+    def __init__(self, name, style="default", state_size=6, action_size=3):
         self.name = name
         self.style = style
         self.agent = NFSPAgent(name, state_size, action_size)
+        self.opponent_stats = {}
 
         # Initialize policy based on style
         self.agent.initialise_with_style(style)

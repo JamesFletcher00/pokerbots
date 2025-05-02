@@ -1,0 +1,10 @@
+{
+  "strategist": {
+    "fold": 2,
+    "showdown": 6
+  },
+  "conservative": {
+    "fold": 2,
+    "showdown": 3
+  }
+}
