@@ -709,6 +709,18 @@ class GameLoop:
                 with open(round_win_path, "w") as f:
                     json.dump(round_wins, f, indent=2)
 
+            # Imitation learning: Copy winning bot's actions to others
+            winner_obj = next((p for p in self.players if p.name == self.round_winner_name), None)
+            if winner_obj and winner_obj.is_bot and hasattr(winner_obj.bot_instance, 'last_state_tensor'):
+                winning_agent = winner_obj.bot_instance
+                winning_buffer = winning_agent.agent.sl_buffer.buffer  # state-action tuples
+
+                for player in self.players:
+                    if player.is_bot and player.name != self.round_winner_name:
+                        for (state, action) in winning_buffer[-3:]:  # Take last 3 actions
+                            player.bot_instance.store_imitation(state, action)
+
+
             # ✅ Update opponent stats
             for player in self.players:
                 if player.is_bot and player.bot_instance:
