@@ -4,11 +4,12 @@ import json
 from nfsp_agent import NFSPAgent
 
 class BotWrapper:
-    def __init__(self, name, style="default", state_size=6, action_size=3):
+    def __init__(self, name, style="default", state_size=7, action_size=3):
         self.name = name
         self.style = style
         self.agent = NFSPAgent(name, state_size, action_size)
         self.opponent_stats = {}
+        self.opponent_profiles = {}
 
         # Initialize policy based on style
         self.agent.initialise_with_style(style)
@@ -41,6 +42,9 @@ class BotWrapper:
     def store_experience(self, state, action, reward, next_state, done):
         """Stores an RL transition and SL snapshot."""
         self.agent.store_rl((state, action, reward, next_state, done))
+        self.agent.store_sl(state, action)
+
+    def store_imitation(self, state, action):
         self.agent.store_sl(state, action)
 
     def store_final_reward(self, final_reward):
@@ -91,4 +95,22 @@ class BotWrapper:
             json.dump(existing, f, indent=2)
 
         print(f"[LOG] Appended {len(serializable_data)} entries to {filepath}")
+
+    def update_opponent_profile(self):
+        for name, stats in self.opponent_stats.items():
+            rounds = max(1, stats.get("rounds", 1))
+            raise_rate = stats.get("raise", 0) / rounds
+            fold_rate = stats.get("fold", 0) / rounds
+            call_rate = stats.get("call", 0) / rounds
+
+            if raise_rate > 0.4:
+                profile = "aggressive"
+            elif fold_rate > 0.5:
+                profile = "tight"
+            elif call_rate > 0.5 and raise_rate < 0.2:
+                profile = "loose"
+            else:
+                profile = "balanced"
+
+            self.opponent_profiles[name] = profile
 

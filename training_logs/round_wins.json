@@ -6,5 +6,9 @@
   "conservative": {
     "fold": 2,
     "showdown": 3
+  },
+  "agressive": {
+    "fold": 2,
+    "showdown": 0
   }
 }

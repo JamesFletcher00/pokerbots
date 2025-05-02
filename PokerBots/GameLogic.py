@@ -421,6 +421,27 @@ class GameLoop:
             raise_rates.append(r / rounds)
         avg_opp_aggressiveness = sum(raise_rates) / max(1, len(raise_rates))
 
+        # Count how many active opponents are in each style category
+        bot = player.bot_instance
+        styles = {"aggressive": 0, "tight": 0, "loose": 0, "balanced": 0}
+
+        for p in self.players:
+            if p == player or p.eliminated:
+                continue
+            profile = bot.opponent_profiles.get(p.name, "balanced")
+            styles[profile] += 1
+
+        total_opponents = sum(styles.values())
+        risk_modifier = 0.0  # neutral
+
+        if total_opponents > 0:
+            if styles["tight"] / total_opponents > 0.5:
+                risk_modifier = +0.2  # exploit tight players
+            elif styles["loose"] / total_opponents > 0.5:
+                risk_modifier = -0.2  # avoid bluffing loose players
+            elif styles["aggressive"] / total_opponents > 0.5:
+                risk_modifier = -0.1  # play cautiously
+
         # Final state vector: 6 dimensions
         return torch.tensor([
             hand_strength,
@@ -428,8 +449,11 @@ class GameLoop:
             pot_ratio,
             street_val,
             round_raise_rate,
-            avg_opp_aggressiveness
+            avg_opp_aggressiveness,
+            risk_modifier
         ])
+    
+
 
 
     
@@ -450,6 +474,13 @@ class GameLoop:
 
         print(f"[ACTION] {player.name} decided to {action.upper()}")
         self.recent_actions.append((player.name, action))
+        if action not in ["fold", "call", "raise", "check"]:
+            print(f"[ERROR] Invalid action '{action}' from bot {player.name}")
+            return
+
+        normalized_action = "call" if action == "check" else action
+        action_index = ["fold", "call", "raise"].index(normalized_action)
+
 
         for opp in self.players:
             if opp == player or opp.eliminated:
@@ -697,6 +728,10 @@ class GameLoop:
                         player.bot_instance.results = []
                     player.bot_instance.results.append(player.chips)
                     player.bot_instance.save_experiences_to_json()
+
+            for player in self.players:
+                if player.is_bot and player.bot_instance:
+                    player.bot_instance.update_opponent_profile()
 
             # ✅ Reset round
             self.reset_round()
