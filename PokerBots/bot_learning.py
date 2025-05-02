@@ -56,8 +56,14 @@ def plot_round_win_pie(save_path="round_wins.png"):
         print("[ROUND PIE] No round_wins.json found.")
         return
 
+    win_data = []
     with open(path, "r") as f:
-        win_data = json.load(f)
+        for line in f:
+            try:
+                win_data.append(json.loads(line))
+            except json.JSONDecodeError:
+                continue  # skip corrupted or incomplete lines
+
 
     if not win_data:
         print("[ROUND PIE] No wins to plot.")
@@ -100,8 +106,14 @@ def plot_combined_win_pie(save_path=None):
         print("[WARNING] No round_wins.json file found.")
         return
 
-    with open(round_win_file, "r") as f:
-        data = json.load(f)
+    data = []
+    with open(save_path, "r") as f:
+        for line in f:
+            try:
+                data.append(json.loads(line))
+            except json.JSONDecodeError:
+                continue  # skip corrupted or incomplete lines
+
 
     labels = []
     total_wins = []
@@ -135,7 +147,6 @@ def plot_combined_win_pie(save_path=None):
 
     if save_path:
         plt.savefig(save_path)
-        print(f"[SAVED] Combined win pie chart → {save_path}")
         plt.close()
     else:
         plt.tight_layout()

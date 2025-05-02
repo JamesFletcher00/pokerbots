@@ -679,107 +679,84 @@ class GameLoop:
     def reset_if_ready(self):
         if getattr(self, "_ready_to_reset", False):
 
-            # ✅ Log round win
             round_winner = getattr(self, "round_winner_name", None)
-            if round_winner:
-                round_win_path = "training_logs/round_wins.json"
-                os.makedirs("training_logs", exist_ok=True)
 
-                if os.path.exists(round_win_path):
-                    with open(round_win_path, "r") as f:
-                        round_wins = json.load(f)
-                else:
-                    round_wins = {}
-
-                if round_winner not in round_wins:
-                    round_wins[round_winner] = {"fold": 0, "showdown": 0}
-
-                round_wins[round_winner][self.win_type] += 1
-
-                with open(round_win_path, "w") as f:
-                    json.dump(round_wins, f, indent=2)
-
-            winner_obj = next((p for p in self.players if p.name == self.round_winner_name), None)
-            if winner_obj and winner_obj.is_bot and hasattr(winner_obj.bot_instance, 'agent'):
-                winning_buffer = winner_obj.bot_instance.agent.sl_buffer.buffer
-                recent_actions = list(winning_buffer)[-3:]
-
-                for player in self.players:
-                    if player.is_bot and player.name != self.round_winner_name:
-                        for (state, action) in recent_actions:
-                            player.bot_instance.store_imitation(state, action)
-
-
-
-            # ✅ Update opponent stats
-            for player in self.players:
-                if player.is_bot and player.bot_instance:
-                    # Update rounds
-                    for opp_name in player.bot_instance.opponent_stats:
-                        player.bot_instance.opponent_stats[opp_name]["rounds"] += 1
-
-                    # Update win count
-                    if round_winner and round_winner in player.bot_instance.opponent_stats:
-                        player.bot_instance.opponent_stats[round_winner]["wins"] += 1
-
-            # ✅ Save experiences
-            for player in self.players:
-                if player.is_bot and player.bot_instance:
-                    player.bot_instance.save_experiences_to_json(win_type=self.win_type)
-                    if not hasattr(player.bot_instance, 'results'):
-                        player.bot_instance.results = []
-                    player.bot_instance.results.append(player.chips)
-                    player.bot_instance.save_experiences_to_json()
-
-            for player in self.players:
-                if player.is_bot and player.bot_instance:
-                    player.bot_instance.update_opponent_profile()
-
-            # ✅ Reset round
-            self.reset_round()
-            self._ready_to_reset = False
-            self.win_type = None
-
-            # ✅ Check for game over
-            active_players = [p for p in self.players if not p.eliminated]
-            if len(active_players) == 1:
-                winner = active_players[0].name
-                self.games_won[winner] += 1
-
-                os.makedirs("training_logs", exist_ok=True)
-                with open("training_logs/game_wins.json", "w") as f:
-                    json.dump(self.games_won, f, indent=2)
-
-                self.restart_full_game()
-                return
-
-            # ✅ Round complete tracking (persisted)
+            # ✅ Log round win
             round_win_path = "training_logs/round_wins.json"
             os.makedirs("training_logs", exist_ok=True)
 
-            # Load and increment rounds_played
             if os.path.exists(round_win_path):
                 with open(round_win_path, "r") as f:
                     round_wins = json.load(f)
             else:
                 round_wins = {"rounds_played": 0}
 
+            # Increment global round count
             round_wins["rounds_played"] = round_wins.get("rounds_played", 0) + 1
 
-            # Save updated count back to file
+            # Track win type
+            if round_winner:
+                if round_winner not in round_wins:
+                    round_wins[round_winner] = {"fold": 0, "showdown": 0}
+                round_wins[round_winner][self.win_type] += 1
+
             with open(round_win_path, "w") as f:
                 json.dump(round_wins, f, indent=2)
 
-            # ✅ Chart generation every 100 rounds
-            if round_wins["rounds_played"] % 50 == 0:
-                from bot_learning import plot_round_win_pie, plot_combined_win_pie
+            # ✅ Imitation Learning: Copy winning SL buffer into opponents
+            winner_obj = next((p for p in self.players if p.name == self.round_winner_name), None)
+            if winner_obj and winner_obj.is_bot and hasattr(winner_obj.bot_instance, 'agent'):
+                winning_buffer = winner_obj.bot_instance.agent.sl_buffer.buffer
+                recent_actions = list(winning_buffer)[-3:]
+                for player in self.players:
+                    if player.is_bot and player.name != self.round_winner_name:
+                        for (state, action) in recent_actions:
+                            player.bot_instance.store_imitation(state, action)
 
+            # ✅ Update opponent stats
+            for player in self.players:
+                if player.is_bot and player.bot_instance:
+                    # Track rounds and wins against opponents
+                    for opp_name in player.bot_instance.opponent_stats:
+                        player.bot_instance.opponent_stats[opp_name]["rounds"] += 1
+                    if round_winner and round_winner in player.bot_instance.opponent_stats:
+                        player.bot_instance.opponent_stats[round_winner]["wins"] += 1
+
+            # ✅ Save experiences (now using NDJSON)
+            for player in self.players:
+                if player.is_bot and player.bot_instance:
+                    player.bot_instance.save_experiences_to_json(win_type=self.win_type)
+                    if not hasattr(player.bot_instance, 'results'):
+                        player.bot_instance.results = []
+                    player.bot_instance.results.append(player.chips)
+
+            # ✅ Update opponent profiles
+            for player in self.players:
+                if player.is_bot and player.bot_instance:
+                    player.bot_instance.update_opponent_profile()
+
+            # ✅ Reset for next round
+            self.reset_round()
+            self._ready_to_reset = False
+            self.win_type = None
+
+            # ✅ Check for game winner
+            active_players = [p for p in self.players if not p.eliminated]
+            if len(active_players) == 1:
+                winner = active_players[0].name
+                self.games_won[winner] += 1
+                with open("training_logs/game_wins.json", "w") as f:
+                    json.dump(self.games_won, f, indent=2)
+                self.restart_full_game()
+                return
+
+            # ✅ Chart generation every N rounds
+            if round_wins["rounds_played"] % 250 == 0:
+                from bot_learning import plot_round_win_pie, plot_combined_win_pie
                 pie_path = f"training_logs/round_pie_{round_wins['rounds_played']}.png"
                 plot_round_win_pie(save_path=pie_path)
-
                 combined_path = f"training_logs/combined_pie_{round_wins['rounds_played']}.png"
                 plot_combined_win_pie(save_path=combined_path)
-
 
 
     def end_round_immediately(self):
