@@ -50,7 +50,7 @@ class Deck:
     def draw_card(self):
         return self.cards.pop() if self.cards else None
 class Player:
-    def __init__(self, name, chips=750, is_bot = False, bot_instance = None):
+    def __init__(self, name, chips=2500, is_bot = False, bot_instance = None):
         self.name = name
         self.chips = chips
         self.hand = []
@@ -266,7 +266,7 @@ class BettingManager:
 
 
 class GameLoop:
-    def __init__(self, player_objs=None, player_names=None, starting_chips=1000):
+    def __init__(self, player_objs=None, player_names=None, starting_chips=2500):
         self.deck = Deck()
 
         if player_objs:
@@ -334,7 +334,7 @@ class GameLoop:
         if not active_and_able:
             print("[AUTO] All remaining players are folded or all-in. Advancing phase...")
             self.advance_game_phase()
-            return
+            
 
         highest_bet = max(p.total_bet for p in players_in_hand)
         all_bets_equal = all(p.total_bet == highest_bet for p in players_in_hand)
@@ -732,6 +732,39 @@ class GameLoop:
                     if round_winner and round_winner in player.bot_instance.opponent_stats:
                         player.bot_instance.opponent_stats[round_winner]["wins"] += 1
 
+            personality_weights = {
+                "novice": {"fold_penalty": -0.2, "showdown_bonus": 0.2},
+                "conservative": {"fold_penalty": -0.3, "showdown_bonus": 0.3},
+                "aggressive": {"fold_penalty": -0.5, "showdown_bonus": 0.5},
+                "strategist": {"fold_penalty": -0.4, "showdown_bonus": 0.4}
+            }
+
+            for player in self.players:
+                if not player.is_bot or not player.bot_instance:
+                    continue
+
+                weights = personality_weights.get(player.bot_instance.style, {})
+                fold_penalty = weights.get("fold_penalty", -0.6)
+                showdown_bonus = weights.get("showdown_bonus", 0.6)
+
+                final_reward = 0.0
+
+                if player.folded:
+                    final_reward += fold_penalty
+                elif self.win_type == "showdown" and not player.folded:
+                    final_reward += showdown_bonus
+
+                # Enhanced penalty: SB folded in 1v1
+                active_players = [p for p in self.players if not p.eliminated]
+                is_heads_up = len(active_players) == 2
+                is_small_blind = self.betting_manager.sb_index == self.players.index(player)
+                if player.folded and is_heads_up and is_small_blind:
+                    final_reward += fold_penalty * 1.5
+
+                # ✅ Apply final reward
+                player.bot_instance.store_final_reward(final_reward)
+
+
             # ✅ Save experiences (now using NDJSON)
             for player in self.players:
                 if player.is_bot and player.bot_instance:
@@ -739,6 +772,10 @@ class GameLoop:
                     if not hasattr(player.bot_instance, 'results'):
                         player.bot_instance.results = []
                     player.bot_instance.results.append(player.chips)
+
+            for player in self.players:
+                if player.is_bot and player.bot_instance:
+                    player.bot_instance.train()
 
             # ✅ Update opponent profiles
             for player in self.players:
@@ -761,12 +798,18 @@ class GameLoop:
                 return
 
             # ✅ Chart generation every N rounds
-            if round_wins["rounds_played"] == 50 or round_wins["rounds_played"] % 250 == 0:
+            if round_wins["rounds_played"] == 50 or round_wins["rounds_played"] % 1000 == 0:
                 from bot_learning import plot_round_win_pie, plot_combined_win_pie
                 pie_path = f"training_logs/round_pie_{round_wins['rounds_played']}.png"
                 plot_round_win_pie(save_path=pie_path)
                 combined_path = f"training_logs/combined_pie_{round_wins['rounds_played']}.png"
                 plot_combined_win_pie(save_path=combined_path)
+
+            for player in self.players:
+                if player.is_bot and player.bot_instance:
+                    acc = player.bot_instance.compute_policy_accuracy()
+                    print(f"[ACCURACY] {player.name} policy accuracy: {acc:.2%}")
+
 
 
     def end_round_immediately(self):
@@ -781,7 +824,7 @@ class GameLoop:
         self.players = []
         for name in self.initial_player_names:
             bot = BotWrapper(name)
-            self.players.append(Player(name, chips=1000, is_bot=True, bot_instance=bot))
+            self.players.append(Player(name, chips=2500, is_bot=True, bot_instance=bot))
 
         self.dealer_index = 0
         self.deck = Deck()

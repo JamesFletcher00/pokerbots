@@ -28,6 +28,24 @@ class BotWrapper:
 
         self.last_state_tensor = None
         self.last_chip_count = 1000  # Starting chip count; update this after each round
+   
+    def compute_policy_accuracy(self):
+        if len(self.agent.sl_buffer.buffer) == 0:
+            return 0.0
+
+        correct = 0
+        total = 0
+
+        for state, true_action in self.agent.sl_buffer.buffer:
+            with torch.no_grad():
+                logits = self.agent.policy_net(state.unsqueeze(0))
+                predicted_action = torch.argmax(logits).item()
+
+            if predicted_action == int(true_action):
+                correct += 1
+            total += 1
+
+        return correct / total
 
     def decide_action(self, state_tensor, can_check=False):
         """Choose action index and convert to action name."""

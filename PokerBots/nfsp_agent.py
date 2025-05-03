@@ -17,7 +17,7 @@ class SimpleMLP(nn.Module):
         return self.net(x)
     
 class NFSPAgent:
-    def __init__(self, name, state_size, action_size, rl_buffer_size=10000, sl_buffer_size=10000, epsilon=0.1):
+    def __init__(self, name, state_size, action_size, rl_buffer_size=50000, sl_buffer_size=50000, epsilon=0.1):
         self.name = name
         self.state_size = state_size
         self.action_size = action_size
@@ -68,6 +68,7 @@ class NFSPAgent:
 
     def store_sl(self, state, action):
         self.sl_buffer.push((state, action))
+        print(len(self.sl_buffer.buffer))  # should be thousands by now
 
     def train_rl(self, batch_size=32, gamma=0.99):
         batch = self.rl_buffer.sample(batch_size)
@@ -86,13 +87,14 @@ class NFSPAgent:
         targets = rewards + gamma * next_q_values * (1 - dones)
 
         loss = self.loss_fn(q_values, targets)
-        self.q_optimizer.zero_grad()
+        self.q_optimiser.zero_grad()
         loss.backward()
-        self.q_optimizer.step()
+        self.q_optimiser.step()
 
     def train_policy(self, batch_size=32):
         batch = self.sl_buffer.sample(batch_size)
         if len(batch) < batch_size:
+            print("[TRAIN_POLICY] Skipped — not enough samples.")
             return
         
         states, actions = zip(*batch)
@@ -102,7 +104,8 @@ class NFSPAgent:
         logits = self.policy_net(states)
         loss = self.ce_loss(logits, actions)
 
-        self.policy_optimizer.zero_grad()
+        self.policy_optimiser.zero_grad()
         loss.backward()
-        self.policy_optimizer.step()
+        self.policy_optimiser.step()
         
+        print(f"[TRAIN_POLICY] Trained policy with loss: {loss.item():.4f}")
