@@ -1,0 +1,2 @@
+# Ignore all files in training_logs
+training_logs/*

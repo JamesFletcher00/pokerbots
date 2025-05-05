@@ -70,7 +70,7 @@ class NFSPAgent:
         self.sl_buffer.push((state, action))
         print(len(self.sl_buffer.buffer))  # should be thousands by now
 
-    def train_rl(self, batch_size=32, gamma=0.99):
+    def train_rl(self, batch_size=8, gamma=0.99):
         batch = self.rl_buffer.sample(batch_size)
         if len(batch) < batch_size:
             return
@@ -91,7 +91,7 @@ class NFSPAgent:
         loss.backward()
         self.q_optimiser.step()
 
-    def train_policy(self, batch_size=32):
+    def train_policy(self, batch_size=8):
         batch = self.sl_buffer.sample(batch_size)
         if len(batch) < batch_size:
             print("[TRAIN_POLICY] Skipped — not enough samples.")

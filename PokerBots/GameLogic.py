@@ -20,6 +20,9 @@ card_values = {
     'Two': 2, 'Three': 3, 'Four': 4, 'Five': 5, 'Six': 6, 'Seven': 7,
     'Eight': 8, 'Nine': 9, 'Ten': 10, 'Jack': 11, 'Queen': 12, 'King': 13, 'Ace': 14
 }
+rank_values = {
+    "Spades": 0, "Hearts": 1, "Clubs": 2, "Diamonds": 3
+}
 
 class Card:
     def __init__(self, rank, suit):
@@ -180,11 +183,19 @@ class BettingManager:
         self.turn_index = 0
         self.last_raise_amount = 50
 
-
     def set_blinds(self):
         active = [p for p in self.players if not p.eliminated]
-        self.sb_index = self.players.index(active[self.dealer_index % len(active)])
-        self.bb_index = self.players.index(active[(self.dealer_index + 1) % len(active)])
+        if not active:
+            print("[ERROR] No active players left to set blinds.")
+            self.sb_index = self.bb_index = -1
+            return
+
+        sb_player = active[self.dealer_index % len(active)]
+        bb_player = active[(self.dealer_index + 1) % len(active)]
+
+        self.sb_index = self.players.index(sb_player)
+        self.bb_index = self.players.index(bb_player)
+
 
 
 
@@ -379,54 +390,35 @@ class GameLoop:
         self.pot += sb_blind + bb_blind
 
     def get_bot_state(self, player):
-        if self.state == "pre-flop":
-            card1, card2 = player.hand
-            v1, v2 = card_values[card1.rank], card_values[card2.rank]
-            suited = card1.suit == card2.suit
-            pair = card1.rank == card2.rank
-            gap = abs(v1 - v2)
-
-            base_strength = (v1 + v2) / 28.0  # Normalize 2–14 + 2–14
-
-            if pair:
-                base_strength += 0.3
-            if suited:
-                base_strength += 0.1
-            if gap == 1:
-                base_strength += 0.05  # Connectors like 10-J
-            elif gap == 0:
-                pass  # already scored in pair bonus
-            elif gap <= 3:
-                base_strength += 0.02  # semi-connected
-
-            # Extra boost for high-card hands
-            high_card_bonus = max(v1, v2) / 14.0 * 0.05
-            base_strength += high_card_bonus
-
-            hand_strength = min(base_strength, 1.0)
-
-        else:
-            # Evaluate actual 5-card strength post-flop
-            rank, values = PokerHandEvaluator.evaluate_five_card_hand(player.hand, self.community_cards)
-            max_rank_value = values[0] if values else 0
-            hand_strength = (rank + (max_rank_value / 14.0) * 0.5) / 9.0  # Blend rank + high card
+        card1, card2 = player.hand
+        rank1 = card_values[card1.rank]
+        suit1 = rank_values[card1.suit]
+        rank2 = card_values[card2.rank]
+        suit2 = rank_values[card2.suit]
 
         position_index = next((i for i, p in enumerate(self.players) if p.name == player.name), -1)
         pot_ratio = self.pot / (player.chips + 1)
         street_map = {"pre-flop": 0, "flop": 1, "turn": 2, "river": 3, "showdown": 4}
         street_val = street_map.get(self.state, 0)
 
-        if position_index == -1:
-            return torch.zeros(7)  # or raise an Exception
+        # ⬇️ Community Cards (up to 5) → flattened into rank/suit pairs
+        community = self.community_cards
+        community_vals = []
+        for card in community:
+            community_vals.append(card_values[card.rank])
+            community_vals.append(rank_values[card.suit])
+        
+        # Pad with zeros (max 5 cards → 10 values)
+        while len(community_vals) < 10:
+            community_vals.append(0)
 
-
-        # Per-round (short-term) aggression
+        # ⬇️ Per-round aggression
         opponent_names = [p.name for p in self.players if p != player and not p.eliminated]
         opponent_raises = [1 for name, act in self.recent_actions if name in opponent_names and act == "raise"]
         opponent_actions = [1 for name, act in self.recent_actions if name in opponent_names]
         round_raise_rate = len(opponent_raises) / max(1, len(opponent_actions))
 
-        # Cumulative (long-term) aggression
+        # ⬇️ Long-term aggression
         opp_stats = player.bot_instance.opponent_stats
         raise_rates = []
         for name in opponent_names:
@@ -436,10 +428,9 @@ class GameLoop:
             raise_rates.append(r / rounds)
         avg_opp_aggressiveness = sum(raise_rates) / max(1, len(raise_rates))
 
-        # Count how many active opponents are in each style category
+        # ⬇️ Risk modifier based on opponent styles
         bot = player.bot_instance
         styles = {"aggressive": 0, "tight": 0, "loose": 0, "balanced": 0}
-
         for p in self.players:
             if p == player or p.eliminated:
                 continue
@@ -447,29 +438,27 @@ class GameLoop:
             styles[profile] += 1
 
         total_opponents = sum(styles.values())
-        risk_modifier = 0.0  # neutral
-
+        risk_modifier = 0.0
         if total_opponents > 0:
             if styles["tight"] / total_opponents > 0.5:
-                risk_modifier = +0.2  # exploit tight players
+                risk_modifier = +0.2
             elif styles["loose"] / total_opponents > 0.5:
-                risk_modifier = -0.2  # avoid bluffing loose players
+                risk_modifier = -0.2
             elif styles["aggressive"] / total_opponents > 0.5:
-                risk_modifier = -0.1  # play cautiously
+                risk_modifier = -0.1
 
-        # Final state vector: 6 dimensions
+        # ⬇️ Final tensor (now 20 dims: 2 hole cards + 5 community + 6 context)
         return torch.tensor([
-            hand_strength,
+            rank1, suit1,
+            rank2, suit2,
+            *community_vals,
             position_index,
             pot_ratio,
             street_val,
             round_raise_rate,
             avg_opp_aggressiveness,
             risk_modifier
-        ])
-    
-
-
+        ], dtype=torch.float32)
 
     
     def bot_take_action(self, player):
@@ -809,6 +798,28 @@ class GameLoop:
                 if player.is_bot and player.bot_instance:
                     acc = player.bot_instance.compute_policy_accuracy()
                     print(f"[ACCURACY] {player.name} policy accuracy: {acc:.2%}")
+                    
+                    
+            if round_wins["rounds_played"] % 1 == 0:
+                accuracy_path = "training_logs/accuracy_log.json"
+                os.makedirs("training_logs", exist_ok=True)
+
+                log_entry = {"round": round_wins["rounds_played"]}
+                for player in self.players:
+                    if player.is_bot and player.bot_instance:
+                        acc = player.bot_instance.compute_policy_accuracy()
+                        log_entry[player.name] = round(acc, 4)
+
+                if os.path.exists(accuracy_path):
+                    with open(accuracy_path, "r") as f:
+                        accuracy_data = json.load(f)
+                else:
+                    accuracy_data = []
+
+                accuracy_data.append(log_entry)
+
+                with open(accuracy_path, "w") as f:
+                    json.dump(accuracy_data, f, indent=2)
 
 
 

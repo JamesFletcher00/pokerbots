@@ -5,7 +5,7 @@ import sqlite3
 from nfsp_agent import NFSPAgent
 
 class BotWrapper:
-    def __init__(self, name, style="default", state_size=7, action_size=3):
+    def __init__(self, name, style="default", state_size=20, action_size=3):
         self.name = name
         self.style = style
         self.agent = NFSPAgent(name, state_size, action_size)
