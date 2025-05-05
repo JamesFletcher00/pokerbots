@@ -6,8 +6,6 @@ from collections import defaultdict
 with open("training_logs/accuracy_log.json", "r") as file:
     data = json.load(file)
 
-# Prepare data structures
-
 # Filter data to include only rounds <= 9999
 data = [entry for entry in data if entry["round"] <= 10999]
 

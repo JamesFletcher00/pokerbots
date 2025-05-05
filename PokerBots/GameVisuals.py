@@ -6,7 +6,9 @@ from Bots import BotWrapper
 
 pg.init()
 
+#Main UI Class for rendering the game using pygame
 class PokerGameUI:
+    #initialised the UI, loads assets, sets up players and game logic
     def __init__(self):
         self.screen_width = 1536
         self.screen_height = 1024
@@ -39,13 +41,12 @@ class PokerGameUI:
             i: [self.card_images[f"{card.rank}_of_{card.suit}"] for card in player.hand]
             for i, player in enumerate(self.game.players) if not player.eliminated
         }
-
-        self.bet_input = self.TextInput(00, 0, 00, 0)
         self.ok_button = pg.Rect(820, 850, 100, 50)
         self.waiting_for_bet = False
         self.last_state = self.game.state
         self.showdown_time = None 
 
+    #loads all asset images
     def load_assets(self):
         def load_scaled(path, size):
             return pg.transform.scale(pg.image.load(path), size)
@@ -56,12 +57,6 @@ class PokerGameUI:
         self.card_images = {
             f"{rank}_of_{suit}": load_scaled(f"PokerBots/Assets/{rank} of {suit}.png", (128, 256))
             for suit in suits for rank in ranks
-        }
-
-        self.chip_values = [5, 10, 25, 50, 100, 500]
-        self.chip_images = {
-            f"{v} Chip": load_scaled(f"PokerBots/Assets/{v}Chip_TopDown.png", (64, 64))
-            for v in self.chip_values
         }
 
         self.check_button = load_scaled('PokerBots/Assets/Check Button.png', (128, 128))
@@ -77,31 +72,7 @@ class PokerGameUI:
         self.big_blind = load_scaled('PokerBots/Assets/Big Blind.png', (64, 64))
         self.small_blind = load_scaled('PokerBots/Assets/Small Blind.png', (64, 64))
 
-    class TextInput:
-        def __init__(self, x, y, w, h):
-            self.rect = pg.Rect(x, y, w, h)
-            self.color = (255, 255, 255)
-            self.text = ""
-            self.font = pg.font.Font(None, 36)
-            self.active = False
-
-        def handle_event(self, event):
-            if event.type == pg.MOUSEBUTTONDOWN:
-                self.active = self.rect.collidepoint(event.pos)
-            elif event.type == pg.KEYDOWN and self.active:
-                if event.key == pg.K_RETURN:
-                    return self.text
-                elif event.key == pg.K_BACKSPACE:
-                    self.text = self.text[:-1]
-                else:
-                    self.text += event.unicode
-            return None
-
-        def draw(self, screen):
-            pg.draw.rect(screen, self.color, self.rect, 2)
-            surface = self.font.render(self.text, True, self.color)
-            screen.blit(surface, (self.rect.x + 5, self.rect.y + 5))
-
+    #Displays players chip count
     def draw_player_chips(self):
         positions = [(204, 76), (1228, 76), (204, 588), (1228, 588)]
         for i, player in enumerate(self.game.players):
@@ -110,6 +81,7 @@ class PokerGameUI:
             pg.draw.rect(self.screen, (255, 255, 255), (*positions[i], 105, 40))
             self.screen.blit(text, rect)
 
+    #displays the hole cards and community cards on the table
     def draw_cards(self):
         positions = [(128, 128), (1152, 128), (128, 640), (1152, 640)]
         for i, pos in enumerate(positions):
@@ -120,16 +92,19 @@ class PokerGameUI:
             name = f"{card.rank}_of_{card.suit}"
             self.screen.blit(self.card_images[name], (448 + i * 128, 384))
 
+    #displays amount of chips in the pot
     def display_bet_ui(self):
-        pot_box = pg.Rect(524, 268, 487, 103)  # (x, y, width, height)
-        pg.draw.rect(self.screen, (255, 255, 255), pot_box)             # Clear pot box background
+        pot_box = pg.Rect(524, 268, 487, 103) 
+        pg.draw.rect(self.screen, (255, 255, 255), pot_box) # Clear pot box background
         pot_text = self.POT_FONT.render(f"Pot: {self.game.pot}", True, (0, 0, 0))
         self.screen.blit(pot_text, pot_text.get_rect(center=pot_box.center))
 
+    #redraws table after screen updates
     def redraw_table(self):
         self.screen.blit(self.poker_table, self.poker_table_rect)
         pg.display.flip()
 
+    #draws small and big blinds on appropriate players
     def draw_blinds(self):
         sb_index = self.game.betting_manager.sb_index
         bb_index = self.game.betting_manager.bb_index
@@ -137,16 +112,15 @@ class PokerGameUI:
         self.screen.blit(self.small_blind, locations[sb_index])
         self.screen.blit(self.big_blind, locations[bb_index])
 
+    #updates card image reference after round
     def update_after_round_reset(self):
-    # Rebuild the card images after new hole cards are dealt
         self.hole_card_images = {
             i: [self.card_images[f"{card.rank}_of_{card.suit}"] for card in player.hand]
             for i, player in enumerate(self.game.players)
     }
-
         self.waiting_for_bet = False
-        self.bet_input.text = ""
 
+    #Main Game Loop -  Handles all events, turns, rendering and round flow
     def run(self):
         running = True
         while running:
@@ -200,7 +174,7 @@ class PokerGameUI:
                 if self.pending_bot_action.eliminated or self.pending_bot_action.chips <= 0:
                     print(f"[SKIP] {self.pending_bot_action.name} eliminated. Clearing pending action.")
                     self.pending_bot_action = None
-                    self.game.betting_manager.next_turn()  # ✅ Advance turn to avoid deadlock
+                    self.game.betting_manager.next_turn()  
 
                 elif pg.time.get_ticks() - self.bot_action_timer > 500:
                     print(f"[BOT TURN] {self.pending_bot_action.name} acting...")
@@ -220,55 +194,6 @@ class PokerGameUI:
                     running = False
                     pg.quit()
 
-                elif event.type == pg.MOUSEBUTTONDOWN and current_player:
-                    if self.bet_button_rect.collidepoint(event.pos):
-                        try:
-                            amount = int(self.bet_input.text)
-                            is_raise = amount + current_player.total_bet > self.game.betting_manager.current_bet
-                            if is_raise:
-                                for player in self.game.players:
-                                    if not player.folded and player != current_player:
-                                        player.has_acted = False
-                                        player.checked = False
-
-                                self.game.betting_manager.turn_index = -1
-                                current_player.has_acted = True
-                                current_player.total_bet += amount
-                                current_player.chips -= amount
-                                self.game.pot += amount
-                                self.game.betting_manager.current_bet = max(
-                                    self.game.betting_manager.current_bet,
-                                    current_player.total_bet
-                                )
-                                self.bet_input.text = ""
-
-                                has_next = self.game.betting_manager.next_turn()
-                                if not has_next:
-                                    self.game.handle_betting_round()
-                            else:
-                                print("[FAIL] Bet rejected. Invalid amount.")
-                        except ValueError:
-                            print(f"[ERROR] Invalid input: '{self.bet_input.text}'")
-
-                    elif self.call_button_rect.collidepoint(event.pos):
-                        call_amount = self.game.betting_manager.current_bet - current_player.total_bet
-                        if call_amount > 0:
-                            current_player.total_bet += call_amount
-                            current_player.chips -= call_amount
-                            self.game.pot += call_amount
-                        current_player.has_acted = True
-                        has_next = self.game.betting_manager.next_turn()
-                        if not has_next:
-                            self.game.handle_betting_round()
-
-                    elif self.fold_button_rect.collidepoint(event.pos):
-                        current_player.folded = True
-                        has_next = self.game.betting_manager.next_turn()
-                        if not has_next:
-                            self.game.handle_betting_round()
-
-                self.bet_input.handle_event(event)
-
             # Draw interface
             self.screen.blit(self.call_button, self.call_button_rect.topleft)
             self.screen.blit(self.bet_button, self.bet_button_rect.topleft)
@@ -276,7 +201,6 @@ class PokerGameUI:
             self.draw_blinds()
             self.draw_cards()
             self.draw_player_chips()
-            self.bet_input.draw(self.screen)
 
             if self.game.state in ["showdown", "end_round"]:
                 if self.showdown_time is None:

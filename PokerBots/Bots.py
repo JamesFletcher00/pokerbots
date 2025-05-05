@@ -5,20 +5,28 @@ import sqlite3
 from nfsp_agent import NFSPAgent
 
 class BotWrapper:
+    """
+    A wrapper around NFSPAgent that integrates:
+    - Style-based behavior initialization
+    - Reinforcement and imitation learning
+    - Persistent experience logging (SQLite)
+    - Opponent modeling and profiling
+    """
+
     def __init__(self, name, style="default", state_size=20, action_size=3):
         self.name = name
         self.style = style
         self.agent = NFSPAgent(name, state_size, action_size)
-        self.opponent_stats = {}
-        self.opponent_profiles = {}
+        self.opponent_stats = {}     # Tracks opponents' action frequencies
+        self.opponent_profiles = {}  # Categorizes opponents based on behavior
         os.makedirs("training_logs", exist_ok=True)
         self.db_path = f"training_logs/{name}_experiences.sqlite"
         self._init_db()
 
-        # Initialize policy based on style
+        # Style-specific Q-biasing
         self.agent.initialise_with_style(style)
 
-        # Style-based exploration
+        # Exploration adjustment based on style
         if style == "strategist":
             self.agent.epsilon = 0.05
         elif style == "novice":
@@ -27,9 +35,14 @@ class BotWrapper:
             self.agent.epsilon = 0.1
 
         self.last_state_tensor = None
-        self.last_chip_count = 1000  # Starting chip count; update this after each round
-   
+        self.last_chip_count = 1000
+
     def compute_policy_accuracy(self):
+        """
+        Evaluates how well the policy net replicates stored SL behavior.
+        Returns:
+            float: Proportion of correctly predicted actions.
+        """
         if len(self.agent.sl_buffer.buffer) == 0:
             return 0.0
 
@@ -48,13 +61,20 @@ class BotWrapper:
         return correct / total
 
     def decide_action(self, state_tensor, can_check=False):
-        """Choose action index and convert to action name."""
+        """
+        Uses the Q-network to select an action, then maps index to name.
+        """
         self.last_state_tensor = state_tensor
         action_index = self.agent.select_action(state_tensor, use_avg_policy=False)
         return self.index_to_action(action_index, can_check)
 
     def index_to_action(self, index, can_check):
-        """Maps action index to readable string. Index: 0=fold, 1=call/check, 2=raise."""
+        """
+        Maps action index to string label.
+        Args:
+            index (int): 0=fold, 1=call/check, 2=raise
+            can_check (bool): Whether a check is legally available.
+        """
         mapping = ["fold", "call", "raise"]
         action = mapping[index]
         if can_check and action == "call":
@@ -62,30 +82,37 @@ class BotWrapper:
         return action
 
     def store_experience(self, state, action, reward, next_state, done):
-        """Stores an RL transition and SL snapshot."""
+        """
+        Stores both an RL tuple and a supervised (state, action) snapshot.
+        """
         self.agent.store_rl((state, action, reward, next_state, done))
         self.agent.store_sl(state, action)
 
     def store_imitation(self, state, action):
+        """
+        Stores a (state, action) pair for SL imitation training.
+        """
         self.agent.store_sl(state, action)
 
     def store_final_reward(self, final_reward):
-        """Update the last experience with final reward and done=True."""
+        """
+        Updates the final stored transition with a terminal reward.
+        """
         if not self.agent.rl_buffer.buffer:
             return
 
-        last_exp = self.agent.rl_buffer.buffer[-1]
-        state, action, _, next_state, _ = last_exp
+        state, action, _, next_state, _ = self.agent.rl_buffer.buffer[-1]
         self.agent.rl_buffer.buffer[-1] = (state, action, final_reward, next_state, True)
 
     def train(self, batch_size=32, gamma=0.99):
-        # Load past experience
+        """
+        Loads past experiences from disk, trains both Q and policy networks.
+        """
         experiences = self.load_experiences_from_sqlite(limit=10000)
         if len(experiences) < batch_size:
             print(f"[TRAIN] Not enough data to train {self.name}.")
             return
 
-        # Load into RL buffer temporarily
         self.agent.rl_buffer.buffer.clear()
         for exp in experiences:
             self.agent.rl_buffer.push(exp)
@@ -94,8 +121,10 @@ class BotWrapper:
         self.agent.train_policy(batch_size)
         print(f"[TRAIN] {self.name} trained on {len(experiences)} samples.")
 
-
     def save_experiences_to_sqlite(self, win_type="unknown"):
+        """
+        Persists the current RL buffer to SQLite for long-term training use.
+        """
         data = list(self.agent.rl_buffer.buffer)
         if not data:
             return
@@ -123,9 +152,10 @@ class BotWrapper:
         conn.close()
         print(f"[SQLITE] {self.name} stored {len(data)} experiences.")
 
-
     def _init_db(self):
-        import sqlite3
+        """
+        Initializes the local SQLite database for storing transitions.
+        """
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         cursor.execute("""
@@ -146,6 +176,11 @@ class BotWrapper:
         conn.close()
 
     def load_experiences_from_sqlite(self, limit=10000):
+        """
+        Loads past transitions for replay training.
+        Returns:
+            list of (state, action, reward, next_state, done) tuples
+        """
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         cursor.execute("""
@@ -168,12 +203,15 @@ class BotWrapper:
                     bool(done)
                 ))
             except Exception:
-                continue  # skip malformed rows
+                continue  # Skip bad data
 
         return experiences
 
-
     def update_opponent_profile(self):
+        """
+        Classifies each opponent into one of 4 profiles based on long-term stats:
+        aggressive, tight, loose, or balanced.
+        """
         for name, stats in self.opponent_stats.items():
             rounds = max(1, stats.get("rounds", 1))
             raise_rate = stats.get("raise", 0) / rounds
@@ -190,4 +228,3 @@ class BotWrapper:
                 profile = "balanced"
 
             self.opponent_profiles[name] = profile
-
