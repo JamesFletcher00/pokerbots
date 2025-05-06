@@ -7,6 +7,10 @@ from collections import Counter
 from itertools import combinations
 from Bots import BotWrapper
 
+"""
+Run The GameVisuals Script To Run Project
+"""
+
 suits = ["Spades", "Hearts", "Clubs", "Diamonds"]
 ranks = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"]
 
@@ -462,7 +466,7 @@ class GameLoop:
             elif styles["aggressive"] / total_opponents > 0.5:
                 risk_modifier = -0.1
 
-        # Final 20-dim tensor: hole cards, board state, position, dynamics, style
+        # 20-dim tensor: hole cards, board state, position, dynamics, style
         return torch.tensor([
             rank1, suit1,
             rank2, suit2,
@@ -729,7 +733,7 @@ class GameLoop:
                 fold_penalty = weights.get("fold_penalty", -0.6)
                 showdown_bonus = weights.get("showdown_bonus", 0.6)
 
-                final_reward = 0.0
+                final_reward = 0
                 if player.folded:
                     final_reward += fold_penalty
                 elif self.win_type == "showdown" and not player.folded:

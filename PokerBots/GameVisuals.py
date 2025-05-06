@@ -6,6 +6,10 @@ from Bots import BotWrapper
 
 pg.init()
 
+"""
+Run This Script To Run Project
+"""
+
 #Main UI Class for rendering the game using pygame
 class PokerGameUI:
     #initialised the UI, loads assets, sets up players and game logic

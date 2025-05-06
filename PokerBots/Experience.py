@@ -1,6 +1,10 @@
 from collections import deque
 import random
 
+"""
+Run The GameVisuals Script To Run Project
+"""
+
 class ReplayBuffer:
     """
     A simple experience replay buffer supporting both:
@@ -8,7 +12,7 @@ class ReplayBuffer:
     - Supervised Learning (SL)
     """
     
-    #Initializes the buffer with a maximum size.
+    #initialises the buffer with a maximum size.
     def __init__(self, capacity):
         self.buffer = deque(maxlen=capacity)
 

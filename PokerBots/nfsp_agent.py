@@ -4,6 +4,10 @@ import torch.optim as optim
 import random
 from Experience import ReplayBuffer
 
+"""
+Run The GameVisuals Script To Run Project
+"""
+
 class SimpleMLP(nn.Module):
     """
     A basic Multi-Layer Perceptron (MLP) with one hidden layer.

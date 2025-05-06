@@ -4,6 +4,10 @@ import json
 import sqlite3
 from nfsp_agent import NFSPAgent
 
+"""
+Run The GameVisuals Script To Run Project
+"""
+
 class BotWrapper:
     """
     A wrapper around NFSPAgent that integrates:
