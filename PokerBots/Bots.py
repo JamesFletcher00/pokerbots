@@ -59,55 +59,40 @@ class BotWrapper:
             total += 1
 
         return correct / total
-
+    
+    #Uses the Q-network to select an action, then maps index to name.
     def decide_action(self, state_tensor, can_check=False):
-        """
-        Uses the Q-network to select an action, then maps index to name.
-        """
         self.last_state_tensor = state_tensor
         action_index = self.agent.select_action(state_tensor, use_avg_policy=False)
         return self.index_to_action(action_index, can_check)
 
+    #Maps action index to string label.
     def index_to_action(self, index, can_check):
-        """
-        Maps action index to string label.
-        Args:
-            index (int): 0=fold, 1=call/check, 2=raise
-            can_check (bool): Whether a check is legally available.
-        """
         mapping = ["fold", "call", "raise"]
         action = mapping[index]
         if can_check and action == "call":
             return "check"
         return action
-
+    
+    #Stores both an RL tuple and a supervised (state, action) snapshot.
     def store_experience(self, state, action, reward, next_state, done):
-        """
-        Stores both an RL tuple and a supervised (state, action) snapshot.
-        """
         self.agent.store_rl((state, action, reward, next_state, done))
         self.agent.store_sl(state, action)
 
+    #Stores a (state, action) pair for SL imitation training.
     def store_imitation(self, state, action):
-        """
-        Stores a (state, action) pair for SL imitation training.
-        """
         self.agent.store_sl(state, action)
 
+    #Updates the final stored transition with a terminal reward.
     def store_final_reward(self, final_reward):
-        """
-        Updates the final stored transition with a terminal reward.
-        """
         if not self.agent.rl_buffer.buffer:
             return
 
         state, action, _, next_state, _ = self.agent.rl_buffer.buffer[-1]
         self.agent.rl_buffer.buffer[-1] = (state, action, final_reward, next_state, True)
 
+    #Loads past experiences from disk, trains both Q and policy networks.
     def train(self, batch_size=32, gamma=0.99):
-        """
-        Loads past experiences from disk, trains both Q and policy networks.
-        """
         experiences = self.load_experiences_from_sqlite(limit=10000)
         if len(experiences) < batch_size:
             print(f"[TRAIN] Not enough data to train {self.name}.")
@@ -152,10 +137,8 @@ class BotWrapper:
         conn.close()
         print(f"[SQLITE] {self.name} stored {len(data)} experiences.")
 
+    #initialises the local SQLite database for storing transitions.
     def _init_db(self):
-        """
-        Initializes the local SQLite database for storing transitions.
-        """
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         cursor.execute("""
