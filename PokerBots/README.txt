@@ -1,0 +1,1 @@
+The project is started by pressing run on the GameVisuals.py script
